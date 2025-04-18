@@ -1,0 +1,454 @@
+[gd_scene load_steps=25 format=3 uid="uid://d3mp2w8dmdrau"]
+
+[ext_resource type="Texture2D" uid="uid://qee30fe2b1np" path="res://assets/tilemap.png" id="1_lavx0"]
+[ext_resource type="Script" path="res://Camera.gd" id="2_a3gsk"]
+[ext_resource type="Texture2D" uid="uid://dr3trfe5wefy0" path="res://assets/door.png" id="2_podq6"]
+[ext_resource type="PackedScene" uid="uid://dghe131wa2uka" path="res://character.tscn" id="2_tgvkd"]
+[ext_resource type="Script" path="res://door.gd" id="2_yve85"]
+[ext_resource type="Script" path="res://key.gd" id="4_vg5cu"]
+[ext_resource type="Texture2D" uid="uid://bu0mc3jwnc5w4" path="res://assets/key.png" id="4_ydamr"]
+[ext_resource type="Script" path="res://slide_puzzle.gd" id="7_63irp"]
+[ext_resource type="Texture2D" uid="uid://cpek0rhk2xpdf" path="res://assets/slide_puzzle/uncolored.png" id="7_o24s1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpbw8"]
+texture = ExtResource("1_lavx0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+4:2/0 = 0
+3:2/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1l7u8"]
+sources/1 = SubResource("TileSetAtlasSource_vpbw8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2eki"]
+size = Vector2(448, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtwpr"]
+size = Vector2(61, 12.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_172hx"]
+size = Vector2(64, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv3yk"]
+size = Vector2(68.25, 62.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l04c3"]
+size = Vector2(193, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uajd2"]
+size = Vector2(16, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqoqo"]
+size = Vector2(448, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkq01"]
+size = Vector2(576, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc68r"]
+size = Vector2(256, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls6wy"]
+size = Vector2(16, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo6kc"]
+size = Vector2(240, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kh7y"]
+size = Vector2(209, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivtyx"]
+size = Vector2(240, 240)
+
+[node name="main" type="Node2D"]
+position = Vector2(1280, 704)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(832, 704)
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_1l7u8")
+format = 2
+layer_0/tile_data = PackedInt32Array(524301, 131073, 2, 524300, 65537, 2, 524299, 65537, 2, 524298, 65537, 2, 524297, 65537, 2, 524296, 65537, 2, 524295, 1, 2, 327687, 1, 0, 327688, 65537, 0, 327689, 65537, 0, 327690, 65537, 1, 327691, 65537, 0, 327692, 65537, 0, 327693, 131073, 0, 458765, 131073, 1, 458764, 65537, 1, 458763, 65537, 1, 458762, 65537, 1, 458761, 65537, 1, 458760, 65537, 1, 458759, 1, 1, 393223, 1, 1, 393224, 65537, 1, 393225, 65537, 1, 393226, 65537, 1, 393227, 65537, 1, 393228, 65537, 1, 393229, 131073, 1, 13, 65537, 1, 7, 65537, 1, 65543, 65537, 1, 131079, 65537, 1, 196615, 65537, 1, 262151, 65537, 2, 65549, 65537, 1, 131085, 65537, 1, 196621, 65537, 1, 262157, 65537, 2, 262152, 65537, 2, 262153, 65537, 2, 262154, 262145, 1, 262155, 65537, 2, 262156, 65537, 2, 6, 1, 1, 14, 131073, 1, 65542, 1, 1, 131078, 1, 1, 196614, 1, 1, 262150, 1, 2, 65550, 131073, 1, 131086, 131073, 1, 196622, 131073, 1, 262158, 131073, 2, -131064, 65537, 0, -131065, 65537, 0, -131063, 65537, 0, -131062, 65537, 1, -131061, 65537, 0, -131060, 65537, 0, -131059, 65537, 0, -131058, 131073, 0, -131066, 1, 0, -65530, 1, 1, -65522, 131073, 1, -65529, 65537, 1, -65523, 65537, 1, 196616, 65537, 1, 196617, 65537, 1, 196618, 65537, 1, 196619, 65537, 1, 196620, 65537, 1, -65524, 65537, 1, 12, 65537, 1, 65548, 65537, 1, 131084, 65537, 1, -65525, 65537, 1, -65526, 65537, 1, -65527, 65537, 1, -65528, 65537, 1, 8, 65537, 1, 65544, 65537, 1, 131080, 65537, 1)
+
+[node name="room1" type="Node2D" parent="."]
+position = Vector2(801, 681)
+
+[node name="Camera" type="Area2D" parent="room1"]
+position = Vector2(704, 471)
+collision_layer = 2
+script = ExtResource("2_a3gsk")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/Camera"]
+shape = SubResource("RectangleShape2D_j2eki")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room1/Camera"]
+zoom = Vector2(2.85, 2.85)
+
+[node name="door" type="StaticBody2D" parent="room1"]
+position = Vector2(0, 81)
+collision_layer = 2
+script = ExtResource("2_yve85")
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/door"]
+texture_filter = 1
+position = Vector2(704, 271)
+scale = Vector2(4.01, 4.01)
+texture = ExtResource("2_podq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/door"]
+position = Vector2(703.5, 271)
+shape = SubResource("RectangleShape2D_xtwpr")
+debug_color = Color(0.933333, 0.188235, 0.454902, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="room1/door"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/door/Area2D"]
+position = Vector2(703, 270)
+shape = SubResource("RectangleShape2D_172hx")
+debug_color = Color(0, 0.639216, 0.34902, 0.419608)
+
+[node name="key" type="Area2D" parent="room1"]
+position = Vector2(67, -9)
+script = ExtResource("4_vg5cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/key"]
+position = Vector2(508.875, 527.875)
+shape = SubResource("RectangleShape2D_hv3yk")
+debug_color = Color(0.203922, 0.627451, 0.396078, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/key"]
+texture_filter = 1
+position = Vector2(511, 527)
+scale = Vector2(3.46875, 3.21875)
+texture = ExtResource("4_ydamr")
+
+[node name="colliders" type="Node" parent="room1"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1280, 704)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D"]
+position = Vector2(1375.5, 1031.5)
+shape = SubResource("RectangleShape2D_l04c3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1537, 705)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D2"]
+position = Vector2(1375.5, 1031.5)
+shape = SubResource("RectangleShape2D_l04c3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1104, 760)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D3"]
+position = Vector2(1464, 1096)
+shape = SubResource("RectangleShape2D_uajd2")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1536, 760)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D4"]
+position = Vector2(1464, 1096)
+shape = SubResource("RectangleShape2D_uajd2")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1120, 776)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D5"]
+position = Vector2(1664, 1200)
+shape = SubResource("RectangleShape2D_gqoqo")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="room2" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room2"]
+position = Vector2(1504, 800)
+collision_layer = 2
+script = ExtResource("2_a3gsk")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/Camera"]
+shape = SubResource("RectangleShape2D_rkq01")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/Camera"]
+zoom = Vector2(1.605, 1.605)
+
+[node name="colliders" type="Node" parent="room2"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1280, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D"]
+position = Vector2(1344, 1031.5)
+shape = SubResource("RectangleShape2D_dc68r")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1600, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D2"]
+position = Vector2(1344, 1031.5)
+shape = SubResource("RectangleShape2D_dc68r")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1040, 576)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D3"]
+position = Vector2(1464, 920)
+shape = SubResource("RectangleShape2D_ls6wy")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1600, 640)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D4"]
+position = Vector2(1464, 856)
+shape = SubResource("RectangleShape2D_ls6wy")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1104, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D5"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_qo6kc")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1408, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D6"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_qo6kc")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="slide_puzzle" type="Node2D" parent="room2" node_paths=PackedStringArray("camera", "character", "solved_order")]
+script = ExtResource("7_63irp")
+camera = NodePath("../Camera/Camera2D")
+character = NodePath("../../character")
+unzoom = 1.605
+zoom = 3.365
+positions_x = [0, 64, 128, 0, 64, 128, 0, 64, 128]
+positions_y = [0, 0, 0, 64, 64, 64, 128, 128, 128]
+solved_order = [NodePath("plate1"), NodePath("plate2"), NodePath("plate3"), NodePath("plate4"), NodePath("plate5"), NodePath("plate6"), NodePath("plate7"), NodePath("plate8"), null]
+
+[node name="plate1" type="Node2D" parent="room2/slide_puzzle"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate1"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "1"
+
+[node name="plate2" type="Node2D" parent="room2/slide_puzzle"]
+position = Vector2(64, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate2"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "2"
+
+[node name="plate3" type="Node2D" parent="room2/slide_puzzle"]
+position = Vector2(128, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate3"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "3"
+
+[node name="plate4" type="Node2D" parent="room2/slide_puzzle"]
+position = Vector2(0, 64)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate4"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "4"
+
+[node name="plate5" type="Node2D" parent="room2/slide_puzzle"]
+position = Vector2(64, 64)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate5"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "5"
+
+[node name="plate6" type="Node2D" parent="room2/slide_puzzle"]
+position = Vector2(128, 64)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate6"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "6"
+
+[node name="plate7" type="Node2D" parent="room2/slide_puzzle"]
+position = Vector2(0, 128)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate7"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "7"
+
+[node name="plate8" type="Node2D" parent="room2/slide_puzzle"]
+position = Vector2(64, 128)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(1440, 736)
+scale = Vector2(4.00001, 4.00001)
+texture = ExtResource("7_o24s1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate8"]
+offset_left = 1429.0
+offset_top = 713.0
+offset_right = 1485.0
+offset_bottom = 793.0
+theme_override_font_sizes/normal_font_size = 30
+text = "8"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room2/slide_puzzle"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/StaticBody2D"]
+position = Vector2(1503.5, 799.5)
+shape = SubResource("RectangleShape2D_6kh7y")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="room2/slide_puzzle"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/Area2D"]
+position = Vector2(1504, 800)
+shape = SubResource("RectangleShape2D_ivtyx")
+debug_color = Color(0, 0.65098, 0.0196078, 0.419608)
+
+[node name="character" parent="." instance=ExtResource("2_tgvkd")]
+position = Vector2(1432, 1144)
+scale = Vector2(0.33, 0.33)
+motion_mode = 1
+
+[connection signal="body_entered" from="room1/Camera" to="room1/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/Camera" to="room1/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room1/door/Area2D" to="room1/door" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="room1/door/Area2D" to="room1/door" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="room1/key" to="room1/key" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/key" to="room1/key" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/Camera" to="room2/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/Camera" to="room2/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/slide_puzzle/Area2D" to="room2/slide_puzzle" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="room2/slide_puzzle/Area2D" to="room2/slide_puzzle" method="_on_area_2d_body_exited"]

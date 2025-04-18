@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://daq0ktym1bqtx"]
+
+[ext_resource type="Script" uid="uid://31s8d4yel0es" path="res://lazer.gd" id="1_a0dgx"]
+[ext_resource type="Texture2D" uid="uid://cwy1tnytaohp5" path="res://assets/lazer.png" id="2_cruiu"]
+[ext_resource type="AudioStream" uid="uid://b4epabtjooeyl" path="res://assets/music/laser_on.mp3" id="3_f6ih2"]
+[ext_resource type="AudioStream" uid="uid://c8g4ph26t0y33" path="res://assets/music/laser_off.mp3" id="4_45iim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjv6"]
+size = Vector2(48, 8)
+
+[node name="lazer" type="Node2D"]
+position = Vector2(1024, 120)
+script = ExtResource("1_a0dgx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+scale = Vector2(3, 1.49975)
+texture = ExtResource("2_cruiu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_tfjv6")
+debug_color = Color(0.960784, 0.0901961, 0.447059, 0.419608)
+
+[node name="on" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f6ih2")
+bus = &"lazer"
+
+[node name="off" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_45iim")
+bus = &"lazer"

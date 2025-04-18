@@ -1,0 +1,4570 @@
+[gd_scene load_steps=89 format=3 uid="uid://b35rluj3l27cc"]
+
+[ext_resource type="Texture2D" uid="uid://qee30fe2b1np" path="res://assets/tilemap.png" id="1_b00fn"]
+[ext_resource type="PackedScene" uid="uid://dghe131wa2uka" path="res://character.tscn" id="2_a6tt0"]
+[ext_resource type="Script" uid="uid://drs3gvna3yuhe" path="res://Camera.gd" id="3_mr801"]
+[ext_resource type="PackedScene" uid="uid://daq0ktym1bqtx" path="res://lazer.tscn" id="4_4uqgr"]
+[ext_resource type="PackedScene" uid="uid://c1fx16wmlo45w" path="res://pause_menu.tscn" id="4_7ia3b"]
+[ext_resource type="Script" uid="uid://rrjnp80ktbe0" path="res://maze.gd" id="4_7pnc4"]
+[ext_resource type="Script" uid="uid://df2kvi42wim7n" path="res://lever.gd" id="5_7sl06"]
+[ext_resource type="Texture2D" uid="uid://du68gtbpn1860" path="res://assets/lever/left.png" id="6_b0m2j"]
+[ext_resource type="Texture2D" uid="uid://celf33ma0ivsa" path="res://assets/lever/right.png" id="7_vawx8"]
+[ext_resource type="Script" uid="uid://c5jahtkpvui66" path="res://slide_puzzle.gd" id="9_kacad"]
+[ext_resource type="PackedScene" uid="uid://h842fiqrcevs" path="res://stone_door.tscn" id="9_uhtck"]
+[ext_resource type="Script" uid="uid://bphg6opuc21e0" path="res://slide_click.gd" id="11_732tr"]
+[ext_resource type="Texture2D" uid="uid://2nf2ammycr4x" path="res://assets/slide_puzzle/blue2.png" id="11_u2kxh"]
+[ext_resource type="Texture2D" uid="uid://ffofcckhu0gv" path="res://assets/slide_puzzle/green.png" id="12_wp4ul"]
+[ext_resource type="Texture2D" uid="uid://bjr4gw0wsjnkb" path="res://assets/slide_puzzle/red2.png" id="13_b4at2"]
+[ext_resource type="Texture2D" uid="uid://c0desmsdodc5c" path="res://assets/slide_puzzle/orange.png" id="14_re216"]
+[ext_resource type="Texture2D" uid="uid://bfg0ogvn1e5ob" path="res://assets/slide_puzzle/yellow.png" id="15_inqca"]
+[ext_resource type="Texture2D" uid="uid://7ptol0brc4lb" path="res://assets/slide_puzzle/pink.png" id="16_2wiek"]
+[ext_resource type="Texture2D" uid="uid://cjuixxvgnbq3j" path="res://assets/slide_puzzle/blue.png" id="17_lu6xo"]
+[ext_resource type="Texture2D" uid="uid://cpek0rhk2xpdf" path="res://assets/slide_puzzle/uncolored.png" id="18_xs2cl"]
+[ext_resource type="Script" uid="uid://ck7tkb5q2h2wa" path="res://match_puzzle.gd" id="19_fi6lx"]
+[ext_resource type="Script" uid="uid://bax62bswc7bw6" path="res://match_puzzle_button.gd" id="20_etewm"]
+[ext_resource type="Script" uid="uid://bibxse0ce5lb0" path="res://gear_puzzle.gd" id="22_ctf53"]
+[ext_resource type="Texture2D" uid="uid://db1wmdfa22xf" path="res://assets/gear_puzzle/gear.png" id="23_gat5b"]
+[ext_resource type="Script" uid="uid://cil7p4x01dlw0" path="res://gear_place.gd" id="24_g7ddw"]
+[ext_resource type="Texture2D" uid="uid://r8qwc3yp7mxm" path="res://assets/gear_puzzle/placement.png" id="25_xwlho"]
+[ext_resource type="Texture2D" uid="uid://bq6gsvqhdd4nl" path="res://assets/gear_puzzle/gear_gold.png" id="26_6fg5o"]
+[ext_resource type="Script" uid="uid://c83splk0u0ie2" path="res://gear_inventory.gd" id="27_40ig5"]
+[ext_resource type="Texture2D" uid="uid://dbvtfe7ped4kr" path="res://assets/gear_puzzle/gear_selected.png" id="28_kdj4v"]
+[ext_resource type="Script" uid="uid://batpx8nd81buh" path="res://plate_puzzle.gd" id="29_8nq42"]
+[ext_resource type="Script" uid="uid://bynxjt4dk2bv4" path="res://plate.gd" id="30_kk6kx"]
+[ext_resource type="Texture2D" uid="uid://b3wvwfi8h610a" path="res://assets/plate_puzzle/uncolored.png" id="31_qy8ik"]
+[ext_resource type="PackedScene" uid="uid://bcpfyb7cnyg2x" path="res://door.tscn" id="32_06w67"]
+[ext_resource type="PackedScene" uid="uid://bhxk2hh1tgbwf" path="res://key.tscn" id="33_24wla"]
+[ext_resource type="Script" uid="uid://wy60cvlju6n3" path="res://level_end.gd" id="34_wc174"]
+[ext_resource type="PackedScene" uid="uid://d1g20g4jm07w8" path="res://ending.tscn" id="35_6me0t"]
+[ext_resource type="PackedScene" uid="uid://b3j0ypr4fpsoe" path="res://completion_timer.tscn" id="36_by7dh"]
+[ext_resource type="PackedScene" uid="uid://d3qyl43wkei0q" path="res://save.tscn" id="38_6mfr5"]
+[ext_resource type="Script" uid="uid://dfxal0i08nd0h" path="res://lazer_anti_earape.gd" id="39_8wfca"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_guc5l"]
+texture = ExtResource("1_b00fn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ha3th"]
+sources/0 = SubResource("TileSetAtlasSource_guc5l")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deaw6"]
+size = Vector2(704, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hte4p"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waw3n"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fqie"]
+size = Vector2(16, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7u1tq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_b0m2j")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vawx8")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcohb"]
+size = Vector2(64, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxrn0"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odvj2"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xinxx"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1uka"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uih8"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iwoh"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tqxs"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40raf"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh7ds"]
+size = Vector2(209, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6t7p"]
+size = Vector2(240, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dy72w"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ofgc"]
+size = Vector2(160, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8qb1"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0c5"]
+size = Vector2(640, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vdwh"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4oyc"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7cpr"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hbej"]
+size = Vector2(16, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e61u7"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imfoc"]
+size = Vector2(16, 112)
+
+[sub_resource type="GDScript" id="GDScript_hvj1s"]
+script/source = "extends Area2D
+@export var type = 0
+
+var collision = false
+
+func _on_body_entered(body):
+	
+	collision = true
+
+
+func _on_body_exited(body):
+	collision = false
+	
+func _input(event):
+	if event.is_action_pressed(\"interact\"):
+		if collision:
+			hide()
+			monitoring = false
+			if type == 1:
+				Global.small_gears += 1
+			if type == 2:
+				Global.medium_gears += 1
+			if type == 3:
+				Global.big_gears += 1
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_450rk"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r13w8"]
+size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca1qe"]
+size = Vector2(192, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlffj"]
+size = Vector2(208, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr2p4"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iipd5"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85iou"]
+size = Vector2(320, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuxd4"]
+size = Vector2(128, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ownpn"]
+size = Vector2(16, 288.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itmrx"]
+size = Vector2(40, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilvdo"]
+size = Vector2(16, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2abd"]
+size = Vector2(704, 504)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57opk"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v2o1"]
+size = Vector2(16, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbj2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_b0m2j")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vawx8")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47uvt"]
+size = Vector2(64, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcrqj"]
+size = Vector2(320, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hc4jn"]
+size = Vector2(16, 288.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfgws"]
+size = Vector2(16, 112.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bwf5"]
+size = Vector2(194, 130)
+
+[node name="level_5" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_ha3th")
+format = 2
+layer_0/tile_data = PackedInt32Array(1900592, 65536, 1, 1835056, 65536, 1, 1769520, 65536, 1, 1703984, 65536, 1, 1638448, 65536, 0, 1900587, 65536, 1, 1835051, 65536, 1, 1769515, 65536, 1, 1703979, 65536, 1, 1638443, 65536, 0, 1638444, 65536, 0, 1703980, 65536, 1, 1769516, 65536, 1, 1835052, 65536, 1, 1900588, 65536, 1, 1900589, 65536, 1, 1835053, 65536, 1, 1769517, 65536, 1, 1703981, 65536, 1, 1638445, 65536, 0, 1638446, 65536, 0, 1703982, 65536, 1, 1769518, 65536, 1, 1835054, 65536, 1, 1900590, 65536, 1, 1900591, 65536, 1, 1835055, 65536, 1, 1769519, 65536, 1, 1703983, 65536, 1, 1638447, 65536, 1, 1900593, 65536, 1, 1835057, 65536, 1, 1769521, 65536, 1, 1703985, 65536, 1, 1638449, 65536, 0, 1900586, 0, 1, 1638442, 0, 0, 1703978, 0, 1, 1769514, 0, 1, 1835050, 65536, 1, 1966122, 0, 2, 1638452, 131072, 0, 1966132, 131072, 2, 1966123, 65536, 2, 1966124, 65536, 2, 1966125, 65536, 2, 1966126, 65536, 2, 1966131, 65536, 2, 1966130, 65536, 2, 1966129, 65536, 2, 1966128, 65536, 2, 1703988, 131072, 1, 1769524, 131072, 1, 1900596, 131072, 1, 1638450, 65536, 0, 1638451, 65536, 0, 1835060, 65536, 1, 1835059, 65536, 1, 1835058, 65536, 1, 1703986, 65536, 1, 1703987, 65536, 1, 1769523, 65536, 1, 1769522, 65536, 1, 1900594, 65536, 1, 1900595, 65536, 1, 1966127, 65536, 1, 1966112, 0, 2, 1966121, 131072, 2, 1638441, 131072, 0, 1638432, 0, 0, 1638433, 65536, 0, 1638434, 65536, 0, 1638435, 65536, 0, 1638436, 65536, 0, 1638437, 65536, 0, 1638438, 65536, 0, 1638439, 65536, 0, 1638440, 65536, 0, 1703977, 131072, 1, 1769513, 131072, 1, 1900585, 131072, 1, 1966120, 65536, 2, 1966119, 65536, 2, 1966118, 65536, 1, 1966117, 65536, 2, 1966116, 65536, 2, 1966115, 65536, 2, 1966114, 65536, 2, 1966113, 65536, 2, 1703968, 0, 1, 1769504, 0, 1, 1835040, 0, 1, 1900576, 0, 1, 1900582, 65536, 1, 1703972, 65536, 1, 1900579, 65536, 1, 1900580, 65536, 1, 1835044, 65536, 1, 1769508, 65536, 1, 1900581, 65536, 1, 1900583, 65536, 1, 1900584, 65536, 1, 1835048, 65536, 1, 1769512, 65536, 1, 1703976, 65536, 1, 1835049, 65536, 1, 1703971, 65536, 1, 1769507, 65536, 1, 1835043, 65536, 1, 1966133, 0, 2, 1966142, 131072, 2, 1638462, 131072, 0, 1638453, 0, 0, 1703989, 0, 1, 1769525, 0, 1, 1900597, 0, 1, 1966134, 65536, 2, 1966135, 65536, 2, 1966136, 65536, 2, 1966137, 65536, 2, 1966138, 65536, 1, 1966139, 65536, 2, 1966140, 65536, 2, 1966141, 65536, 2, 1703998, 131072, 1, 1769534, 131072, 1, 1835070, 131072, 1, 1900606, 131072, 1, 1638454, 65536, 0, 1638455, 65536, 0, 1638456, 65536, 0, 1638457, 65536, 0, 1638458, 65536, 0, 1638459, 65536, 0, 1638460, 65536, 0, 1638461, 65536, 0, 1703990, 65536, 1, 1769526, 65536, 1, 1835062, 65536, 1, 1835061, 65536, 1, 1900598, 65536, 1, 1900599, 65536, 1, 1900600, 65536, 1, 1900601, 65536, 1, 1900602, 65536, 1, 1835066, 65536, 1, 1769530, 65536, 1, 1703994, 65536, 1, 1703995, 65536, 1, 1769531, 65536, 1, 1835067, 65536, 1, 1900603, 65536, 1, 2293816, 0, 2, 2031672, 0, 0, 2031676, 131072, 0, 2293820, 131072, 2, 2031673, 65536, 0, 2031675, 65536, 0, 2097212, 131072, 1, 2162748, 131072, 1, 2228284, 131072, 1, 2293817, 65536, 2, 2293818, 65536, 1, 2293819, 65536, 2, 2097208, 0, 1, 2162744, 0, 1, 2228280, 0, 1, 2031674, 65536, 1, 2228283, 65536, 1, 1572906, 0, 2, 1572916, 131072, 2, 1245236, 131072, 0, 1245226, 0, 0, 1310762, 0, 1, 1376298, 0, 1, 1441834, 0, 1, 1507370, 0, 1, 1245227, 65536, 0, 1245228, 65536, 0, 1245229, 65536, 0, 1245230, 65536, 0, 1245231, 65536, 1, 1245232, 65536, 0, 1245233, 65536, 0, 1245234, 65536, 0, 1245235, 65536, 0, 1310772, 131072, 1, 1376308, 131072, 1, 1507380, 131072, 1, 1572915, 65536, 2, 1572914, 65536, 2, 1572913, 65536, 2, 1572912, 65536, 2, 1572907, 65536, 2, 1572908, 65536, 2, 1572909, 65536, 2, 1572910, 65536, 2, 1572911, 65536, 1, 1441844, 65536, 1, 1507373, 65536, 1, 1441837, 65536, 1, 1376301, 65536, 1, 1310765, 65536, 1, 1310764, 65536, 1, 1310763, 65536, 1, 1376299, 65536, 1, 1441835, 65536, 1, 1507371, 65536, 1, 1507372, 65536, 1, 1441836, 65536, 1, 1376300, 65536, 1, 1310766, 65536, 1, 1376302, 65536, 1, 1441838, 65536, 1, 1507374, 65536, 1, 1507375, 65536, 1, 1441839, 65536, 1, 1376303, 65536, 1, 1310767, 65536, 1, 1310768, 65536, 1, 1376304, 65536, 1, 1441840, 65536, 1, 1507376, 65536, 1, 1507377, 65536, 1, 1441841, 65536, 1, 1376305, 65536, 1, 1310769, 65536, 1, 1310770, 65536, 1, 1376306, 65536, 1, 1441842, 65536, 1, 1507378, 65536, 1, 1507379, 65536, 1, 1441843, 65536, 1, 1376307, 65536, 1, 1310771, 65536, 1, 1179692, 65536, 2, 1179698, 65536, 2, 1114156, 65536, 1, 1048620, 65536, 1, 983084, 65536, 0, 852012, 65536, 0, 720940, 65536, 0, 786476, 65536, 1, 917548, 65536, 1, 1179690, 0, 2, 1179700, 131072, 2, 983082, 0, 0, 852010, 0, 0, 720938, 0, 0, 720946, 65536, 0, 852018, 65536, 0, 983090, 65536, 0, 1114164, 131072, 1, 983092, 131072, 0, 917556, 131072, 1, 852020, 131072, 0, 720948, 131072, 0, 786484, 131072, 1, 1048628, 131072, 1, 1048618, 0, 1, 1114154, 0, 1, 917546, 0, 1, 786474, 0, 1, 720939, 65536, 0, 720941, 65536, 0, 720943, 65536, 1, 720945, 65536, 0, 720947, 65536, 0, 852011, 65536, 0, 852013, 65536, 0, 852014, 65536, 0, 852015, 65536, 1, 852016, 65536, 0, 852017, 65536, 0, 852019, 65536, 0, 983083, 65536, 0, 983085, 65536, 0, 983086, 65536, 0, 983087, 65536, 1, 983088, 65536, 0, 983089, 65536, 0, 983091, 65536, 0, 1048619, 65536, 1, 1114155, 65536, 1, 1179691, 65536, 2, 1179693, 65536, 2, 1179694, 65536, 2, 1179695, 65536, 1, 1179696, 65536, 2, 1179697, 65536, 2, 1179699, 65536, 2, 1048627, 65536, 1, 1048626, 65536, 1, 1048625, 65536, 1, 1048624, 65536, 1, 1048623, 65536, 1, 1048622, 65536, 1, 1048621, 65536, 1, 1114157, 65536, 1, 1114158, 65536, 1, 1114159, 65536, 1, 1114160, 65536, 1, 1114161, 65536, 1, 1114162, 65536, 1, 1114163, 65536, 1, 917549, 65536, 1, 917550, 65536, 1, 917551, 65536, 1, 917552, 65536, 1, 917553, 65536, 1, 917554, 65536, 1, 917555, 65536, 1, 917547, 65536, 1, 786475, 65536, 1, 786477, 65536, 1, 786478, 65536, 1, 786479, 65536, 1, 786480, 65536, 1, 786481, 65536, 1, 786482, 65536, 1, 786483, 65536, 1, 2359352, 0, 0, 2359356, 131072, 0, 2621496, 0, 2, 2621500, 131072, 2, 2621497, 65536, 2, 2621498, 65536, 2, 2621499, 65536, 2, 2424892, 131072, 1, 2490428, 131072, 1, 2555964, 131072, 1, 2424888, 0, 1, 2490424, 0, 1, 2555960, 0, 1, 2359353, 65536, 0, 2359355, 65536, 0, 2359354, 65536, 1, 2424890, 65536, 1, 2490426, 65536, 1, 2555962, 65536, 1, 2555961, 65536, 1, 2490425, 65536, 1, 2424889, 65536, 1, 2424891, 65536, 1, 2490427, 65536, 1, 2555963, 65536, 1, 2031652, 0, 0, 2031656, 131072, 0, 2293796, 0, 2, 2293800, 131072, 2, 2293797, 65536, 2, 2293798, 65536, 2, 2293799, 65536, 2, 2097192, 131072, 1, 2162728, 131072, 1, 2228264, 131072, 1, 2097188, 0, 1, 2162724, 0, 1, 2228260, 0, 1, 2031654, 65536, 1, 2097190, 65536, 1, 2162726, 65536, 1, 2228262, 65536, 1, 2228261, 65536, 1, 2162725, 65536, 1, 2097189, 65536, 1, 2031655, 65536, 0, 2097191, 65536, 1, 2162727, 65536, 1, 2228263, 65536, 1, 2031653, 65536, 0, 1310773, 0, 0, 1572917, 0, 2, 1572921, 131072, 2, 1310777, 131072, 0, 1310774, 65536, 0, 1310775, 65536, 0, 1310776, 65536, 0, 1376313, 131072, 1, 1441849, 131072, 1, 1507385, 131072, 1, 1572918, 65536, 2, 1572919, 65536, 2, 1572920, 65536, 2, 1376309, 0, 1, 1507381, 0, 1, 1441845, 65536, 1, 1441846, 65536, 1, 1441847, 65536, 1, 1441848, 65536, 1, 1376312, 65536, 1, 1376311, 65536, 1, 1376310, 65536, 1, 1507382, 65536, 1, 1507383, 65536, 1, 1507384, 65536, 1, 720942, 65536, 1, 720944, 65536, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_a6tt0")]
+position = Vector2(3000, 1944)
+scale = Vector2(0.18, 0.18)
+
+[node name="room1" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room1"]
+position = Vector2(3104, 1888)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/Camera"]
+position = Vector2(-64, -96)
+shape = SubResource("RectangleShape2D_deaw6")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room1/Camera"]
+position = Vector2(-64, -96)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.815, 1.875)
+
+[node name="pause" parent="room1/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(-64, -96)
+
+[node name="colision" type="StaticBody2D" parent="room1"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(2848, 1976)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(3048, 1992)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(2848, 1608)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(3232, 1608)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(3232, 1976)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(2696, 1704)
+shape = SubResource("RectangleShape2D_waw3n")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(3384, 1704)
+shape = SubResource("RectangleShape2D_waw3n")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(2696, 1912)
+shape = SubResource("RectangleShape2D_2fqie")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="room1/colision"]
+position = Vector2(3384, 1912)
+shape = SubResource("RectangleShape2D_2fqie")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="maze_1" type="Node2D" parent="room1"]
+script = ExtResource("4_7pnc4")
+
+[node name="lazer" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1664)
+
+[node name="lazer25" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1640)
+rotation = 1.5708
+
+[node name="lazer51" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1640)
+rotation = 1.5708
+
+[node name="lazer26" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1944)
+rotation = 1.5708
+
+[node name="lazer27" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1944)
+rotation = 1.5708
+
+[node name="lazer28" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1944)
+rotation = 1.5708
+
+[node name="lazer24" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1856)
+
+[node name="lazer2" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1792)
+
+[node name="lazer3" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer4" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer5" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer29" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer30" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer31" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer32" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer33" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer34" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer35" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer36" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer37" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer38" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer39" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer40" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer41" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer42" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer43" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer44" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer45" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer46" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer47" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer48" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer49" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1886)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer6" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer7" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer8" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer9" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer50" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer10" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer11" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer12" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer13" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1920)
+scale = Vector2(1.33, 1)
+
+[node name="lazer14" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer15" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer16" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer17" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer18" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer52" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer19" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer20" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1920)
+scale = Vector2(1.33, 1)
+
+[node name="lazer21" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer22" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer23" parent="room1/maze_1" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1920)
+scale = Vector2(1.33, 1)
+
+[node name="lever" type="Area2D" parent="room1"]
+position = Vector2(3378, 1976)
+scale = Vector2(0.63, 0.63)
+script = ExtResource("5_7sl06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room1/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_7u1tq")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_wcohb")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever2" type="Area2D" parent="room1"]
+position = Vector2(2755, 1976)
+scale = Vector2(0.63, 0.63)
+script = ExtResource("5_7sl06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room1/lever2"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_7u1tq")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/lever2"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_wcohb")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever3" type="Area2D" parent="room1"]
+position = Vector2(2755, 1664)
+scale = Vector2(0.63, 0.63)
+script = ExtResource("5_7sl06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room1/lever3"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_7u1tq")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/lever3"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_wcohb")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever4" type="Area2D" parent="room1"]
+position = Vector2(3378, 1664)
+scale = Vector2(0.63, 0.63)
+script = ExtResource("5_7sl06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room1/lever4"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_7u1tq")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/lever4"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_wcohb")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="maze_2" type="Node2D" parent="room1"]
+script = ExtResource("4_7pnc4")
+on = false
+
+[node name="lazer" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1728)
+
+[node name="lazer22" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1640)
+rotation = 1.5708
+
+[node name="lazer23" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1640)
+rotation = 1.5708
+
+[node name="lazer24" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1640)
+rotation = 1.5708
+
+[node name="lazer26" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1944)
+rotation = 1.5708
+
+[node name="lazer2" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1856)
+
+[node name="lazer3" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1664)
+
+[node name="lazer4" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1792)
+
+[node name="lazer6" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1920)
+
+[node name="lazer5" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1664)
+scale = Vector2(1.35, 1)
+
+[node name="lazer27" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1696)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer28" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1696)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer29" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1696)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer30" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1696)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer31" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1696)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer52" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1648)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer32" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1696)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer33" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1760)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer50" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1760)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer51" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1824)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer34" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1760)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer35" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1760)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer36" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1760)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer37" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1760)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer38" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1824)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer39" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1824)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer40" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1824)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer41" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1824)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer42" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1824)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer43" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1824)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer44" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1888)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer45" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1888)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer46" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1888)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer47" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1888)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer48" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1888)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer49" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1888)
+rotation = 1.5708
+scale = Vector2(1.35, 1)
+
+[node name="lazer7" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1856)
+scale = Vector2(1.35, 1)
+
+[node name="lazer8" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1792)
+scale = Vector2(1.35, 1)
+
+[node name="lazer9" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1920)
+scale = Vector2(1.35, 1)
+
+[node name="lazer10" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1728)
+scale = Vector2(1.35, 1)
+
+[node name="lazer11" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1792)
+scale = Vector2(1.35, 1)
+
+[node name="lazer12" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1920)
+scale = Vector2(1.35, 1)
+
+[node name="lazer13" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1664)
+scale = Vector2(1.35, 1)
+
+[node name="lazer25" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2978, 1664)
+scale = Vector2(1.35, 1)
+
+[node name="lazer14" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1920)
+scale = Vector2(1.35, 1)
+
+[node name="lazer15" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1792)
+scale = Vector2(1.35, 1)
+
+[node name="lazer16" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1728)
+scale = Vector2(1.35, 1)
+
+[node name="lazer17" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1856)
+scale = Vector2(1.35, 1)
+
+[node name="lazer18" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1664)
+scale = Vector2(1.35, 1)
+
+[node name="lazer19" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1792)
+scale = Vector2(1.35, 1)
+
+[node name="lazer20" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1856)
+scale = Vector2(1.35, 1)
+
+[node name="lazer21" parent="room1/maze_2" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1728)
+scale = Vector2(1.35, 1)
+
+[node name="maze_3" type="Node2D" parent="room1"]
+script = ExtResource("4_7pnc4")
+on = false
+
+[node name="lazer28" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1640)
+rotation = 1.5708
+
+[node name="lazer29" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1640)
+rotation = 1.5708
+
+[node name="lazer30" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1944)
+rotation = 1.5708
+
+[node name="lazer31" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1944)
+rotation = 1.5708
+
+[node name="lazer32" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1944)
+rotation = 1.5708
+
+[node name="lazer2" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1856)
+
+[node name="lazer3" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1920)
+
+[node name="lazer4" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1920)
+scale = Vector2(1.335, 1)
+
+[node name="lazer5" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1664)
+scale = Vector2(1.335, 1)
+
+[node name="lazer6" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1728)
+scale = Vector2(1.335, 1)
+
+[node name="lazer33" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1696)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer34" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1696)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer35" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1696)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer36" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1696)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer53" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1760)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer54" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1824)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer37" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1760)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer51" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1696)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer52" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1648)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer38" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1760)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer39" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1760)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer40" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1760)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer41" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1760)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer42" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1824)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer43" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1824)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer44" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1824)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer45" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1824)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer46" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1824)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer47" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1888)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer48" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1886)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer49" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1888)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer50" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1888)
+rotation = 1.5708
+scale = Vector2(1.335, 1)
+
+[node name="lazer7" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1856)
+scale = Vector2(1.335, 1)
+
+[node name="lazer8" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1728)
+scale = Vector2(1.335, 1)
+
+[node name="lazer9" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1856)
+scale = Vector2(1.335, 1)
+
+[node name="lazer10" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1920)
+scale = Vector2(1.335, 1)
+
+[node name="lazer11" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1664)
+scale = Vector2(1.335, 1)
+
+[node name="lazer12" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1728)
+scale = Vector2(1.335, 1)
+
+[node name="lazer13" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1792)
+scale = Vector2(1.335, 1)
+
+[node name="lazer14" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1856)
+scale = Vector2(1.335, 1)
+
+[node name="lazer15" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1664)
+scale = Vector2(1.335, 1)
+
+[node name="lazer16" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1792)
+scale = Vector2(1.335, 1)
+
+[node name="lazer17" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1664)
+scale = Vector2(1.335, 1)
+
+[node name="lazer18" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1920)
+scale = Vector2(1.335, 1)
+
+[node name="lazer19" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1664)
+scale = Vector2(1.335, 1)
+
+[node name="lazer20" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1728)
+scale = Vector2(1.335, 1)
+
+[node name="lazer21" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1856)
+scale = Vector2(1.335, 1)
+
+[node name="lazer22" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1920)
+scale = Vector2(1.335, 1)
+
+[node name="lazer23" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1664)
+scale = Vector2(1.335, 1)
+
+[node name="lazer24" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1792)
+scale = Vector2(1.335, 1)
+
+[node name="lazer25" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1856)
+scale = Vector2(1.335, 1)
+
+[node name="lazer26" parent="room1/maze_3" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1856)
+scale = Vector2(1.335, 1)
+
+[node name="maze_4" type="Node2D" parent="room1"]
+script = ExtResource("4_7pnc4")
+on = false
+
+[node name="lazer2" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1728)
+
+[node name="lazer26" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1640)
+rotation = 1.5708
+
+[node name="lazer30" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1640)
+rotation = 1.5708
+
+[node name="lazer27" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1640)
+rotation = 1.5708
+
+[node name="lazer28" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1944)
+rotation = 1.5708
+
+[node name="lazer29" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1944)
+rotation = 1.5708
+
+[node name="lazer56" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3327, 1944)
+rotation = 1.5708
+
+[node name="lazer3" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1728)
+
+[node name="lazer55" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1920)
+
+[node name="lazer4" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer5" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer31" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer32" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer33" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer34" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1696)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer35" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer36" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3327, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer37" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer38" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1760)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer39" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer40" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer41" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer42" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer43" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1824)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer45" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer46" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer47" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer48" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3072, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer49" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer50" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer51" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3327, 1888)
+rotation = 1.5708
+scale = Vector2(1.33, 1)
+
+[node name="lazer6" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer7" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer9" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer8" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer10" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer11" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1920)
+scale = Vector2(1.33, 1)
+
+[node name="lazer12" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer13" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer14" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1920)
+scale = Vector2(1.33, 1)
+
+[node name="lazer15" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer52" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer16" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer17" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer18" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer19" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1792)
+scale = Vector2(1.33, 1)
+
+[node name="lazer20" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer53" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="lazer21" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer22" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1856)
+scale = Vector2(1.33, 1)
+
+[node name="lazer23" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer54" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1728)
+scale = Vector2(1.33, 1)
+
+[node name="lazer24" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1920)
+scale = Vector2(1.33, 1)
+
+[node name="lazer25" parent="room1/maze_4" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1664)
+scale = Vector2(1.33, 1)
+
+[node name="maze_5" type="Node2D" parent="room1"]
+script = ExtResource("4_7pnc4")
+on = false
+
+[node name="lazer2" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1640)
+rotation = 1.5708
+
+[node name="lazer30" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1640)
+rotation = 1.5708
+
+[node name="lazer52" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1640)
+rotation = 1.5708
+
+[node name="lazer31" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1944)
+rotation = 1.5708
+
+[node name="lazer32" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1944)
+rotation = 1.5708
+
+[node name="lazer54" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1944)
+rotation = 1.5708
+
+[node name="lazer3" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3352, 1792)
+
+[node name="lazer56" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1664)
+
+[node name="lazer57" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2728, 1856)
+
+[node name="lazer4" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1664)
+scale = Vector2(1.34, 1)
+
+[node name="lazer5" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1856)
+scale = Vector2(1.34, 1)
+
+[node name="lazer33" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1696)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer34" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1696)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer35" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1696)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer51" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1696)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer36" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1696)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer37" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1696)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer38" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1760)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer39" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2816, 1760)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer40" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2944, 1760)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer41" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1760)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer42" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1760)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer55" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1824)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer58" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3328, 1888)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer43" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1824)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer50" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2752, 1888)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer44" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2880, 1824)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer45" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1824)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer46" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3264, 1824)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer47" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3008, 1888)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer48" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3136, 1888)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer49" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3200, 1888)
+rotation = 1.5708
+scale = Vector2(1.34, 1)
+
+[node name="lazer6" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2784, 1920)
+scale = Vector2(1.34, 1)
+
+[node name="lazer7" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1664)
+scale = Vector2(1.34, 1)
+
+[node name="lazer8" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1728)
+scale = Vector2(1.34, 1)
+
+[node name="lazer9" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1856)
+scale = Vector2(1.34, 1)
+
+[node name="lazer10" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2848, 1920)
+scale = Vector2(1.34, 1)
+
+[node name="lazer11" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1664)
+scale = Vector2(1.34, 1)
+
+[node name="lazer12" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2912, 1856)
+scale = Vector2(1.34, 1)
+
+[node name="lazer13" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1664)
+scale = Vector2(1.34, 1)
+
+[node name="lazer14" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1792)
+scale = Vector2(1.34, 1)
+
+[node name="lazer15" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1856)
+scale = Vector2(1.34, 1)
+
+[node name="lazer16" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(2976, 1920)
+scale = Vector2(1.34, 1)
+
+[node name="lazer17" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1664)
+scale = Vector2(1.34, 1)
+
+[node name="lazer18" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1728)
+scale = Vector2(1.34, 1)
+
+[node name="lazer19" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1792)
+scale = Vector2(1.34, 1)
+
+[node name="lazer20" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3040, 1856)
+scale = Vector2(1.34, 1)
+
+[node name="lazer21" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1728)
+scale = Vector2(1.34, 1)
+
+[node name="lazer22" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1792)
+scale = Vector2(1.34, 1)
+
+[node name="lazer23" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3104, 1920)
+scale = Vector2(1.34, 1)
+
+[node name="lazer24" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3168, 1792)
+scale = Vector2(1.34, 1)
+
+[node name="lazer25" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1728)
+scale = Vector2(1.34, 1)
+
+[node name="lazer26" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3232, 1792)
+scale = Vector2(1.34, 1)
+
+[node name="lazer27" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1728)
+scale = Vector2(1.34, 1)
+
+[node name="lazer29" parent="room1/maze_5" instance=ExtResource("4_4uqgr")]
+position = Vector2(3296, 1920)
+scale = Vector2(1.34, 1)
+
+[node name="door" parent="room1" instance=ExtResource("9_uhtck")]
+position = Vector2(3016, 1584)
+
+[node name="door2" parent="room1" instance=ExtResource("9_uhtck")]
+position = Vector2(3016, 1595)
+
+[node name="room2" type="Node2D" parent="."]
+
+[node name="slide_puzzle" type="Node2D" parent="room2" node_paths=PackedStringArray("character", "solved_order", "scrambled_order")]
+position = Vector2(960, 960)
+script = ExtResource("9_kacad")
+character = NodePath("../../CharacterBody2D")
+positions = Array[Vector2]([Vector2(1416, 712), Vector2(1480, 712), Vector2(1544, 712), Vector2(1416, 776), Vector2(1480, 776), Vector2(1544, 776), Vector2(1416, 840), Vector2(1480, 840), Vector2(1544, 840)])
+solved_order = [NodePath("plate2"), NodePath("plate6"), NodePath("plate4"), NodePath("plate1"), NodePath("plate5"), NodePath("plate3"), NodePath("plate7"), NodePath("plate8"), null]
+scrambled_order = [NodePath("plate5"), null, NodePath("plate4"), NodePath("plate6"), NodePath("plate2"), NodePath("plate3"), NodePath("plate1"), NodePath("plate7"), NodePath("plate8")]
+
+[node name="plate1" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1416, 840)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("11_u2kxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_xxrn0")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate1"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate2" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1480, 776)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate2"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_odvj2")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate3" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1544, 776)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("13_b4at2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate3"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_xinxx")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate4" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1544, 712)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("14_re216")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate4"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_h1uka")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate4"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate5" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1416, 712)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("15_inqca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate5"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_3uih8")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate5"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate6" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1416, 776)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("16_2wiek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate6"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_2iwoh")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate6"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate7" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1480, 840)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("17_lu6xo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate7"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_6tqxs")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate7"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate8" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1544, 840)
+script = ExtResource("11_732tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate8"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_40raf")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate8"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room2/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/StaticBody2D"]
+position = Vector2(1503.5, 799.5)
+shape = SubResource("RectangleShape2D_fh7ds")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="room2/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/Area2D"]
+position = Vector2(1504, 800)
+shape = SubResource("RectangleShape2D_u6t7p")
+debug_color = Color(0, 0.65098, 0.0196078, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/slide_puzzle"]
+position = Vector2(1504, 800)
+enabled = false
+zoom = Vector2(3.755, 3.755)
+
+[node name="lazer" parent="room2" instance=ExtResource("4_4uqgr")]
+position = Vector2(2272, 1792)
+rotation = 1.5708
+scale = Vector2(7.33, 1)
+
+[node name="match_puzzle" type="Node2D" parent="room2" node_paths=PackedStringArray("character")]
+position = Vector2(-320, -512)
+script = ExtResource("19_fi6lx")
+character = NodePath("../../CharacterBody2D")
+active = false
+solve_requirement = 4
+
+[node name="collisions" type="StaticBody2D" parent="room2/match_puzzle"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/collisions"]
+position = Vector2(2496, 2304)
+shape = SubResource("RectangleShape2D_dy72w")
+debug_color = Color(0.976471, 0, 0.411765, 0.419608)
+
+[node name="interaction" type="Area2D" parent="room2/match_puzzle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/interaction"]
+position = Vector2(2496, 2304)
+shape = SubResource("RectangleShape2D_8ofgc")
+debug_color = Color(0.196078, 0.627451, 0.372549, 0.419608)
+
+[node name="buttons" type="Node2D" parent="room2/match_puzzle"]
+
+[node name="button1" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(0, 192)
+script = ExtResource("20_etewm")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button1"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button1"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button1"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+offset_left = 2451.0
+offset_top = 2179.0
+offset_right = 2507.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button1"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button2" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(64, 0)
+script = ExtResource("20_etewm")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button2"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button2"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button2"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+offset_left = 2452.0
+offset_top = 2179.0
+offset_right = 2508.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button2"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button3" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(64, 192)
+script = ExtResource("20_etewm")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button3"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button3"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button3"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+offset_left = 2457.0
+offset_top = 2179.0
+offset_right = 2513.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button3"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button4" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(0, 128)
+script = ExtResource("20_etewm")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button4"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button4"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button4"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+offset_left = 2457.0
+offset_top = 2179.0
+offset_right = 2513.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button4"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button5" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(0, 64)
+script = ExtResource("20_etewm")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button5"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button5"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button5"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+offset_left = 2457.0
+offset_top = 2179.0
+offset_right = 2513.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button5"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button6" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(64, 128)
+script = ExtResource("20_etewm")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button6"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button6"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button6"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+offset_left = 2458.0
+offset_top = 2179.0
+offset_right = 2514.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button6"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button7" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(64, 64)
+script = ExtResource("20_etewm")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button7"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button7"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button7"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+offset_left = 2452.0
+offset_top = 2179.0
+offset_right = 2508.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button7"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button8" type="Area2D" parent="room2/match_puzzle/buttons"]
+script = ExtResource("20_etewm")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button8"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button8"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button8"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+offset_left = 2451.0
+offset_top = 2178.0
+offset_right = 2507.0
+offset_bottom = 2242.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button8"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="Timer" type="Timer" parent="room2/match_puzzle"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="room2/match_puzzle"]
+position = Vector2(2496, 2304)
+enabled = false
+zoom = Vector2(2.8, 2.8)
+
+[node name="Camera" type="Area2D" parent="room2"]
+position = Vector2(2288, 1804)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/Camera"]
+position = Vector2(80, -12)
+shape = SubResource("RectangleShape2D_rt0c5")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/Camera"]
+position = Vector2(59, -13)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.88, 1.88)
+
+[node name="pause" parent="room2/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="colision" type="StaticBody2D" parent="room2"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colision"]
+position = Vector2(2240, 1976)
+shape = SubResource("RectangleShape2D_4vdwh")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room2/colision"]
+position = Vector2(2592, 1976)
+shape = SubResource("RectangleShape2D_a4oyc")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room2/colision"]
+position = Vector2(2368, 1608)
+shape = SubResource("RectangleShape2D_y7cpr")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room2/colision"]
+position = Vector2(2056, 1792)
+shape = SubResource("RectangleShape2D_4hbej")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room2/colision"]
+position = Vector2(2680, 1704)
+shape = SubResource("RectangleShape2D_e61u7")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room2/colision"]
+position = Vector2(2680, 1912)
+shape = SubResource("RectangleShape2D_imfoc")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="gear" type="Area2D" parent="room2"]
+position = Vector2(2584, 1872)
+scale = Vector2(0.5, 0.5)
+script = SubResource("GDScript_hvj1s")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear2" type="Area2D" parent="room2"]
+position = Vector2(2528, 1896)
+scale = Vector2(0.5, 0.5)
+script = SubResource("GDScript_hvj1s")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear2"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear2"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear3" type="Area2D" parent="room2"]
+position = Vector2(2432, 1888)
+scale = Vector2(0.5, 0.5)
+script = SubResource("GDScript_hvj1s")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear3"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear3"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear4" type="Area2D" parent="room2"]
+position = Vector2(2600, 1728)
+scale = Vector2(0.5, 0.5)
+script = SubResource("GDScript_hvj1s")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear4"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear4"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear5" type="Area2D" parent="room2"]
+position = Vector2(2592, 1936)
+scale = Vector2(0.5, 0.5)
+script = SubResource("GDScript_hvj1s")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear5"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear5"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear6" type="Area2D" parent="room2"]
+position = Vector2(2352, 1920)
+scale = Vector2(0.5, 0.5)
+script = SubResource("GDScript_hvj1s")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear6"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear6"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear7" type="Area2D" parent="room2"]
+position = Vector2(2328, 1832)
+script = SubResource("GDScript_hvj1s")
+type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear7"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear7"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear8" type="Area2D" parent="room2"]
+position = Vector2(2472, 1936)
+script = SubResource("GDScript_hvj1s")
+type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear8"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear8"]
+texture = ExtResource("26_6fg5o")
+
+[node name="gear9" type="Area2D" parent="room2"]
+position = Vector2(2320, 1728)
+scale = Vector2(1.5, 1.5)
+script = SubResource("GDScript_hvj1s")
+type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear9"]
+shape = SubResource("RectangleShape2D_450rk")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear9"]
+texture = ExtResource("26_6fg5o")
+
+[node name="room3" type="Node2D" parent="."]
+position = Vector2(1386, 1)
+
+[node name="GearPuzzle" type="Node2D" parent="room3" node_paths=PackedStringArray("character", "combination")]
+position = Vector2(758, 953)
+script = ExtResource("22_ctf53")
+character = NodePath("../../CharacterBody2D")
+combination = [NodePath("Gears/gear1"), NodePath("Gears/place/Small"), NodePath("Gears/place2/medium"), NodePath("Gears/place3/medium"), NodePath("Gears/place4/Small"), NodePath("Gears/place5/Small"), NodePath("Gears/place6/big"), NodePath("Gears/place7/Small"), NodePath("Gears/place8/Small"), NodePath("Gears/place9/Small"), NodePath("Gears/final_gear")]
+
+[node name="Gears" type="Node2D" parent="room3/GearPuzzle"]
+
+[node name="gear1" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1552, 910)
+texture = ExtResource("23_gat5b")
+
+[node name="place" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1527, 874)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place2" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1517, 820)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place2"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place3" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1504, 758)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place3"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place4" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1450, 768)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place4"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place4"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place5" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1442, 810)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place5"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place5"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place6" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1431, 875)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place6"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place6"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place6"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place6"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place6"]
+visible = false
+z_index = -1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place6"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place7" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1389, 819)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place7"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place7"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place7"]
+visible = false
+z_index = -1
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place7"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place7"]
+visible = false
+z_index = -1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place7"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place8" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1398, 777)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place8"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place8"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place8"]
+visible = false
+z_index = -1
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place8"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place8"]
+visible = false
+z_index = -1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place8"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place9" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1375, 740)
+script = ExtResource("24_g7ddw")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place9"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("25_xwlho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place9"]
+shape = SubResource("RectangleShape2D_r13w8")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place9"]
+visible = false
+z_index = -1
+texture_filter = 1
+texture = ExtResource("26_6fg5o")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place9"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place9"]
+visible = false
+z_index = -1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("26_6fg5o")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place9"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="final_gear" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1400, 702)
+texture = ExtResource("23_gat5b")
+
+[node name="colision" type="StaticBody2D" parent="room3/GearPuzzle"]
+visible = false
+position = Vector2(56, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/colision"]
+position = Vector2(1416, 774)
+shape = SubResource("RectangleShape2D_ca1qe")
+debug_color = Color(0.894118, 0.262745, 0.478431, 0.419608)
+
+[node name="interction" type="Area2D" parent="room3/GearPuzzle"]
+visible = false
+position = Vector2(-1216, -640)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/interction"]
+position = Vector2(2688, 1446)
+shape = SubResource("RectangleShape2D_hlffj")
+debug_color = Color(0.105882, 0.639216, 0.321569, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/GearPuzzle"]
+position = Vector2(1464, 825)
+enabled = false
+zoom = Vector2(3.1, 3.1)
+
+[node name="inventory" type="Panel" parent="room3/GearPuzzle"]
+visible = false
+z_index = 200
+offset_left = 1376.0
+offset_top = 902.0
+offset_right = 1696.0
+offset_bottom = 966.0
+scale = Vector2(0.6, 0.6)
+script = ExtResource("27_40ig5")
+
+[node name="Small" type="TextureButton" parent="room3/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/inventory/Small"]
+z_index = 200
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("26_6fg5o")
+
+[node name="Small_selected" type="Sprite2D" parent="room3/GearPuzzle/inventory/Small"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_kdj4v")
+
+[node name="medium" type="TextureButton" parent="room3/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/inventory/medium"]
+z_index = 200
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("26_6fg5o")
+
+[node name="medium_selected" type="Sprite2D" parent="room3/GearPuzzle/inventory/medium"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("28_kdj4v")
+
+[node name="big" type="TextureButton" parent="room3/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/inventory/big"]
+z_index = 200
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("26_6fg5o")
+
+[node name="big_selected" type="Sprite2D" parent="room3/GearPuzzle/inventory/big"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("28_kdj4v")
+
+[node name="lazer" parent="room3" instance=ExtResource("4_4uqgr")]
+position = Vector2(2422, 1791)
+rotation = 1.5708
+scale = Vector2(7.33, 1)
+
+[node name="match_puzzle" type="Node2D" parent="room3" node_paths=PackedStringArray("character")]
+position = Vector2(22, -513)
+script = ExtResource("19_fi6lx")
+character = NodePath("../../CharacterBody2D")
+active = false
+solve_requirement = 4
+
+[node name="collisions" type="StaticBody2D" parent="room3/match_puzzle"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/collisions"]
+position = Vector2(2496, 2304)
+shape = SubResource("RectangleShape2D_dy72w")
+debug_color = Color(0.976471, 0, 0.411765, 0.419608)
+
+[node name="interaction" type="Area2D" parent="room3/match_puzzle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/interaction"]
+position = Vector2(2496, 2304)
+shape = SubResource("RectangleShape2D_8ofgc")
+debug_color = Color(0.196078, 0.627451, 0.372549, 0.419608)
+
+[node name="buttons" type="Node2D" parent="room3/match_puzzle"]
+
+[node name="button1" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(64, 192)
+script = ExtResource("20_etewm")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button1"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button1"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button1"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+offset_left = 2452.0
+offset_top = 2178.0
+offset_right = 2508.0
+offset_bottom = 2242.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button1"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button2" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(64, 64)
+script = ExtResource("20_etewm")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button2"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button2"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button2"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+offset_left = 2451.0
+offset_top = 2179.0
+offset_right = 2507.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button2"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button3" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(0, 192)
+script = ExtResource("20_etewm")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button3"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button3"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button3"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+offset_left = 2457.0
+offset_top = 2179.0
+offset_right = 2513.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button3"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button4" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(64, 128)
+script = ExtResource("20_etewm")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button4"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button4"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button4"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("14_re216")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+offset_left = 2457.0
+offset_top = 2179.0
+offset_right = 2513.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button4"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button5" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(0, 64)
+script = ExtResource("20_etewm")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button5"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button5"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button5"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+offset_left = 2458.0
+offset_top = 2179.0
+offset_right = 2514.0
+offset_bottom = 2243.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button5"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button6" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(0, 128)
+script = ExtResource("20_etewm")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button6"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button6"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button6"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+offset_left = 2457.0
+offset_top = 2180.0
+offset_right = 2513.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button6"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button7" type="Area2D" parent="room3/match_puzzle/buttons"]
+script = ExtResource("20_etewm")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button7"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button7"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button7"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+offset_left = 2451.0
+offset_top = 2178.0
+offset_right = 2507.0
+offset_bottom = 2242.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button7"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button8" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(64, 0)
+script = ExtResource("20_etewm")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button8"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button8"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_d8qb1")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button8"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+offset_left = 2451.0
+offset_top = 2178.0
+offset_right = 2507.0
+offset_bottom = 2242.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button8"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="Timer" type="Timer" parent="room3/match_puzzle"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="room3/match_puzzle"]
+position = Vector2(2496, 2304)
+enabled = false
+zoom = Vector2(2.8, 2.8)
+
+[node name="Camera" type="Area2D" parent="room3"]
+position = Vector2(2288, 1804)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/Camera"]
+position = Vector2(38, -13)
+shape = SubResource("RectangleShape2D_rt0c5")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/Camera"]
+position = Vector2(59, -13)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.88, 1.88)
+
+[node name="pause" parent="room3/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(62, -13)
+
+[node name="colision" type="StaticBody2D" parent="room3"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colision"]
+position = Vector2(2326, 1607)
+shape = SubResource("RectangleShape2D_y7cpr")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room3/colision"]
+position = Vector2(2638, 1791)
+shape = SubResource("RectangleShape2D_4hbej")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room3/colision"]
+position = Vector2(2014, 1703)
+shape = SubResource("RectangleShape2D_e61u7")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room3/colision"]
+position = Vector2(2014, 1911)
+shape = SubResource("RectangleShape2D_imfoc")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room3/colision"]
+position = Vector2(2166, 1975)
+shape = SubResource("RectangleShape2D_vr2p4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room3/colision"]
+position = Vector2(2518, 1975)
+shape = SubResource("RectangleShape2D_iipd5")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="room4" type="Node2D" parent="."]
+position = Vector2(1392, 384)
+
+[node name="Camera" type="Area2D" parent="room4"]
+position = Vector2(2288, 1804)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/Camera"]
+position = Vector2(64, -44.5)
+shape = SubResource("RectangleShape2D_85iou")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room4/Camera"]
+position = Vector2(64, -44)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(2.27, 2.27)
+
+[node name="pause" parent="room4/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(64, -44)
+
+[node name="Sprite2D" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2288, 1760)
+scale = Vector2(4, 4)
+texture = ExtResource("11_u2kxh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2288, 1696)
+scale = Vector2(4, 4)
+texture = ExtResource("12_wp4ul")
+
+[node name="Sprite2D3" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2416, 1760)
+scale = Vector2(4, 4)
+texture = ExtResource("13_b4at2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2416, 1696)
+scale = Vector2(4, 4)
+texture = ExtResource("14_re216")
+
+[node name="Sprite2D5" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2352, 1760)
+scale = Vector2(4, 4)
+texture = ExtResource("15_inqca")
+
+[node name="Sprite2D6" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2352, 1696)
+scale = Vector2(4, 4)
+texture = ExtResource("16_2wiek")
+
+[node name="Sprite2D7" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2288, 1824)
+scale = Vector2(4, 4)
+texture = ExtResource("17_lu6xo")
+
+[node name="Sprite2D8" type="Sprite2D" parent="room4"]
+texture_filter = 1
+position = Vector2(2352, 1824)
+scale = Vector2(4, 4)
+texture = ExtResource("18_xs2cl")
+
+[node name="colision" type="StaticBody2D" parent="room4"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/colision"]
+position = Vector2(2256, 1607.5)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room4/colision"]
+position = Vector2(2256, 1912)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room4/colision"]
+position = Vector2(2256, 1912)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room4/colision"]
+position = Vector2(2448, 1608)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room4/colision"]
+position = Vector2(2448, 1912)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room4/colision"]
+position = Vector2(2200, 1759.75)
+shape = SubResource("RectangleShape2D_ownpn")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room4/colision"]
+position = Vector2(2504, 1760)
+shape = SubResource("RectangleShape2D_ownpn")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="room5" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room5"]
+position = Vector2(3104, 1504)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/Camera"]
+position = Vector2(-64, -96)
+shape = SubResource("RectangleShape2D_deaw6")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room5/Camera"]
+position = Vector2(-64, -96)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.815, 1.875)
+
+[node name="pause" parent="room5/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(-64, -96)
+
+[node name="plate_puzzle" type="Node2D" parent="room5"]
+position = Vector2(1160, 312)
+script = ExtResource("29_8nq42")
+Combination = Array[int]([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+
+[node name="plate1" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2072, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate1"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate2" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2008, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate2"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate3" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1944, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate3"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate4" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1944, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate4"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate5" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1944, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate5"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate6" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2008, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate6"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate7" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2008, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate7"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate8" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2072, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate8"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate9" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2136, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate9"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate9"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate10" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2136, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate10"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate10"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate11" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2136, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate11"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate11"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate12" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2072, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate12"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate12"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate13" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2072, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate13"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate13"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate14" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2008, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate14"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate14"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate15" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1944, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate15"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate15"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate16" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1880, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate16"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate16"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate17" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(2136, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate17"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate17"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate18" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1880, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate18"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate18"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate19" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1816, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate19"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate19"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate20" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1752, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate20"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate20"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate21" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1688, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate21"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate21"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate22" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1624, 1184)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate22"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate22"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate23" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1624, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate23"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate23"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate24" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1688, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate24"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate24"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate25" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1752, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate25"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate25"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate26" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1752, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate26"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate26"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate27" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1752, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate27"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate27"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate28" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1816, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate28"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate28"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate29" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1816, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate29"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate29"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate30" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1880, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate30"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate30"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate31" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1880, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate31"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate31"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate32" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1816, 1120)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate32"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate32"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate33" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1688, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate33"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate33"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate34" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1624, 1056)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate34"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate34"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate35" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1624, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate35"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate35"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="plate36" type="Area2D" parent="room5/plate_puzzle"]
+position = Vector2(1688, 992)
+collision_layer = 2
+script = ExtResource("30_kk6kx")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/plate_puzzle/plate36"]
+texture_filter = 1
+position = Vector2(0, 8)
+scale = Vector2(4, 4)
+texture = ExtResource("31_qy8ik")
+
+[node name="Collision" type="CollisionShape2D" parent="room5/plate_puzzle/plate36"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_itmrx")
+
+[node name="door" parent="room5" instance=ExtResource("9_uhtck")]
+position = Vector2(3016, 1208)
+
+[node name="colision" type="StaticBody2D" parent="room5"]
+position = Vector2(0, -384)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colision"]
+position = Vector2(2848, 1976)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room5/colision"]
+position = Vector2(2848, 1608)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room5/colision"]
+position = Vector2(3232, 1608)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room5/colision"]
+position = Vector2(3232, 1976)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room5/colision"]
+position = Vector2(2696, 1792)
+shape = SubResource("RectangleShape2D_ilvdo")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room5/colision"]
+position = Vector2(3384, 1704)
+shape = SubResource("RectangleShape2D_waw3n")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="room5/colision"]
+position = Vector2(3384, 1912)
+shape = SubResource("RectangleShape2D_2fqie")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="room6" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room6"]
+position = Vector2(3104, 1032)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/Camera"]
+position = Vector2(-64, -76)
+shape = SubResource("RectangleShape2D_j2abd")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room6/Camera"]
+position = Vector2(-64, -72)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.4, 1.4)
+
+[node name="pause" parent="room6/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(-64, -72)
+
+[node name="colision" type="StaticBody2D" parent="room6"]
+position = Vector2(0, -896)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(2848, 2104)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(2816, 1608)
+shape = SubResource("RectangleShape2D_57opk")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(3264, 1608)
+shape = SubResource("RectangleShape2D_57opk")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(3232, 1736)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(2848, 1736)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(2848, 1864)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(3232, 1864)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(3232, 2104)
+shape = SubResource("RectangleShape2D_hte4p")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(2696, 1856)
+shape = SubResource("RectangleShape2D_6v2o1")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="room6/colision"]
+position = Vector2(3384, 1856)
+shape = SubResource("RectangleShape2D_6v2o1")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="door" parent="room6" instance=ExtResource("32_06w67")]
+texture_filter = 1
+position = Vector2(2336, 696)
+
+[node name="door2" parent="room6" instance=ExtResource("32_06w67")]
+texture_filter = 1
+position = Vector2(2336, 568)
+
+[node name="door3" parent="room6" instance=ExtResource("32_06w67")]
+texture_filter = 1
+position = Vector2(928, 440)
+scale = Vector2(3, 1)
+
+[node name="lever" type="Area2D" parent="room6"]
+position = Vector2(3080, 1120)
+script = ExtResource("5_7sl06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room6/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_hbj2y")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_47uvt")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever2" type="Area2D" parent="room6"]
+position = Vector2(2888, 1120)
+script = ExtResource("5_7sl06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room6/lever2"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_hbj2y")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/lever2"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_47uvt")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever3" type="Area2D" parent="room6"]
+position = Vector2(3272, 1120)
+script = ExtResource("5_7sl06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room6/lever3"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_hbj2y")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/lever3"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_47uvt")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="room7" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room7"]
+position = Vector2(3680, 2506)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/Camera"]
+position = Vector2(64, -44.5)
+shape = SubResource("RectangleShape2D_85iou")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room7/Camera"]
+position = Vector2(64, -44)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(2.27, 2.27)
+
+[node name="pause" parent="room7/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(64, -42)
+
+[node name="colision" type="StaticBody2D" parent="room7"]
+position = Vector2(1392, 704)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/colision"]
+position = Vector2(2256, 1607.5)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room7/colision"]
+position = Vector2(2352, 1912)
+shape = SubResource("RectangleShape2D_pcrqj")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room7/colision"]
+position = Vector2(2448, 1608)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room7/colision"]
+position = Vector2(2200, 1759.75)
+shape = SubResource("RectangleShape2D_ownpn")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room7/colision"]
+position = Vector2(2504, 1760)
+shape = SubResource("RectangleShape2D_ownpn")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="door" parent="room7" instance=ExtResource("9_uhtck")]
+position = Vector2(3720, 2278)
+
+[node name="key" parent="room7" instance=ExtResource("33_24wla")]
+position = Vector2(3240, 1936)
+
+[node name="room8" type="Node2D" parent="."]
+position = Vector2(-1280, -319)
+
+[node name="Camera" type="Area2D" parent="room8"]
+position = Vector2(3680, 2506)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/Camera"]
+position = Vector2(64, -44.5)
+shape = SubResource("RectangleShape2D_85iou")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room8/Camera"]
+position = Vector2(64, -44)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(2.27, 2.27)
+
+[node name="pause" parent="room8/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(64, -43)
+
+[node name="colision" type="StaticBody2D" parent="room8"]
+position = Vector2(1392, 704)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/colision"]
+position = Vector2(2256, 1607.5)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room8/colision"]
+position = Vector2(2352, 1912)
+shape = SubResource("RectangleShape2D_pcrqj")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room8/colision"]
+position = Vector2(2448, 1608)
+shape = SubResource("RectangleShape2D_tuxd4")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room8/colision"]
+position = Vector2(2200, 1759.75)
+shape = SubResource("RectangleShape2D_ownpn")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room8/colision"]
+position = Vector2(2504, 1760)
+shape = SubResource("RectangleShape2D_ownpn")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="door" parent="room8" instance=ExtResource("9_uhtck")]
+position = Vector2(3720, 2278)
+
+[node name="key" parent="room8" instance=ExtResource("33_24wla")]
+position = Vector2(3240, 1936)
+
+[node name="room9" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room9"]
+position = Vector2(3489, 1484)
+collision_layer = 2
+script = ExtResource("3_mr801")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room9/Camera"]
+position = Vector2(64, -44.5)
+shape = SubResource("RectangleShape2D_85iou")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room9/Camera"]
+position = Vector2(189, -45)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(2.245, 2.245)
+
+[node name="pause" parent="room9/Camera" instance=ExtResource("4_7ia3b")]
+visible = false
+position = Vector2(191, -44)
+
+[node name="colision" type="StaticBody2D" parent="room9"]
+position = Vector2(1200, -320)
+collision_layer = 2
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room9/colision"]
+position = Vector2(2352, 1912)
+shape = SubResource("RectangleShape2D_pcrqj")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room9/colision"]
+position = Vector2(2352, 1608)
+shape = SubResource("RectangleShape2D_pcrqj")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room9/colision"]
+position = Vector2(2504, 1759.75)
+shape = SubResource("RectangleShape2D_hc4jn")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room9/colision"]
+position = Vector2(2200, 1671.88)
+shape = SubResource("RectangleShape2D_lfgws")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room9/colision"]
+position = Vector2(2200, 1848)
+shape = SubResource("RectangleShape2D_lfgws")
+debug_color = Color(0.960784, 0.133333, 0.380392, 0.419608)
+
+[node name="door" parent="room9" instance=ExtResource("9_uhtck")]
+position = Vector2(3400, 1416)
+rotation = 1.5708
+
+[node name="key" parent="room9" instance=ExtResource("33_24wla")]
+position = Vector2(3048, 912)
+
+[node name="level_end" type="Area2D" parent="."]
+position = Vector2(2952, 584)
+script = ExtResource("34_wc174")
+level = ExtResource("35_6me0t")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_end"]
+position = Vector2(87, 55)
+shape = SubResource("RectangleShape2D_5bwf5")
+
+[node name="completion_timer" parent="." instance=ExtResource("36_by7dh")]
+
+[node name="save" parent="." instance=ExtResource("38_6mfr5")]
+level = 5
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 136.0
+offset_bottom = 136.0
+
+[node name="lazer_anti_earape" type="Node" parent="."]
+script = ExtResource("39_8wfca")
+
+[connection signal="body_entered" from="room1/Camera" to="room1/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/Camera" to="room1/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room1/lever" to="room1/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/lever" to="room1/lever" method="_on_body_exited"]
+[connection signal="off" from="room1/lever" to="room1/maze_1" method="toggle"]
+[connection signal="off" from="room1/lever" to="room1/maze_2" method="toggle"]
+[connection signal="on" from="room1/lever" to="room1/maze_1" method="toggle"]
+[connection signal="on" from="room1/lever" to="room1/maze_2" method="toggle"]
+[connection signal="body_entered" from="room1/lever2" to="room1/lever2" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/lever2" to="room1/lever2" method="_on_body_exited"]
+[connection signal="off" from="room1/lever2" to="room1/maze_2" method="toggle"]
+[connection signal="off" from="room1/lever2" to="room1/maze_3" method="toggle"]
+[connection signal="on" from="room1/lever2" to="room1/maze_2" method="toggle"]
+[connection signal="on" from="room1/lever2" to="room1/maze_3" method="toggle"]
+[connection signal="body_entered" from="room1/lever3" to="room1/lever3" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/lever3" to="room1/lever3" method="_on_body_exited"]
+[connection signal="off" from="room1/lever3" to="room1/maze_2" method="toggle"]
+[connection signal="off" from="room1/lever3" to="room1/maze_4" method="toggle"]
+[connection signal="on" from="room1/lever3" to="room1/maze_2" method="toggle"]
+[connection signal="on" from="room1/lever3" to="room1/maze_4" method="toggle"]
+[connection signal="body_entered" from="room1/lever4" to="room1/lever4" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/lever4" to="room1/lever4" method="_on_body_exited"]
+[connection signal="off" from="room1/lever4" to="room1/maze_2" method="toggle"]
+[connection signal="off" from="room1/lever4" to="room1/maze_5" method="toggle"]
+[connection signal="on" from="room1/lever4" to="room1/maze_2" method="toggle"]
+[connection signal="on" from="room1/lever4" to="room1/maze_5" method="toggle"]
+[connection signal="solved" from="room2/slide_puzzle" to="room2/lazer" method="disable"]
+[connection signal="solved" from="room2/slide_puzzle" to="room2/match_puzzle" method="activate"]
+[connection signal="click" from="room2/slide_puzzle/plate1" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate1/TextureButton" to="room2/slide_puzzle/plate1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate2" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate2/TextureButton" to="room2/slide_puzzle/plate2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate3" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate3/TextureButton" to="room2/slide_puzzle/plate3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate4" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate4/TextureButton" to="room2/slide_puzzle/plate4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate5" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate5/TextureButton" to="room2/slide_puzzle/plate5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate6" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate6/TextureButton" to="room2/slide_puzzle/plate6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate7" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate7/TextureButton" to="room2/slide_puzzle/plate7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate8" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate8/TextureButton" to="room2/slide_puzzle/plate8" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room2/slide_puzzle/Area2D" to="room2/slide_puzzle" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="room2/slide_puzzle/Area2D" to="room2/slide_puzzle" method="_on_area_2d_body_exited"]
+[connection signal="solved" from="room2/match_puzzle" to="room1/door" method="on_signal"]
+[connection signal="body_entered" from="room2/match_puzzle/interaction" to="room2/match_puzzle" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="room2/match_puzzle/interaction" to="room2/match_puzzle" method="_on_interaction_body_exited"]
+[connection signal="click" from="room2/match_puzzle/buttons/button1" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button1/TextureButton" to="room2/match_puzzle/buttons/button1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button2" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button2/TextureButton" to="room2/match_puzzle/buttons/button2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button3" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button3/TextureButton" to="room2/match_puzzle/buttons/button3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button4" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button4/TextureButton" to="room2/match_puzzle/buttons/button4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button5" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button5/TextureButton" to="room2/match_puzzle/buttons/button5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button6" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button6/TextureButton" to="room2/match_puzzle/buttons/button6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button7" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button7/TextureButton" to="room2/match_puzzle/buttons/button7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button8" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button8/TextureButton" to="room2/match_puzzle/buttons/button8" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="room2/match_puzzle/Timer" to="room2/match_puzzle" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room2/Camera" to="room2/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/Camera" to="room2/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear" to="room2/gear" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear" to="room2/gear" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear2" to="room2/gear2" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear2" to="room2/gear2" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear3" to="room2/gear3" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear3" to="room2/gear3" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear4" to="room2/gear4" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear4" to="room2/gear4" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear5" to="room2/gear5" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear5" to="room2/gear5" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear6" to="room2/gear6" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear6" to="room2/gear6" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear7" to="room2/gear7" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear7" to="room2/gear7" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear8" to="room2/gear8" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear8" to="room2/gear8" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear9" to="room2/gear9" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear9" to="room2/gear9" method="_on_body_exited"]
+[connection signal="solved" from="room3/GearPuzzle" to="room3/lazer" method="disable"]
+[connection signal="solved" from="room3/GearPuzzle" to="room3/match_puzzle" method="activate"]
+[connection signal="un_solved" from="room3/GearPuzzle" to="room3/lazer" method="enable"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place/TextureButton" to="room3/GearPuzzle/Gears/place" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place2" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place2/TextureButton" to="room3/GearPuzzle/Gears/place2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place3" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place3/TextureButton" to="room3/GearPuzzle/Gears/place3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place4" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place4/TextureButton" to="room3/GearPuzzle/Gears/place4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place5" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place5/TextureButton" to="room3/GearPuzzle/Gears/place5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place6" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place6/TextureButton" to="room3/GearPuzzle/Gears/place6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place7" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place7/TextureButton" to="room3/GearPuzzle/Gears/place7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place8" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place8/TextureButton" to="room3/GearPuzzle/Gears/place8" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place9" to="room3/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place9/TextureButton" to="room3/GearPuzzle/Gears/place9" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room3/GearPuzzle/interction" to="room3/GearPuzzle" method="_on_interction_body_entered"]
+[connection signal="body_exited" from="room3/GearPuzzle/interction" to="room3/GearPuzzle" method="_on_interction_body_exited"]
+[connection signal="pressed" from="room3/GearPuzzle/inventory/Small" to="room3/GearPuzzle/inventory" method="_on_small_click"]
+[connection signal="pressed" from="room3/GearPuzzle/inventory/medium" to="room3/GearPuzzle/inventory" method="_on_medium_click"]
+[connection signal="pressed" from="room3/GearPuzzle/inventory/big" to="room3/GearPuzzle/inventory" method="_on_big_click"]
+[connection signal="solved" from="room3/match_puzzle" to="room1/door2" method="on_signal"]
+[connection signal="body_entered" from="room3/match_puzzle/interaction" to="room3/match_puzzle" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="room3/match_puzzle/interaction" to="room3/match_puzzle" method="_on_interaction_body_exited"]
+[connection signal="click" from="room3/match_puzzle/buttons/button1" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button1/TextureButton" to="room3/match_puzzle/buttons/button1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button2" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button2/TextureButton" to="room3/match_puzzle/buttons/button2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button3" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button3/TextureButton" to="room3/match_puzzle/buttons/button3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button4" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button4/TextureButton" to="room3/match_puzzle/buttons/button4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button5" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button5/TextureButton" to="room3/match_puzzle/buttons/button5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button6" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button6/TextureButton" to="room3/match_puzzle/buttons/button6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button7" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button7/TextureButton" to="room3/match_puzzle/buttons/button7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button8" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button8/TextureButton" to="room3/match_puzzle/buttons/button8" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="room3/match_puzzle/Timer" to="room3/match_puzzle" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room3/Camera" to="room3/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room3/Camera" to="room3/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room4/Camera" to="room4/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room4/Camera" to="room4/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room5/Camera" to="room5/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room5/Camera" to="room5/Camera" method="_on_body_exited"]
+[connection signal="failed" from="room5/plate_puzzle" to="room5/door" method="close"]
+[connection signal="solved" from="room5/plate_puzzle" to="room5/door" method="on_signal"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate1" to="room5/plate_puzzle/plate1" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate1" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate2" to="room5/plate_puzzle/plate2" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate2" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate3" to="room5/plate_puzzle/plate3" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate3" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate4" to="room5/plate_puzzle/plate4" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate4" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate5" to="room5/plate_puzzle/plate5" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate5" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate6" to="room5/plate_puzzle/plate6" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate6" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate7" to="room5/plate_puzzle/plate7" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate7" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate8" to="room5/plate_puzzle/plate8" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate8" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate9" to="room5/plate_puzzle/plate9" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate9" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate10" to="room5/plate_puzzle/plate10" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate10" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate11" to="room5/plate_puzzle/plate11" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate11" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate12" to="room5/plate_puzzle/plate12" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate12" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate13" to="room5/plate_puzzle/plate13" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate13" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate14" to="room5/plate_puzzle/plate14" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate14" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate15" to="room5/plate_puzzle/plate15" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate15" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate16" to="room5/plate_puzzle/plate16" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate16" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate17" to="room5/plate_puzzle/plate17" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate17" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate18" to="room5/plate_puzzle/plate18" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate18" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate19" to="room5/plate_puzzle/plate19" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate19" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate20" to="room5/plate_puzzle/plate20" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate20" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate21" to="room5/plate_puzzle/plate21" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate21" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate22" to="room5/plate_puzzle/plate22" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate22" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate23" to="room5/plate_puzzle/plate23" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate23" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate24" to="room5/plate_puzzle/plate24" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate24" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate25" to="room5/plate_puzzle/plate25" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate25" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate26" to="room5/plate_puzzle/plate26" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate26" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate27" to="room5/plate_puzzle/plate27" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate27" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate28" to="room5/plate_puzzle/plate28" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate28" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate29" to="room5/plate_puzzle/plate29" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate29" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate30" to="room5/plate_puzzle/plate30" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate30" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate31" to="room5/plate_puzzle/plate31" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate31" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate32" to="room5/plate_puzzle/plate32" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate32" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate33" to="room5/plate_puzzle/plate33" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate33" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate34" to="room5/plate_puzzle/plate34" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate34" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate35" to="room5/plate_puzzle/plate35" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate35" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room5/plate_puzzle/plate36" to="room5/plate_puzzle/plate36" method="_on_body_entered"]
+[connection signal="stepped_on" from="room5/plate_puzzle/plate36" to="room5/plate_puzzle" method="stepped_on"]
+[connection signal="body_entered" from="room6/Camera" to="room6/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room6/Camera" to="room6/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room6/lever" to="room6/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room6/lever" to="room6/lever" method="_on_body_exited"]
+[connection signal="off" from="room6/lever" to="room7/door" method="close"]
+[connection signal="on" from="room6/lever" to="room7/door" method="on_signal"]
+[connection signal="body_entered" from="room6/lever2" to="room6/lever2" method="_on_body_entered"]
+[connection signal="body_exited" from="room6/lever2" to="room6/lever2" method="_on_body_exited"]
+[connection signal="off" from="room6/lever2" to="room8/door" method="close"]
+[connection signal="on" from="room6/lever2" to="room8/door" method="on_signal"]
+[connection signal="body_entered" from="room6/lever3" to="room6/lever3" method="_on_body_entered"]
+[connection signal="body_exited" from="room6/lever3" to="room6/lever3" method="_on_body_exited"]
+[connection signal="off" from="room6/lever3" to="room9/door" method="close"]
+[connection signal="on" from="room6/lever3" to="room9/door" method="on_signal"]
+[connection signal="body_entered" from="room7/Camera" to="room7/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/Camera" to="room7/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room8/Camera" to="room8/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/Camera" to="room8/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room9/Camera" to="room9/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room9/Camera" to="room9/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="level_end" to="level_end" method="_on_body_entered"]

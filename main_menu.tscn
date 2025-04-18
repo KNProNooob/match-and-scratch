@@ -1,0 +1,353 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsugivu00h4x2"]
+
+[ext_resource type="Script" uid="uid://dcvfn1uai266b" path="res://main_menu.gd" id="1_wve2h"]
+[ext_resource type="Texture2D" uid="uid://bu0mc3jwnc5w4" path="res://assets/key.png" id="2_5mldo"]
+[ext_resource type="Texture2D" uid="uid://bq6gsvqhdd4nl" path="res://assets/gear_puzzle/gear_gold.png" id="3_qcnwr"]
+[ext_resource type="Texture2D" uid="uid://bqg32t0csa47s" path="res://assets/lever/tmp_left.png" id="5_like6"]
+[ext_resource type="Texture2D" uid="uid://b3wvwfi8h610a" path="res://assets/plate_puzzle/uncolored.png" id="6_cnpg6"]
+[ext_resource type="Texture2D" uid="uid://bqk1spc56xoml" path="res://assets/lever/tmp_right.png" id="6_e61p4"]
+[ext_resource type="Script" uid="uid://dfxal0i08nd0h" path="res://lazer_anti_earape.gd" id="7_b4oyd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcseu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_like6")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_e61p4")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="main_menu" type="Node2D"]
+position = Vector2(0, -48)
+script = ExtResource("1_wve2h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 100
+offset_left = 15091.9
+offset_top = 13415.0
+offset_right = 15147.9
+offset_bottom = 13479.0
+theme_override_font_sizes/normal_font_size = 40
+text = "୰"
+
+[node name="new_game" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 184.0
+offset_right = 752.0
+offset_bottom = 264.0
+theme_override_font_sizes/font_size = 40
+text = "New Game"
+
+[node name="continue" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 288.0
+offset_right = 752.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 40
+disabled = true
+text = "Continue"
+
+[node name="leaderboard" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 512.0
+offset_right = 751.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 40
+text = "Leaderboard"
+
+[node name="walktrough" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 616.0
+offset_right = 319.0
+offset_bottom = 696.0
+theme_override_font_sizes/font_size = 40
+text = "Walkthrough"
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 960.0
+offset_top = 616.0
+offset_right = 1215.0
+offset_bottom = 696.0
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 496.0
+offset_top = 616.0
+offset_right = 751.0
+offset_bottom = 696.0
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="credits_cam" type="Camera2D" parent="."]
+position = Vector2(1860, 1366)
+enabled = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="credits_cam"]
+offset_left = -164.0
+offset_top = -342.0
+offset_right = 132.0
+offset_bottom = -238.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center] Credits"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="credits_cam"]
+offset_left = -356.0
+offset_top = -246.0
+offset_right = 340.0
+offset_bottom = -142.0
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]Developer: 
+"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="credits_cam"]
+offset_left = -676.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 58.0
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]Sounds:
+"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="credits_cam"]
+offset_left = -12.0
+offset_top = -22.0
+offset_right = 684.0
+offset_bottom = 58.0
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]Playtesters:
+"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="credits_cam"]
+offset_left = -355.0
+offset_top = -110.0
+offset_right = 341.0
+offset_bottom = -30.0
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]Name Suggestion:
+"
+
+[node name="LinkButton" type="LinkButton" parent="credits_cam"]
+offset_left = -596.0
+offset_top = 42.0
+offset_right = -56.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "Open and Closed Door - SoundReality"
+underline = 1
+uri = "https://pixabay.com/sound-effects/open-and-closed-door-156814/"
+
+[node name="LinkButton9" type="LinkButton" parent="credits_cam"]
+offset_left = -210.0
+offset_top = -182.0
+offset_right = 330.0
+offset_bottom = -140.0
+theme_override_font_sizes/font_size = 30
+text = "Kristian Nikolov(KNProNoob)"
+underline = 1
+uri = "https://knpronoob.xyz"
+
+[node name="LinkButton4" type="LinkButton" parent="credits_cam"]
+offset_left = -83.0
+offset_top = -46.0
+offset_right = 249.0
+offset_bottom = -4.0
+theme_override_font_sizes/font_size = 30
+text = "cursed144"
+underline = 1
+uri = "https://gamejolt.com/@cursed144"
+
+[node name="LinkButton2" type="LinkButton" parent="credits_cam"]
+offset_left = -492.0
+offset_top = 90.0
+offset_right = -171.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Power Down - Pixabay"
+underline = 1
+uri = "https://pixabay.com/sound-effects/power-down-7103/"
+
+[node name="LinkButton5" type="LinkButton" parent="credits_cam"]
+offset_left = 260.0
+offset_top = 42.0
+offset_right = 403.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "toniabv69"
+underline = 1
+uri = "https://gamejolt.com/@ToniAngelov1"
+
+[node name="LinkButton6" type="LinkButton" parent="credits_cam"]
+offset_left = 241.0
+offset_top = 90.0
+offset_right = 424.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Sasho Basho"
+underline = 1
+uri = "https://gamejolt.com/@TurshiaTuesday"
+
+[node name="LinkButton7" type="LinkButton" parent="credits_cam"]
+offset_left = 260.0
+offset_top = 138.0
+offset_right = 427.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 30
+text = "Amalino7"
+underline = 2
+
+[node name="LinkButton8" type="LinkButton" parent="credits_cam"]
+offset_left = 250.0
+offset_top = 186.0
+offset_right = 417.0
+offset_bottom = 228.0
+theme_override_font_sizes/font_size = 30
+text = "PavkataXD"
+underline = 2
+
+[node name="LinkButton3" type="LinkButton" parent="credits_cam"]
+offset_left = -468.0
+offset_top = 138.0
+offset_right = -147.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 30
+text = "Laser Gun - Pixabay"
+underline = 1
+uri = "https://pixabay.com/sound-effects/laser-gun-81720/"
+
+[node name="back_to_menu" type="Button" parent="credits_cam"]
+offset_left = -52.0
+offset_top = 242.0
+offset_right = 48.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1152, 208)
+rotation = -0.616356
+scale = Vector2(6.35944, 5.92543)
+texture = ExtResource("2_5mldo")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2400, 1648)
+rotation = -0.616356
+scale = Vector2(6.35944, 5.92543)
+texture = ExtResource("2_5mldo")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1384, 1280)
+rotation = -0.616356
+scale = Vector2(6.35944, 5.92543)
+texture = ExtResource("2_5mldo")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(144, 320)
+rotation = 0.877114
+scale = Vector2(6.35944, 5.92543)
+texture = ExtResource("2_5mldo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1136, 528)
+scale = Vector2(2.53226, 2.52829)
+texture = ExtResource("3_qcnwr")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1304, 1648)
+scale = Vector2(2.53226, 2.52829)
+texture = ExtResource("3_qcnwr")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2304, 1152)
+scale = Vector2(2.53226, 2.52829)
+texture = ExtResource("3_qcnwr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(64, 112)
+scale = Vector2(1.59266, 1.59068)
+texture = ExtResource("3_qcnwr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(160, 504)
+scale = Vector2(1.59266, 1.59068)
+texture = ExtResource("3_qcnwr")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1312, 1088)
+scale = Vector2(1.59266, 1.59068)
+texture = ExtResource("3_qcnwr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1016, 384)
+rotation = 0.801978
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_qcseu")
+animation = &"off"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2392, 1320)
+rotation = 0.801978
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_qcseu")
+animation = &"off"
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1011.42, 155.419)
+rotation = 0.499558
+scale = Vector2(4, 4)
+texture = ExtResource("6_cnpg6")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 1014.0
+offset_top = 130.0
+offset_right = 1062.0
+offset_bottom = 178.0
+rotation = 0.499558
+theme_override_font_sizes/normal_font_size = 30
+text = "6
+"
+
+[node name="lazer_anti_earape" type="Node" parent="."]
+script = ExtResource("7_b4oyd")
+reseter = true
+
+[connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="walktrough" to="." method="_on_walktrough_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="credits_cam/back_to_menu" to="." method="_on_back_to_menu_pressed"]

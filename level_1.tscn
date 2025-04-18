@@ -1,0 +1,1881 @@
+[gd_scene load_steps=41 format=3 uid="uid://cnon5xvabjkoe"]
+
+[ext_resource type="Texture2D" uid="uid://qee30fe2b1np" path="res://assets/tilemap.png" id="1_byf8v"]
+[ext_resource type="Script" uid="uid://drs3gvna3yuhe" path="res://Camera.gd" id="2_uarf7"]
+[ext_resource type="PackedScene" uid="uid://c1fx16wmlo45w" path="res://pause_menu.tscn" id="3_nhoak"]
+[ext_resource type="Texture2D" uid="uid://db1wmdfa22xf" path="res://assets/gear_puzzle/gear.png" id="5_4i5o7"]
+[ext_resource type="Script" uid="uid://bibxse0ce5lb0" path="res://gear_puzzle.gd" id="5_jnunk"]
+[ext_resource type="Texture2D" uid="uid://bq6gsvqhdd4nl" path="res://assets/gear_puzzle/gear_gold.png" id="6_18bp1"]
+[ext_resource type="PackedScene" uid="uid://dghe131wa2uka" path="res://character.tscn" id="6_atg3t"]
+[ext_resource type="Script" uid="uid://cil7p4x01dlw0" path="res://gear_place.gd" id="7_gteja"]
+[ext_resource type="Texture2D" uid="uid://r8qwc3yp7mxm" path="res://assets/gear_puzzle/placement.png" id="8_geqe3"]
+[ext_resource type="Script" uid="uid://c83splk0u0ie2" path="res://gear_inventory.gd" id="9_hyhrq"]
+[ext_resource type="PackedScene" uid="uid://h842fiqrcevs" path="res://stone_door.tscn" id="11_f4411"]
+[ext_resource type="Texture2D" uid="uid://dbvtfe7ped4kr" path="res://assets/gear_puzzle/gear_selected.png" id="11_vsk3l"]
+[ext_resource type="Script" uid="uid://wy60cvlju6n3" path="res://level_end.gd" id="14_4gcji"]
+[ext_resource type="PackedScene" uid="uid://c7dv8xoooexm8" path="res://level_2.tscn" id="15_5b86k"]
+[ext_resource type="PackedScene" uid="uid://b3j0ypr4fpsoe" path="res://completion_timer.tscn" id="15_vwg58"]
+[ext_resource type="PackedScene" uid="uid://d3qyl43wkei0q" path="res://save.tscn" id="17_blvxs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agm7g"]
+texture = ExtResource("1_byf8v")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_a1dmb"]
+sources/0 = SubResource("TileSetAtlasSource_agm7g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqknk"]
+size = Vector2(576, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqjqg"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4t8f"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32v0g"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khrnt"]
+size = Vector2(16, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fcax"]
+size = Vector2(240, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h07qn"]
+size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ficni"]
+size = Vector2(320.735, 192.035)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lck23"]
+size = Vector2(344, 208)
+
+[sub_resource type="GDScript" id="GDScript_rmn42"]
+script/source = "extends Area2D
+@export var type = 0
+
+var collision = false
+
+func _on_body_entered(body):
+	
+	collision = true
+
+
+func _on_body_exited(body):
+	collision = false
+	
+func _input(event):
+	if event.is_action_pressed(\"interact\"):
+		if collision:
+			hide()
+			monitoring = false
+			if type == 1:
+				Global.small_gears += 1
+			if type == 2:
+				Global.medium_gears += 1
+			if type == 3:
+				Global.big_gears += 1
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfsw"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyux8"]
+size = Vector2(704, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_842i4"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fu4i"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvlmo"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyco4"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8fj3"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngeq4"]
+size = Vector2(16, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbkkx"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdk26"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjs7e"]
+size = Vector2(704, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j01ra"]
+size = Vector2(194, 130)
+
+[node name="level_1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_a1dmb")
+format = 2
+layer_0/tile_data = PackedInt32Array(1638446, 131072, 2, 1638438, 0, 2, 1638439, 65536, 2, 1638445, 65536, 2, 1638444, 65536, 2, 1638440, 65536, 2, 1638443, 65536, 2, 1638441, 65536, 2, 1245222, 0, 0, 1245230, 131072, 0, 1310758, 0, 1, 1376294, 0, 1, 1441830, 0, 1, 1507366, 0, 1, 1572902, 0, 1, 1245223, 65536, 0, 1245224, 65536, 0, 1245225, 65536, 0, 1245229, 65536, 0, 1245228, 65536, 0, 1245227, 65536, 0, 1310766, 131072, 1, 1376302, 131072, 1, 1441838, 131072, 1, 1507374, 131072, 1, 1572910, 131072, 1, 1572903, 65536, 1, 1572904, 65536, 1, 1572905, 65536, 1, 1572906, 65536, 1, 1572907, 65536, 1, 1572908, 65536, 1, 1572909, 65536, 1, 1507373, 65536, 1, 1441837, 65536, 1, 1376301, 65536, 1, 1310765, 65536, 1, 1310764, 65536, 1, 1310763, 65536, 1, 1310762, 65536, 1, 1310761, 65536, 1, 1310760, 65536, 1, 1310759, 65536, 1, 1376295, 65536, 1, 1441831, 65536, 1, 1507367, 65536, 1, 1245226, 65536, 1, 1638442, 65536, 1, 1179686, 65536, 2, 786470, 65536, 0, 1179692, 65536, 2, 1179691, 65536, 2, 1179689, 65536, 2, 1179688, 65536, 2, 1179687, 65536, 2, 852006, 65536, 1, 1114151, 65536, 1, 1114150, 65536, 1, 786471, 65536, 0, 786472, 65536, 0, 786473, 65536, 1, 786475, 65536, 0, 786476, 65536, 0, 852007, 65536, 1, 1114152, 65536, 1, 1114153, 65536, 1, 1114154, 65536, 1, 1114155, 65536, 1, 1114156, 65536, 1, 852012, 65536, 1, 852011, 65536, 1, 852010, 65536, 1, 852009, 65536, 1, 852008, 65536, 1, 1179690, 65536, 1, 786474, 65536, 0, 1179684, 0, 2, 1048620, 65536, 1, 983084, 65536, 1, 917548, 65536, 1, 786468, 0, 0, 852004, 0, 1, 917540, 0, 1, 1048612, 0, 1, 1114148, 0, 1, 786469, 65536, 0, 852005, 65536, 1, 917541, 65536, 1, 983077, 65536, 1, 1048613, 65536, 1, 1114149, 65536, 1, 1179685, 65536, 2, 983076, 65536, 1, 786478, 131072, 0, 1179694, 131072, 2, 852014, 131072, 1, 917550, 131072, 1, 983086, 131072, 1, 1048622, 131072, 1, 1114158, 131072, 1, 1179693, 65536, 2, 786477, 65536, 0, 852013, 65536, 1, 917549, 65536, 1, 983085, 65536, 1, 1048621, 65536, 1, 1114157, 65536, 1, 917542, 65536, 1, 983078, 65536, 1, 1048614, 65536, 1, 720932, 0, 2, 720941, 65536, 2, 720942, 131072, 2, 327725, 65536, 0, 327726, 131072, 0, 327716, 0, 0, 327717, 65536, 0, 327718, 65536, 0, 327719, 65536, 0, 327720, 65536, 0, 327722, 65536, 0, 327723, 65536, 0, 327724, 65536, 0, 393261, 65536, 1, 393262, 131072, 1, 458797, 65536, 1, 458798, 131072, 1, 524333, 65536, 1, 524334, 131072, 1, 589869, 65536, 1, 589870, 131072, 1, 655405, 65536, 1, 655406, 131072, 1, 393252, 0, 1, 393253, 65536, 1, 458788, 0, 1, 458789, 65536, 1, 589860, 0, 1, 589861, 65536, 1, 655396, 0, 1, 655397, 65536, 1, 720933, 65536, 2, 655398, 65536, 1, 720934, 65536, 2, 655399, 65536, 1, 720935, 65536, 2, 655400, 65536, 1, 720936, 65536, 2, 655402, 65536, 1, 720938, 65536, 2, 655403, 65536, 1, 720939, 65536, 2, 655404, 65536, 1, 720940, 65536, 2, 524324, 65536, 1, 327721, 65536, 1, 720937, 65536, 1, 393257, 65536, 1, 393260, 65536, 1, 393259, 65536, 1, 393258, 65536, 1, 393256, 65536, 1, 393255, 65536, 1, 393254, 65536, 1, 458796, 65536, 1, 524332, 65536, 1, 589868, 65536, 1, 458790, 65536, 1, 524326, 65536, 1, 589862, 65536, 1, 524325, 65536, 1, 655401, 65536, 1, 327705, 0, 0, 720921, 0, 2, 720931, 131072, 2, 327715, 131072, 0, 393251, 131072, 1, 458787, 131072, 1, 589859, 131072, 1, 655395, 131072, 1, 720930, 65536, 2, 720929, 65536, 2, 720928, 65536, 2, 720927, 65536, 2, 720925, 65536, 2, 720924, 65536, 2, 720923, 65536, 2, 720922, 65536, 2, 393241, 0, 1, 458777, 0, 1, 524313, 0, 1, 589849, 0, 1, 655385, 0, 1, 327706, 65536, 0, 327707, 65536, 0, 327708, 65536, 0, 327709, 65536, 0, 327710, 65536, 0, 327711, 65536, 0, 327712, 65536, 0, 327713, 65536, 0, 327714, 65536, 0, 524323, 65536, 1, 524322, 65536, 1, 524321, 65536, 1, 458785, 65536, 1, 393249, 65536, 1, 393250, 65536, 1, 458786, 65536, 1, 589858, 65536, 1, 655394, 65536, 1, 655393, 65536, 1, 589857, 65536, 1, 655392, 65536, 1, 655391, 65536, 1, 655390, 65536, 1, 655389, 65536, 1, 655388, 65536, 1, 655387, 65536, 1, 589851, 65536, 1, 524315, 65536, 1, 458779, 65536, 1, 393243, 65536, 1, 393244, 65536, 1, 393245, 65536, 1, 393246, 65536, 1, 393247, 65536, 1, 393248, 65536, 1, 393242, 65536, 1, 458778, 65536, 1, 524314, 65536, 1, 589850, 65536, 1, 655386, 65536, 1, 720926, 65536, 1, 786461, 65536, 0, 786460, 65536, 0, 786459, 65536, 0, 786458, 65536, 0, 786457, 0, 0, 786463, 65536, 0, 786464, 65536, 0, 786465, 65536, 0, 786466, 65536, 0, 786467, 131072, 0, 852003, 131072, 1, 917539, 131072, 1, 1048611, 131072, 1, 1114147, 131072, 1, 1179682, 65536, 2, 1179683, 131072, 2, 1179681, 65536, 2, 1179680, 65536, 2, 1179679, 65536, 2, 1179678, 65536, 2, 1179677, 65536, 2, 1179676, 65536, 2, 1179675, 65536, 2, 1179674, 65536, 2, 1114137, 0, 1, 1179673, 0, 2, 851993, 0, 1, 851994, 65536, 1, 917529, 0, 1, 917530, 65536, 1, 983065, 0, 1, 983066, 65536, 1, 1048601, 0, 1, 1048602, 65536, 1, 1114138, 65536, 1, 786462, 65536, 1, 983075, 65536, 1, 852002, 65536, 1, 917538, 65536, 1, 983074, 65536, 1, 1048610, 65536, 1, 1114146, 65536, 1, 1114145, 65536, 1, 1114144, 65536, 1, 1114143, 65536, 1, 1114142, 65536, 1, 1114141, 65536, 1, 1114140, 65536, 1, 1114139, 65536, 1, 1048603, 65536, 1, 983067, 65536, 1, 917531, 65536, 1, 851995, 65536, 1, 851996, 65536, 1, 851997, 65536, 1, 851998, 65536, 1, 851999, 65536, 1, 852000, 65536, 1, 852001, 65536, 1, 917537, 65536, 1, 983073, 65536, 1, 1048609, 65536, 1)
+
+[node name="room1" type="Node2D" parent="."]
+position = Vector2(1216, 640)
+
+[node name="Camera" type="Area2D" parent="room1"]
+position = Vector2(1512, 800)
+collision_layer = 2
+script = ExtResource("2_uarf7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/Camera"]
+shape = SubResource("RectangleShape2D_aqknk")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room1/Camera"]
+position = Vector2(0, 1)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room1/Camera" instance=ExtResource("3_nhoak")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="colliders" type="Node2D" parent="room1"]
+position = Vector2(-1280, -704)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1280, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D"]
+position = Vector2(1344, 1032)
+shape = SubResource("RectangleShape2D_dqjqg")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room1/colliders/StaticBody2D"]
+position = Vector2(1504, 1048)
+shape = SubResource("RectangleShape2D_q4t8f")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1600, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D2"]
+position = Vector2(1344, 1032)
+shape = SubResource("RectangleShape2D_32v0g")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1040, 576)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D3"]
+position = Vector2(1464, 920)
+shape = SubResource("RectangleShape2D_khrnt")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1600, 640)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D4"]
+position = Vector2(1464, 856)
+shape = SubResource("RectangleShape2D_khrnt")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1104, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D5"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_7fcax")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="room1/colliders"]
+position = Vector2(1408, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/colliders/StaticBody2D6"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_7fcax")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="GearPuzzle" type="Node2D" parent="room1" node_paths=PackedStringArray("character", "combination")]
+script = ExtResource("5_jnunk")
+character = NodePath("../../character")
+combination = [NodePath("Gears/gear1"), NodePath("Gears/gear2"), NodePath("Gears/place/medium"), NodePath("Gears/gear4"), NodePath("Gears/final_gear")]
+
+[node name="Gears" type="Node2D" parent="room1/GearPuzzle"]
+
+[node name="final_gear" type="Sprite2D" parent="room1/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1504, 704)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear1" type="Sprite2D" parent="room1/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1481, 901)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear4" type="Sprite2D" parent="room1/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1464, 760)
+scale = Vector2(2, 2)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear2" type="Sprite2D" parent="room1/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1473, 846)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="place" type="Area2D" parent="room1/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1528, 808)
+script = ExtResource("7_gteja")
+
+[node name="TextureButton" type="TextureButton" parent="room1/GearPuzzle/Gears/place"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place" type="Sprite2D" parent="room1/GearPuzzle/Gears/place"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/GearPuzzle/Gears/place"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room1/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room1/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room1/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="colision" type="StaticBody2D" parent="room1/GearPuzzle"]
+visible = false
+position = Vector2(56, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/GearPuzzle/colision"]
+position = Vector2(1447.63, 767.983)
+shape = SubResource("RectangleShape2D_ficni")
+debug_color = Color(0.894118, 0.262745, 0.478431, 0.419608)
+
+[node name="interction" type="Area2D" parent="room1/GearPuzzle"]
+visible = false
+position = Vector2(-1216, -640)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/GearPuzzle/interction"]
+position = Vector2(2720, 1440)
+shape = SubResource("RectangleShape2D_lck23")
+debug_color = Color(0.105882, 0.639216, 0.321569, 0.419608)
+
+[node name="inventory" type="Panel" parent="room1/GearPuzzle"]
+visible = false
+z_index = 200
+offset_left = 1344.0
+offset_top = 896.0
+offset_right = 1664.0
+offset_bottom = 960.0
+script = ExtResource("9_hyhrq")
+
+[node name="Small" type="TextureButton" parent="room1/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Small" type="Sprite2D" parent="room1/GearPuzzle/inventory/Small"]
+z_index = 200
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_18bp1")
+
+[node name="Small_selected" type="Sprite2D" parent="room1/GearPuzzle/inventory/Small"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_vsk3l")
+
+[node name="medium" type="TextureButton" parent="room1/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="medium" type="Sprite2D" parent="room1/GearPuzzle/inventory/medium"]
+z_index = 200
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("6_18bp1")
+
+[node name="medium_selected" type="Sprite2D" parent="room1/GearPuzzle/inventory/medium"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("11_vsk3l")
+
+[node name="big" type="TextureButton" parent="room1/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+
+[node name="big" type="Sprite2D" parent="room1/GearPuzzle/inventory/big"]
+z_index = 200
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("6_18bp1")
+
+[node name="big_selected" type="Sprite2D" parent="room1/GearPuzzle/inventory/big"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11_vsk3l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room1/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = -24.0
+offset_right = 368.0
+offset_bottom = 24.0
+bbcode_enabled = true
+text = "[center]Use E to zoom out"
+
+[node name="Camera2D" type="Camera2D" parent="room1/GearPuzzle"]
+position = Vector2(1512, 832)
+enabled = false
+zoom = Vector2(2.8, 2.8)
+
+[node name="gear" type="Area2D" parent="room1"]
+position = Vector2(1272, 968)
+script = SubResource("GDScript_rmn42")
+type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/gear"]
+shape = SubResource("RectangleShape2D_xhfsw")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/gear"]
+texture = ExtResource("6_18bp1")
+
+[node name="door" parent="room1" instance=ExtResource("11_f4411")]
+position = Vector2(1480, 568)
+
+[node name="room2" type="Node2D" parent="."]
+position = Vector2(1200, 192)
+
+[node name="Camera" type="Area2D" parent="room2"]
+position = Vector2(1504, 800)
+collision_layer = 2
+script = ExtResource("2_uarf7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/Camera"]
+position = Vector2(-48, 0)
+shape = SubResource("RectangleShape2D_nyux8")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room2/Camera" instance=ExtResource("3_nhoak")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="GearPuzzle" type="Node2D" parent="room2" node_paths=PackedStringArray("character", "combination")]
+position = Vector2(-40, 0)
+script = ExtResource("5_jnunk")
+character = NodePath("../../character")
+combination = [NodePath("Gears/gear1"), NodePath("Gears/gear2"), NodePath("Gears/gear3"), NodePath("Gears/place/Small"), NodePath("Gears/gear5"), NodePath("Gears/place2/big"), NodePath("Gears/final_gear")]
+
+[node name="Gears" type="Node2D" parent="room2/GearPuzzle"]
+
+[node name="gear1" type="Sprite2D" parent="room2/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1408, 896)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear2" type="Sprite2D" parent="room2/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1399, 855)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear3" type="Sprite2D" parent="room2/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1445, 823)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="place" type="Area2D" parent="room2/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1491, 789)
+script = ExtResource("7_gteja")
+
+[node name="place" type="Sprite2D" parent="room2/GearPuzzle/Gears/place"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/GearPuzzle/Gears/place"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room2/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room2/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room2/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room2/GearPuzzle/Gears/place"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="gear5" type="Sprite2D" parent="room2/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1536, 822)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="place2" type="Area2D" parent="room2/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1579, 762)
+script = ExtResource("7_gteja")
+
+[node name="place" type="Sprite2D" parent="room2/GearPuzzle/Gears/place2"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/GearPuzzle/Gears/place2"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room2/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room2/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room2/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room2/GearPuzzle/Gears/place2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="final_gear" type="Sprite2D" parent="room2/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1568, 696)
+texture = ExtResource("5_4i5o7")
+
+[node name="colision" type="StaticBody2D" parent="room2/GearPuzzle"]
+visible = false
+position = Vector2(48, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/GearPuzzle/colision"]
+position = Vector2(1447.63, 767.983)
+shape = SubResource("RectangleShape2D_ficni")
+debug_color = Color(0.894118, 0.262745, 0.478431, 0.419608)
+
+[node name="interction" type="Area2D" parent="room2/GearPuzzle"]
+visible = false
+position = Vector2(-1216, -640)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/GearPuzzle/interction"]
+position = Vector2(2716, 1440)
+shape = SubResource("RectangleShape2D_lck23")
+debug_color = Color(0.105882, 0.639216, 0.321569, 0.419608)
+
+[node name="inventory" type="Panel" parent="room2/GearPuzzle"]
+visible = false
+z_index = 200
+offset_left = 1336.0
+offset_top = 896.0
+offset_right = 1656.0
+offset_bottom = 960.0
+script = ExtResource("9_hyhrq")
+
+[node name="Small" type="TextureButton" parent="room2/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Small" type="Sprite2D" parent="room2/GearPuzzle/inventory/Small"]
+z_index = 200
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_18bp1")
+
+[node name="Small_selected" type="Sprite2D" parent="room2/GearPuzzle/inventory/Small"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_vsk3l")
+
+[node name="medium" type="TextureButton" parent="room2/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="medium" type="Sprite2D" parent="room2/GearPuzzle/inventory/medium"]
+z_index = 200
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("6_18bp1")
+
+[node name="medium_selected" type="Sprite2D" parent="room2/GearPuzzle/inventory/medium"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("11_vsk3l")
+
+[node name="big" type="TextureButton" parent="room2/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+
+[node name="big" type="Sprite2D" parent="room2/GearPuzzle/inventory/big"]
+z_index = 200
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("6_18bp1")
+
+[node name="big_selected" type="Sprite2D" parent="room2/GearPuzzle/inventory/big"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11_vsk3l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = -24.0
+offset_right = 368.0
+offset_bottom = 24.0
+bbcode_enabled = true
+text = "[center]Use E to zoom out"
+
+[node name="Camera2D" type="Camera2D" parent="room2/GearPuzzle"]
+position = Vector2(1496, 832)
+enabled = false
+zoom = Vector2(2.81, 2.81)
+
+[node name="gear" type="Area2D" parent="room2"]
+position = Vector2(1168, 648)
+scale = Vector2(0.5, 0.5)
+script = SubResource("GDScript_rmn42")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear"]
+shape = SubResource("RectangleShape2D_xhfsw")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear"]
+texture = ExtResource("6_18bp1")
+
+[node name="gear2" type="Area2D" parent="room2"]
+position = Vector2(1728, 960)
+scale = Vector2(1.5, 1.5)
+script = SubResource("GDScript_rmn42")
+type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/gear2"]
+shape = SubResource("RectangleShape2D_xhfsw")
+debug_color = Color(0.176471, 0.623529, 0.458824, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/gear2"]
+texture = ExtResource("6_18bp1")
+
+[node name="collision" type="StaticBody2D" parent="room2"]
+position = Vector2(1280, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(16, 328)
+shape = SubResource("RectangleShape2D_842i4")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(400, 328)
+shape = SubResource("RectangleShape2D_8fu4i")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(-16, -104)
+shape = SubResource("RectangleShape2D_uvlmo")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(368, -104)
+shape = SubResource("RectangleShape2D_oyco4")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(-168, -8)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(-168, 232)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(520, 112)
+shape = SubResource("RectangleShape2D_ngeq4")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="door" parent="room2" instance=ExtResource("11_f4411")]
+position = Vector2(1432, 568)
+
+[node name="room3" type="Node2D" parent="."]
+position = Vector2(1200, -256)
+
+[node name="Camera" type="Area2D" parent="room3"]
+position = Vector2(1504, 800)
+collision_layer = 2
+script = ExtResource("2_uarf7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/Camera"]
+position = Vector2(-48, 0)
+shape = SubResource("RectangleShape2D_nyux8")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room3/Camera" instance=ExtResource("3_nhoak")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="GearPuzzle" type="Node2D" parent="room3" node_paths=PackedStringArray("character", "combination", "combination2")]
+position = Vector2(-40, 0)
+script = ExtResource("5_jnunk")
+character = NodePath("../../character")
+combination = [NodePath("Gears/gear1"), NodePath("Gears/gear2"), NodePath("Gears/place/Small"), NodePath("Gears/place2/Small"), NodePath("Gears/place3/Small"), NodePath("Gears/place4/Small"), NodePath("Gears/gear3")]
+combination2 = [NodePath("Gears/gear4"), NodePath("Gears/gear5"), NodePath("Gears/place5/Small"), NodePath("Gears/gear6")]
+
+[node name="Gears" type="Node2D" parent="room3/GearPuzzle"]
+
+[node name="gear1" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1496, 896)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear2" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1521, 860)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear3" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1554, 694)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear4" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1450, 862)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear5" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1386, 816)
+scale = Vector2(2, 2)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear6" type="Sprite2D" parent="room3/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1338, 725)
+texture = ExtResource("5_4i5o7")
+
+[node name="place" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1546, 824)
+script = ExtResource("7_gteja")
+gear_in = 3
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place"]
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place2" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1521, 789)
+script = ExtResource("7_gteja")
+gear_in = 1
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place2"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place3" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1495, 753)
+script = ExtResource("7_gteja")
+gear_in = 3
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place3"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place3"]
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place4" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1530, 729)
+script = ExtResource("7_gteja")
+gear_in = 2
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place4"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place4"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place4"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place5" type="Area2D" parent="room3/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1374, 751)
+script = ExtResource("7_gteja")
+
+[node name="place" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/Gears/place5"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/Gears/place5"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room3/GearPuzzle/Gears/place5"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="colision" type="StaticBody2D" parent="room3/GearPuzzle"]
+visible = false
+position = Vector2(48, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/colision"]
+position = Vector2(1447.63, 767.983)
+shape = SubResource("RectangleShape2D_ficni")
+debug_color = Color(0.894118, 0.262745, 0.478431, 0.419608)
+
+[node name="interction" type="Area2D" parent="room3/GearPuzzle"]
+visible = false
+position = Vector2(-1216, -640)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/GearPuzzle/interction"]
+position = Vector2(2720, 1440)
+shape = SubResource("RectangleShape2D_lck23")
+debug_color = Color(0.105882, 0.639216, 0.321569, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/GearPuzzle"]
+position = Vector2(1496, 832)
+enabled = false
+zoom = Vector2(2.81, 2.81)
+
+[node name="inventory" type="Panel" parent="room3/GearPuzzle"]
+visible = false
+z_index = 200
+offset_left = 1336.0
+offset_top = 896.0
+offset_right = 1656.0
+offset_bottom = 960.0
+script = ExtResource("9_hyhrq")
+
+[node name="Small" type="TextureButton" parent="room3/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Small" type="Sprite2D" parent="room3/GearPuzzle/inventory/Small"]
+z_index = 200
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_18bp1")
+
+[node name="Small_selected" type="Sprite2D" parent="room3/GearPuzzle/inventory/Small"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_vsk3l")
+
+[node name="medium" type="TextureButton" parent="room3/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="medium" type="Sprite2D" parent="room3/GearPuzzle/inventory/medium"]
+z_index = 200
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("6_18bp1")
+
+[node name="medium_selected" type="Sprite2D" parent="room3/GearPuzzle/inventory/medium"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("11_vsk3l")
+
+[node name="big" type="TextureButton" parent="room3/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+
+[node name="big" type="Sprite2D" parent="room3/GearPuzzle/inventory/big"]
+z_index = 200
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("6_18bp1")
+
+[node name="big_selected" type="Sprite2D" parent="room3/GearPuzzle/inventory/big"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11_vsk3l")
+
+[node name="collision" type="StaticBody2D" parent="room3"]
+position = Vector2(1280, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(-16, 328)
+shape = SubResource("RectangleShape2D_jbkkx")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(368, 328)
+shape = SubResource("RectangleShape2D_vdk26")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(-16, -104)
+shape = SubResource("RectangleShape2D_uvlmo")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(368, -104)
+shape = SubResource("RectangleShape2D_oyco4")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(-168, -8)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(-168, 232)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(520, 112)
+shape = SubResource("RectangleShape2D_ngeq4")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="door" parent="room3" instance=ExtResource("11_f4411")]
+position = Vector2(1432, 568)
+
+[node name="door2" parent="room3" instance=ExtResource("11_f4411")]
+position = Vector2(1128, 776)
+rotation = 1.5708
+
+[node name="room4" type="Node2D" parent="."]
+position = Vector2(496, -256)
+
+[node name="Camera" type="Area2D" parent="room4"]
+position = Vector2(1504, 800)
+collision_layer = 2
+script = ExtResource("2_uarf7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/Camera"]
+position = Vector2(-48, 0)
+shape = SubResource("RectangleShape2D_nyux8")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room4/Camera"]
+position = Vector2(-96, 0)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room4/Camera" instance=ExtResource("3_nhoak")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="GearPuzzle" type="Node2D" parent="room4" node_paths=PackedStringArray("character", "combination")]
+position = Vector2(-40, 0)
+script = ExtResource("5_jnunk")
+character = NodePath("../../character")
+combination = [NodePath("Gears/gear1"), NodePath("Gears/gear2"), NodePath("Gears/gear3"), NodePath("Gears/gear4"), NodePath("Gears/gear5"), NodePath("Gears/place/big"), NodePath("Gears/gear6"), NodePath("Gears/place2/Small"), NodePath("Gears/gear7")]
+
+[node name="Gears" type="Node2D" parent="room4/GearPuzzle"]
+
+[node name="gear1" type="Sprite2D" parent="room4/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1576, 696)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear2" type="Sprite2D" parent="room4/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1543, 743)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear3" type="Sprite2D" parent="room4/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1490, 780)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear4" type="Sprite2D" parent="room4/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1435, 770)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear5" type="Sprite2D" parent="room4/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1399, 796)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear6" type="Sprite2D" parent="room4/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1463, 851)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear7" type="Sprite2D" parent="room4/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1543, 898)
+texture = ExtResource("5_4i5o7")
+
+[node name="place" type="Area2D" parent="room4/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1389, 863)
+script = ExtResource("7_gteja")
+gear_in = 1
+
+[node name="place" type="Sprite2D" parent="room4/GearPuzzle/Gears/place"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/GearPuzzle/Gears/place"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room4/GearPuzzle/Gears/place"]
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room4/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room4/GearPuzzle/Gears/place"]
+visible = false
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room4/GearPuzzle/Gears/place"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place2" type="Area2D" parent="room4/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1518, 861)
+script = ExtResource("7_gteja")
+
+[node name="place" type="Sprite2D" parent="room4/GearPuzzle/Gears/place2"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/GearPuzzle/Gears/place2"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room4/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room4/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room4/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room4/GearPuzzle/Gears/place2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="colision" type="StaticBody2D" parent="room4/GearPuzzle"]
+visible = false
+position = Vector2(48, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/GearPuzzle/colision"]
+position = Vector2(1447.63, 767.983)
+shape = SubResource("RectangleShape2D_ficni")
+debug_color = Color(0.894118, 0.262745, 0.478431, 0.419608)
+
+[node name="interction" type="Area2D" parent="room4/GearPuzzle"]
+visible = false
+position = Vector2(-1216, -640)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/GearPuzzle/interction"]
+position = Vector2(2720, 1440)
+shape = SubResource("RectangleShape2D_lck23")
+debug_color = Color(0.105882, 0.639216, 0.321569, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room4/GearPuzzle"]
+position = Vector2(1496, 832)
+enabled = false
+zoom = Vector2(2.81, 2.81)
+
+[node name="inventory" type="Panel" parent="room4/GearPuzzle"]
+visible = false
+z_index = 200
+offset_left = 1336.0
+offset_top = 896.0
+offset_right = 1656.0
+offset_bottom = 960.0
+script = ExtResource("9_hyhrq")
+
+[node name="Small" type="TextureButton" parent="room4/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Small" type="Sprite2D" parent="room4/GearPuzzle/inventory/Small"]
+z_index = 200
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_18bp1")
+
+[node name="Small_selected" type="Sprite2D" parent="room4/GearPuzzle/inventory/Small"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_vsk3l")
+
+[node name="medium" type="TextureButton" parent="room4/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="medium" type="Sprite2D" parent="room4/GearPuzzle/inventory/medium"]
+z_index = 200
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("6_18bp1")
+
+[node name="medium_selected" type="Sprite2D" parent="room4/GearPuzzle/inventory/medium"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("11_vsk3l")
+
+[node name="big" type="TextureButton" parent="room4/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+
+[node name="big" type="Sprite2D" parent="room4/GearPuzzle/inventory/big"]
+z_index = 200
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("6_18bp1")
+
+[node name="big_selected" type="Sprite2D" parent="room4/GearPuzzle/inventory/big"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11_vsk3l")
+
+[node name="collision" type="StaticBody2D" parent="room4"]
+position = Vector2(1280, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(-16, 328)
+shape = SubResource("RectangleShape2D_jbkkx")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(176, -104)
+shape = SubResource("RectangleShape2D_hjs7e")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(368, 328)
+shape = SubResource("RectangleShape2D_vdk26")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(520, -8)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(520, 232)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(-168, 112)
+shape = SubResource("RectangleShape2D_ngeq4")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="door" parent="room4" instance=ExtResource("11_f4411")]
+position = Vector2(1432, 1000)
+
+[node name="room5" type="Node2D" parent="."]
+position = Vector2(496, 192)
+
+[node name="Camera" type="Area2D" parent="room5"]
+position = Vector2(1504, 800)
+collision_layer = 2
+script = ExtResource("2_uarf7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/Camera"]
+position = Vector2(-48, 0)
+shape = SubResource("RectangleShape2D_nyux8")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room5/Camera"]
+position = Vector2(-96, 0)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room5/Camera" instance=ExtResource("3_nhoak")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="GearPuzzle" type="Node2D" parent="room5" node_paths=PackedStringArray("character", "combination")]
+position = Vector2(-40, 0)
+script = ExtResource("5_jnunk")
+character = NodePath("../../character")
+combination = [NodePath("Gears/gear1"), NodePath("Gears/gear2"), NodePath("Gears/gear3"), NodePath("Gears/gear4"), NodePath("Gears/place/big"), NodePath("Gears/place2/medium"), NodePath("Gears/place3/Small"), NodePath("Gears/gear5"), NodePath("Gears/gear6")]
+
+[node name="Gears" type="Node2D" parent="room5/GearPuzzle"]
+
+[node name="gear1" type="Sprite2D" parent="room5/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1384, 704)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear2" type="Sprite2D" parent="room5/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1392, 744)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear3" type="Sprite2D" parent="room5/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1357, 768)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear4" type="Sprite2D" parent="room5/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1391, 814)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear5" type="Sprite2D" parent="room5/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1609, 860)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_4i5o7")
+
+[node name="gear6" type="Sprite2D" parent="room5/GearPuzzle/Gears"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1655, 828)
+texture = ExtResource("5_4i5o7")
+
+[node name="place" type="Area2D" parent="room5/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1466, 828)
+script = ExtResource("7_gteja")
+
+[node name="place" type="Sprite2D" parent="room5/GearPuzzle/Gears/place"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/GearPuzzle/Gears/place"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room5/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room5/GearPuzzle/Gears/place"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room5/GearPuzzle/Gears/place"]
+visible = false
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room5/GearPuzzle/Gears/place"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place2" type="Area2D" parent="room5/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1530, 782)
+script = ExtResource("7_gteja")
+gear_in = 1
+
+[node name="place" type="Sprite2D" parent="room5/GearPuzzle/Gears/place2"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/GearPuzzle/Gears/place2"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room5/GearPuzzle/Gears/place2"]
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room5/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room5/GearPuzzle/Gears/place2"]
+visible = false
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room5/GearPuzzle/Gears/place2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="place3" type="Area2D" parent="room5/GearPuzzle/Gears"]
+z_index = -2
+position = Vector2(1563, 827)
+script = ExtResource("7_gteja")
+
+[node name="place" type="Sprite2D" parent="room5/GearPuzzle/Gears/place3"]
+z_index = -2
+texture_filter = 1
+texture = ExtResource("8_geqe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/GearPuzzle/Gears/place3"]
+shape = SubResource("RectangleShape2D_h07qn")
+
+[node name="Small" type="Sprite2D" parent="room5/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 200
+texture_filter = 1
+texture = ExtResource("6_18bp1")
+
+[node name="medium" type="Sprite2D" parent="room5/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 200
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_18bp1")
+
+[node name="big" type="Sprite2D" parent="room5/GearPuzzle/Gears/place3"]
+visible = false
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_18bp1")
+
+[node name="TextureButton" type="TextureButton" parent="room5/GearPuzzle/Gears/place3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+
+[node name="colision" type="StaticBody2D" parent="room5/GearPuzzle"]
+visible = false
+position = Vector2(48, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/GearPuzzle/colision"]
+position = Vector2(1447.63, 767.983)
+shape = SubResource("RectangleShape2D_ficni")
+debug_color = Color(0.894118, 0.262745, 0.478431, 0.419608)
+
+[node name="interction" type="Area2D" parent="room5/GearPuzzle"]
+visible = false
+position = Vector2(-1216, -640)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/GearPuzzle/interction"]
+position = Vector2(2720, 1440)
+shape = SubResource("RectangleShape2D_lck23")
+debug_color = Color(0.105882, 0.639216, 0.321569, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room5/GearPuzzle"]
+position = Vector2(1496, 832)
+enabled = false
+zoom = Vector2(2.81, 2.81)
+
+[node name="inventory" type="Panel" parent="room5/GearPuzzle"]
+visible = false
+z_index = 200
+offset_left = 1336.0
+offset_top = 896.0
+offset_right = 1656.0
+offset_bottom = 960.0
+script = ExtResource("9_hyhrq")
+
+[node name="Small" type="TextureButton" parent="room5/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 44.0
+
+[node name="Small" type="Sprite2D" parent="room5/GearPuzzle/inventory/Small"]
+z_index = 200
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_18bp1")
+
+[node name="Small_selected" type="Sprite2D" parent="room5/GearPuzzle/inventory/Small"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_vsk3l")
+
+[node name="medium" type="TextureButton" parent="room5/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="medium" type="Sprite2D" parent="room5/GearPuzzle/inventory/medium"]
+z_index = 200
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("6_18bp1")
+
+[node name="medium_selected" type="Sprite2D" parent="room5/GearPuzzle/inventory/medium"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(24, 24)
+texture = ExtResource("11_vsk3l")
+
+[node name="big" type="TextureButton" parent="room5/GearPuzzle/inventory"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+
+[node name="big" type="Sprite2D" parent="room5/GearPuzzle/inventory/big"]
+z_index = 200
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("6_18bp1")
+
+[node name="big_selected" type="Sprite2D" parent="room5/GearPuzzle/inventory/big"]
+visible = false
+z_index = 201
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11_vsk3l")
+
+[node name="collision" type="StaticBody2D" parent="room5"]
+position = Vector2(1280, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(-16, -104)
+shape = SubResource("RectangleShape2D_jbkkx")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(176, 328)
+shape = SubResource("RectangleShape2D_hjs7e")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(368, -104)
+shape = SubResource("RectangleShape2D_vdk26")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(520, -8)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(520, 232)
+shape = SubResource("RectangleShape2D_q8fj3")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(-168, 112)
+shape = SubResource("RectangleShape2D_ngeq4")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="door" parent="room5" instance=ExtResource("11_f4411")]
+position = Vector2(1832, 776)
+rotation = 1.5708
+
+[node name="door2" parent="room5" instance=ExtResource("11_f4411")]
+position = Vector2(1816, 776)
+rotation = 1.5708
+
+[node name="character" parent="." instance=ExtResource("6_atg3t")]
+position = Vector2(2672, 1616)
+scale = Vector2(0.225, 0.225)
+motion_mode = 1
+
+[node name="level_end" type="Area2D" parent="."]
+position = Vector2(2568, 200)
+script = ExtResource("14_4gcji")
+level = ExtResource("15_5b86k")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_end"]
+position = Vector2(87, 55)
+shape = SubResource("RectangleShape2D_j01ra")
+
+[node name="completion_timer" parent="." instance=ExtResource("15_vwg58")]
+
+[node name="save" parent="." instance=ExtResource("17_blvxs")]
+level = 1
+
+[connection signal="body_entered" from="room1/Camera" to="room1/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/Camera" to="room1/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room1/GearPuzzle" to="room1/door" method="on_signal"]
+[connection signal="un_solved" from="room1/GearPuzzle" to="room1/door" method="close"]
+[connection signal="click" from="room1/GearPuzzle/Gears/place" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room1/GearPuzzle/Gears/place/TextureButton" to="room1/GearPuzzle/Gears/place" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room1/GearPuzzle/interction" to="room1/GearPuzzle" method="_on_interction_body_entered"]
+[connection signal="body_exited" from="room1/GearPuzzle/interction" to="room1/GearPuzzle" method="_on_interction_body_exited"]
+[connection signal="pressed" from="room1/GearPuzzle/inventory/Small" to="room1/GearPuzzle/inventory" method="_on_small_click"]
+[connection signal="pressed" from="room1/GearPuzzle/inventory/medium" to="room1/GearPuzzle/inventory" method="_on_medium_click"]
+[connection signal="pressed" from="room1/GearPuzzle/inventory/big" to="room1/GearPuzzle/inventory" method="_on_big_click"]
+[connection signal="body_entered" from="room1/gear" to="room1/gear" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/gear" to="room1/gear" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/Camera" to="room2/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/Camera" to="room2/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room2/GearPuzzle" to="room2/door" method="on_signal"]
+[connection signal="un_solved" from="room2/GearPuzzle" to="room2/door" method="close"]
+[connection signal="click" from="room2/GearPuzzle/Gears/place" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room2/GearPuzzle/Gears/place/TextureButton" to="room2/GearPuzzle/Gears/place" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/GearPuzzle/Gears/place2" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room2/GearPuzzle/Gears/place2/TextureButton" to="room2/GearPuzzle/Gears/place2" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room2/GearPuzzle/interction" to="room2/GearPuzzle" method="_on_interction_body_entered"]
+[connection signal="body_exited" from="room2/GearPuzzle/interction" to="room2/GearPuzzle" method="_on_interction_body_exited"]
+[connection signal="pressed" from="room2/GearPuzzle/inventory/Small" to="room2/GearPuzzle/inventory" method="_on_small_click"]
+[connection signal="pressed" from="room2/GearPuzzle/inventory/medium" to="room2/GearPuzzle/inventory" method="_on_medium_click"]
+[connection signal="pressed" from="room2/GearPuzzle/inventory/big" to="room2/GearPuzzle/inventory" method="_on_big_click"]
+[connection signal="body_entered" from="room2/gear" to="room2/gear" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear" to="room2/gear" method="_on_body_exited"]
+[connection signal="body_entered" from="room2/gear2" to="room2/gear2" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/gear2" to="room2/gear2" method="_on_body_exited"]
+[connection signal="body_entered" from="room3/Camera" to="room3/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room3/Camera" to="room3/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room3/GearPuzzle" to="room3/door" method="on_signal"]
+[connection signal="solved2" from="room3/GearPuzzle" to="room3/door2" method="on_signal"]
+[connection signal="un_solved" from="room3/GearPuzzle" to="room3/door" method="close"]
+[connection signal="un_solved2" from="room3/GearPuzzle" to="room3/door2" method="close"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place/TextureButton" to="room3/GearPuzzle/Gears/place" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place2" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place2/TextureButton" to="room3/GearPuzzle/Gears/place2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place3" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place3/TextureButton" to="room3/GearPuzzle/Gears/place3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place4" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place4/TextureButton" to="room3/GearPuzzle/Gears/place4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/GearPuzzle/Gears/place5" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room3/GearPuzzle/Gears/place5/TextureButton" to="room3/GearPuzzle/Gears/place5" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room3/GearPuzzle/interction" to="room3/GearPuzzle" method="_on_interction_body_entered"]
+[connection signal="body_exited" from="room3/GearPuzzle/interction" to="room3/GearPuzzle" method="_on_interction_body_exited"]
+[connection signal="pressed" from="room3/GearPuzzle/inventory/Small" to="room3/GearPuzzle/inventory" method="_on_small_click"]
+[connection signal="pressed" from="room3/GearPuzzle/inventory/medium" to="room3/GearPuzzle/inventory" method="_on_medium_click"]
+[connection signal="pressed" from="room3/GearPuzzle/inventory/big" to="room3/GearPuzzle/inventory" method="_on_big_click"]
+[connection signal="body_entered" from="room4/Camera" to="room4/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room4/Camera" to="room4/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room4/GearPuzzle" to="room4/door" method="on_signal"]
+[connection signal="un_solved" from="room4/GearPuzzle" to="room4/door" method="close"]
+[connection signal="click" from="room4/GearPuzzle/Gears/place" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room4/GearPuzzle/Gears/place/TextureButton" to="room4/GearPuzzle/Gears/place" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/GearPuzzle/Gears/place2" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room4/GearPuzzle/Gears/place2/TextureButton" to="room4/GearPuzzle/Gears/place2" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room4/GearPuzzle/interction" to="room4/GearPuzzle" method="_on_interction_body_entered"]
+[connection signal="body_exited" from="room4/GearPuzzle/interction" to="room4/GearPuzzle" method="_on_interction_body_exited"]
+[connection signal="pressed" from="room4/GearPuzzle/inventory/Small" to="room4/GearPuzzle/inventory" method="_on_small_click"]
+[connection signal="pressed" from="room4/GearPuzzle/inventory/medium" to="room4/GearPuzzle/inventory" method="_on_medium_click"]
+[connection signal="pressed" from="room4/GearPuzzle/inventory/big" to="room4/GearPuzzle/inventory" method="_on_big_click"]
+[connection signal="body_entered" from="room5/Camera" to="room5/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room5/Camera" to="room5/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room5/GearPuzzle" to="room5/door" method="on_signal"]
+[connection signal="solved" from="room5/GearPuzzle" to="room5/door2" method="on_signal"]
+[connection signal="un_solved" from="room5/GearPuzzle" to="room5/door" method="close"]
+[connection signal="un_solved" from="room5/GearPuzzle" to="room5/door2" method="close"]
+[connection signal="click" from="room5/GearPuzzle/Gears/place" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room5/GearPuzzle/Gears/place/TextureButton" to="room5/GearPuzzle/Gears/place" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/GearPuzzle/Gears/place2" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room5/GearPuzzle/Gears/place2/TextureButton" to="room5/GearPuzzle/Gears/place2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/GearPuzzle/Gears/place3" to="room1/GearPuzzle" method="_on_place_click"]
+[connection signal="pressed" from="room5/GearPuzzle/Gears/place3/TextureButton" to="room5/GearPuzzle/Gears/place3" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room5/GearPuzzle/interction" to="room5/GearPuzzle" method="_on_interction_body_entered"]
+[connection signal="body_exited" from="room5/GearPuzzle/interction" to="room5/GearPuzzle" method="_on_interction_body_exited"]
+[connection signal="pressed" from="room5/GearPuzzle/inventory/Small" to="room5/GearPuzzle/inventory" method="_on_small_click"]
+[connection signal="pressed" from="room5/GearPuzzle/inventory/medium" to="room5/GearPuzzle/inventory" method="_on_medium_click"]
+[connection signal="pressed" from="room5/GearPuzzle/inventory/big" to="room5/GearPuzzle/inventory" method="_on_big_click"]
+[connection signal="body_entered" from="level_end" to="level_end" method="_on_body_entered"]

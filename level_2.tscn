@@ -1,0 +1,3476 @@
+[gd_scene load_steps=51 format=3 uid="uid://c7dv8xoooexm8"]
+
+[ext_resource type="PackedScene" uid="uid://dghe131wa2uka" path="res://character.tscn" id="1_3ofhr"]
+[ext_resource type="Texture2D" uid="uid://qee30fe2b1np" path="res://assets/tilemap.png" id="2_ba60s"]
+[ext_resource type="Script" uid="uid://drs3gvna3yuhe" path="res://Camera.gd" id="3_vks87"]
+[ext_resource type="Script" uid="uid://ck7tkb5q2h2wa" path="res://match_puzzle.gd" id="4_2n4qg"]
+[ext_resource type="PackedScene" uid="uid://c1fx16wmlo45w" path="res://pause_menu.tscn" id="4_bw6sy"]
+[ext_resource type="Script" uid="uid://bax62bswc7bw6" path="res://match_puzzle_button.gd" id="5_m6ju3"]
+[ext_resource type="Texture2D" uid="uid://cpek0rhk2xpdf" path="res://assets/slide_puzzle/uncolored.png" id="5_olsmf"]
+[ext_resource type="Texture2D" uid="uid://cjuixxvgnbq3j" path="res://assets/slide_puzzle/blue.png" id="7_dxl2w"]
+[ext_resource type="Texture2D" uid="uid://dvsywk3wdb0es" path="res://assets/slide_puzzle/beige.png" id="8_43i33"]
+[ext_resource type="Texture2D" uid="uid://r0vlx1lg3b41" path="res://assets/slide_puzzle/color16.png" id="9_8csn2"]
+[ext_resource type="Texture2D" uid="uid://c0desmsdodc5c" path="res://assets/slide_puzzle/orange.png" id="10_r5wo7"]
+[ext_resource type="PackedScene" uid="uid://h842fiqrcevs" path="res://stone_door.tscn" id="11_8xrmx"]
+[ext_resource type="Texture2D" uid="uid://ffofcckhu0gv" path="res://assets/slide_puzzle/green.png" id="13_4dw0f"]
+[ext_resource type="AudioStream" uid="uid://d05yacm62mb5d" path="res://assets/music/B3.wav" id="13_21ydg"]
+[ext_resource type="AudioStream" uid="uid://1qdgvqbuh0pn" path="res://assets/music/D5.wav" id="15_mnev8"]
+[ext_resource type="AudioStream" uid="uid://qoam4eyc6cm" path="res://assets/music/F3.wav" id="16_3elu1"]
+[ext_resource type="AudioStream" uid="uid://bbnj2645s0pbq" path="res://assets/music/F6.wav" id="17_54vg6"]
+[ext_resource type="Texture2D" uid="uid://2nf2ammycr4x" path="res://assets/slide_puzzle/blue2.png" id="18_fg3yu"]
+[ext_resource type="Texture2D" uid="uid://bth7ijhpak80y" path="res://assets/slide_puzzle/brown.png" id="19_5ttyk"]
+[ext_resource type="Texture2D" uid="uid://bjr4gw0wsjnkb" path="res://assets/slide_puzzle/red2.png" id="20_mexay"]
+[ext_resource type="Texture2D" uid="uid://bfg0ogvn1e5ob" path="res://assets/slide_puzzle/yellow.png" id="21_0u20r"]
+[ext_resource type="Texture2D" uid="uid://csjg047tpvh6e" path="res://assets/slide_puzzle/red.png" id="21_56osl"]
+[ext_resource type="Texture2D" uid="uid://brkp26q1le6eu" path="res://assets/slide_puzzle/color15.png" id="22_5bs1q"]
+[ext_resource type="Texture2D" uid="uid://7ptol0brc4lb" path="res://assets/slide_puzzle/pink.png" id="23_4x3pq"]
+[ext_resource type="Texture2D" uid="uid://cera8iwx7wkpd" path="res://assets/slide_puzzle/green2.png" id="25_clnxp"]
+[ext_resource type="Script" uid="uid://wy60cvlju6n3" path="res://level_end.gd" id="26_hogr1"]
+[ext_resource type="PackedScene" uid="uid://b3j0ypr4fpsoe" path="res://completion_timer.tscn" id="27_d3hhe"]
+[ext_resource type="PackedScene" uid="uid://ka0o13p8im2d" path="res://level_3.tscn" id="27_tllxl"]
+[ext_resource type="PackedScene" uid="uid://d3qyl43wkei0q" path="res://save.tscn" id="29_1hp52"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_704wk"]
+texture = ExtResource("2_ba60s")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tuuwv"]
+sources/0 = SubResource("TileSetAtlasSource_704wk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhjmq"]
+size = Vector2(192, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tll18"]
+size = Vector2(224, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah1bx"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1uwa"]
+size = Vector2(576, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig4s2"]
+size = Vector2(16, 449)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyex3"]
+size = Vector2(240, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aamp6"]
+size = Vector2(320, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls4ae"]
+size = Vector2(352, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6eg6"]
+size = Vector2(832, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4hst"]
+size = Vector2(512, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dnab"]
+size = Vector2(832, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14loe"]
+size = Vector2(16, 551.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ekt"]
+size = Vector2(240, 11.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_di6gj"]
+size = Vector2(16, 237.813)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x8qk"]
+size = Vector2(832, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgejl"]
+size = Vector2(384, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x4my"]
+size = Vector2(16, 239.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6aui"]
+size = Vector2(16, 535.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56g5g"]
+size = Vector2(194, 130)
+
+[node name="level_2" type="Node2D"]
+
+[node name="character" parent="." instance=ExtResource("1_3ofhr")]
+position = Vector2(2480, 2448)
+scale = Vector2(0.225, 0.225)
+motion_mode = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_tuuwv")
+format = 2
+layer_0/tile_data = PackedInt32Array(4391008, 0, 2, 2490403, 0, 2, 2490411, 131072, 2, 2097195, 131072, 0, 2097187, 0, 0, 2490404, 65536, 2, 2490405, 65536, 2, 2490406, 65536, 2, 2490410, 65536, 2, 2490409, 65536, 2, 2490408, 65536, 2, 2162723, 0, 1, 2228259, 0, 1, 2293795, 0, 1, 2359331, 0, 1, 2424867, 0, 1, 2162731, 131072, 1, 2228267, 131072, 1, 2293803, 131072, 1, 2359339, 131072, 1, 2424875, 131072, 1, 2097188, 65536, 0, 2097189, 65536, 0, 2097190, 65536, 0, 2097194, 65536, 0, 2097193, 65536, 0, 2097192, 65536, 0, 2097191, 65536, 1, 2162727, 65536, 1, 2424871, 65536, 1, 2490407, 65536, 1, 2424870, 65536, 1, 2424869, 65536, 1, 2359332, 65536, 1, 2293796, 65536, 1, 2228260, 65536, 1, 2162725, 65536, 1, 2162726, 65536, 1, 2424872, 65536, 1, 2424868, 65536, 1, 2162724, 65536, 1, 2162728, 65536, 1, 2162729, 65536, 1, 2162730, 65536, 1, 2228266, 65536, 1, 2293802, 65536, 1, 2359338, 65536, 1, 2424874, 65536, 1, 2424873, 65536, 1, 2228261, 65536, 1, 2293797, 65536, 1, 2359333, 65536, 1, 2228265, 65536, 1, 2293801, 65536, 1, 2359337, 65536, 1, 2031651, 0, 2, 2031652, 65536, 2, 2031653, 65536, 2, 2031654, 65536, 2, 2031655, 65536, 1, 2031656, 65536, 2, 2031657, 65536, 2, 2031658, 65536, 2, 2031659, 131072, 2, 1966119, 65536, 1, 1966118, 65536, 1, 1966117, 65536, 1, 1966120, 65536, 1, 1966121, 65536, 1, 1966122, 65536, 1, 1900586, 65536, 1, 1835050, 65536, 1, 1769514, 65536, 1, 1703978, 65536, 1, 1638442, 65536, 0, 1638436, 65536, 0, 1703972, 65536, 1, 1769508, 65536, 1, 1835044, 65536, 1, 1900580, 65536, 1, 1966116, 65536, 1, 1638435, 0, 0, 1703971, 0, 1, 1769507, 0, 1, 1835043, 0, 1, 1900579, 0, 1, 1966115, 0, 1, 1638443, 131072, 0, 1703979, 131072, 1, 1769515, 131072, 1, 1835051, 131072, 1, 1900587, 131072, 1, 1966123, 131072, 1, 1638437, 65536, 0, 1638438, 65536, 0, 1638439, 65536, 1, 1638440, 65536, 0, 1638441, 65536, 0, 1703973, 65536, 1, 1703974, 65536, 1, 1703975, 65536, 1, 1703976, 65536, 1, 1703977, 65536, 1, 1769513, 65536, 1, 1835049, 65536, 1, 1900585, 65536, 1, 1769509, 65536, 1, 1835045, 65536, 1, 1900581, 65536, 1, 1572899, 0, 2, 1572907, 131072, 2, 1179683, 0, 0, 1179691, 131072, 0, 1245227, 131072, 1, 1310763, 131072, 1, 1376299, 131072, 1, 1441835, 131072, 1, 1507371, 131072, 1, 1572900, 65536, 2, 1572901, 65536, 2, 1572902, 65536, 2, 1572906, 65536, 2, 1572905, 65536, 2, 1572904, 65536, 2, 1245219, 0, 1, 1310755, 0, 1, 1376291, 0, 1, 1441827, 0, 1, 1507363, 0, 1, 1179684, 65536, 0, 1179685, 65536, 0, 1179686, 65536, 0, 1179690, 65536, 0, 1179689, 65536, 0, 1179688, 65536, 0, 1179687, 65536, 1, 1245223, 65536, 1, 1507367, 65536, 1, 1572903, 65536, 1, 1507366, 65536, 1, 1507365, 65536, 1, 1441829, 65536, 1, 1441828, 65536, 1, 1507364, 65536, 1, 1245222, 65536, 1, 1245221, 65536, 1, 1245220, 65536, 1, 1310756, 65536, 1, 1310757, 65536, 1, 1376292, 65536, 1, 1310761, 65536, 1, 1376297, 65536, 1, 1376298, 65536, 1, 1310762, 65536, 1, 1245226, 65536, 1, 1245225, 65536, 1, 1245224, 65536, 1, 1507368, 65536, 1, 1507369, 65536, 1, 1507370, 65536, 1, 1441834, 65536, 1, 1441833, 65536, 1, 1376293, 65536, 1, 983082, 65536, 1, 655396, 65536, 1, 655402, 65536, 1, 720938, 65536, 1, 786474, 65536, 1, 852010, 65536, 1, 917546, 65536, 1, 655401, 65536, 1, 655400, 65536, 1, 655399, 65536, 1, 655398, 65536, 1, 655397, 65536, 1, 1048618, 65536, 1, 1048617, 65536, 1, 1048616, 65536, 1, 1048615, 65536, 1, 1048614, 65536, 1, 1048613, 65536, 1, 1048612, 65536, 1, 1114145, 65536, 2, 1114146, 65536, 2, 1114147, 65536, 2, 1114148, 65536, 2, 1114149, 65536, 2, 1114150, 65536, 2, 1114155, 131072, 2, 1114154, 65536, 2, 1114153, 65536, 2, 1114152, 65536, 2, 589857, 65536, 0, 589858, 65536, 0, 589859, 65536, 0, 589860, 65536, 0, 589861, 65536, 0, 589862, 65536, 0, 589867, 131072, 0, 589866, 65536, 0, 589865, 65536, 0, 589864, 65536, 0, 589863, 65536, 0, 589855, 0, 0, 1114143, 0, 2, 589856, 65536, 0, 1114144, 65536, 2, 655391, 0, 1, 720927, 0, 1, 786463, 0, 1, 1048607, 0, 1, 983071, 0, 1, 917535, 0, 1, 655403, 131072, 1, 720939, 131072, 1, 786475, 131072, 1, 852011, 131072, 1, 917547, 131072, 1, 983083, 131072, 1, 1048619, 131072, 1, 655392, 65536, 1, 720928, 65536, 1, 786464, 65536, 1, 852000, 65536, 1, 917536, 65536, 1, 851999, 65536, 1, 983072, 65536, 1, 1048608, 65536, 1, 1048609, 65536, 1, 1048610, 65536, 1, 1048611, 65536, 1, 720937, 65536, 1, 786473, 65536, 1, 852009, 65536, 1, 917545, 65536, 1, 983081, 65536, 1, 983080, 65536, 1, 917544, 65536, 1, 852008, 65536, 1, 786472, 65536, 1, 720936, 65536, 1, 655395, 65536, 1, 655394, 65536, 1, 655393, 65536, 1, 720929, 65536, 1, 786465, 65536, 1, 852001, 65536, 1, 917537, 65536, 1, 983073, 65536, 1, 720930, 65536, 1, 786466, 65536, 1, 852002, 65536, 1, 983074, 65536, 1, 917538, 65536, 1, 1114151, 65536, 1, 1114142, 131072, 2, 589854, 131072, 0, 1114130, 0, 2, 589842, 0, 0, 655378, 0, 1, 720914, 0, 1, 786450, 0, 1, 851986, 0, 1, 917522, 0, 1, 983058, 0, 1, 1048594, 0, 1, 1114131, 65536, 2, 1114132, 65536, 2, 1114133, 65536, 2, 1114134, 65536, 2, 1114135, 65536, 2, 1114136, 65536, 2, 1114137, 65536, 2, 1114138, 65536, 2, 1114139, 65536, 2, 1114140, 65536, 2, 1114141, 65536, 2, 655390, 131072, 1, 720926, 131072, 1, 786462, 131072, 1, 917534, 131072, 1, 983070, 131072, 1, 1048606, 131072, 1, 589853, 65536, 0, 589852, 65536, 0, 589851, 65536, 0, 589850, 65536, 0, 589849, 65536, 0, 589848, 65536, 1, 589847, 65536, 0, 589846, 65536, 0, 589845, 65536, 0, 589844, 65536, 0, 589843, 65536, 0, 655389, 65536, 1, 655388, 65536, 1, 655387, 65536, 1, 655386, 65536, 1, 655385, 65536, 1, 655384, 65536, 1, 655383, 65536, 1, 655382, 65536, 1, 655381, 65536, 1, 655380, 65536, 1, 655379, 65536, 1, 720915, 65536, 1, 786451, 65536, 1, 851987, 65536, 1, 917523, 65536, 1, 983059, 65536, 1, 1048595, 65536, 1, 1048596, 65536, 1, 1048597, 65536, 1, 1048598, 65536, 1, 1048599, 65536, 1, 1048600, 65536, 1, 1048601, 65536, 1, 1048602, 65536, 1, 1048603, 65536, 1, 1048604, 65536, 1, 1048605, 65536, 1, 983069, 65536, 1, 917533, 65536, 1, 851997, 65536, 1, 786461, 65536, 1, 720925, 65536, 1, 720923, 65536, 1, 786459, 65536, 1, 851995, 65536, 1, 917531, 65536, 1, 983067, 65536, 1, 983068, 65536, 1, 917532, 65536, 1, 851996, 65536, 1, 786460, 65536, 1, 720924, 65536, 1, 720917, 65536, 1, 786453, 65536, 1, 851989, 65536, 1, 917525, 65536, 1, 983061, 65536, 1, 983060, 65536, 1, 917524, 65536, 1, 851988, 65536, 1, 786452, 65536, 1, 720916, 65536, 1, 851998, 65536, 1)
+
+[node name="room1" type="Node2D" parent="."]
+
+[node name="match_puzzle" type="Node2D" parent="room1" node_paths=PackedStringArray("character")]
+script = ExtResource("4_2n4qg")
+character = NodePath("../../character")
+solve_requirement = 4
+
+[node name="collisions" type="StaticBody2D" parent="room1/match_puzzle"]
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/collisions"]
+position = Vector2(2528, 2272)
+shape = SubResource("RectangleShape2D_xhjmq")
+debug_color = Color(0.976471, 0, 0.411765, 0.419608)
+
+[node name="interaction" type="Area2D" parent="room1/match_puzzle"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/interaction"]
+position = Vector2(2528, 2272)
+shape = SubResource("RectangleShape2D_tll18")
+debug_color = Color(0.196078, 0.627451, 0.372549, 0.419608)
+
+[node name="buttons" type="Node2D" parent="room1/match_puzzle"]
+
+[node name="button1" type="Area2D" parent="room1/match_puzzle/buttons"]
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button1"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button1"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button1"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("7_dxl2w")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button1"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button2" type="Area2D" parent="room1/match_puzzle/buttons"]
+position = Vector2(64, 0)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button2"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button2"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button2"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("7_dxl2w")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button2"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button3" type="Area2D" parent="room1/match_puzzle/buttons"]
+position = Vector2(0, 128)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button3"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button3"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button3"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("8_43i33")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button3"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button4" type="Area2D" parent="room1/match_puzzle/buttons"]
+position = Vector2(64, 128)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button4"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button4"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button4"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("8_43i33")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button4"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button5" type="Area2D" parent="room1/match_puzzle/buttons"]
+position = Vector2(128, 128)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button5"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button5"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button5"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button5"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button6" type="Area2D" parent="room1/match_puzzle/buttons"]
+position = Vector2(128, 64)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button6"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button6"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button6"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button6"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button7" type="Area2D" parent="room1/match_puzzle/buttons"]
+position = Vector2(128, 0)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button7"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button7"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button7"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button7"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button8" type="Area2D" parent="room1/match_puzzle/buttons"]
+position = Vector2(0, 64)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button8"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/match_puzzle/buttons/button8"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room1/match_puzzle/buttons/button8"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room1/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="TextureButton" type="TextureButton" parent="room1/match_puzzle/buttons/button8"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="Timer" type="Timer" parent="room1/match_puzzle"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="room1/match_puzzle"]
+position = Vector2(2528, 2272)
+enabled = false
+zoom = Vector2(3.745, 3.745)
+
+[node name="door" parent="room1" instance=ExtResource("11_8xrmx")]
+position = Vector2(2504, 2040)
+
+[node name="Camera" type="Area2D" parent="room1"]
+position = Vector2(2528, 2272)
+collision_layer = 2
+script = ExtResource("3_vks87")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/Camera"]
+shape = SubResource("RectangleShape2D_o1uwa")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room1/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room1/Camera" instance=ExtResource("4_bw6sy")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collision" type="StaticBody2D" parent="room1"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/collision"]
+position = Vector2(2248, 2271.5)
+shape = SubResource("RectangleShape2D_ig4s2")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room1/collision"]
+position = Vector2(2808, 2272)
+shape = SubResource("RectangleShape2D_ig4s2")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room1/collision"]
+position = Vector2(2376, 2055.75)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room1/collision"]
+position = Vector2(2680, 2056)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room1/collision"]
+position = Vector2(2680, 2488)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room1/collision"]
+position = Vector2(2376, 2488)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room1/collision"]
+position = Vector2(2528, 2504)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="room2" type="Node2D" parent="."]
+
+[node name="match_puzzle" type="Node2D" parent="room2" node_paths=PackedStringArray("character")]
+position = Vector2(0, -448)
+script = ExtResource("4_2n4qg")
+character = NodePath("../../character")
+solve_requirement = 4
+
+[node name="collisions" type="StaticBody2D" parent="room2/match_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/collisions"]
+position = Vector2(2528, 2272)
+shape = SubResource("RectangleShape2D_xhjmq")
+debug_color = Color(0.976471, 0, 0.411765, 0.419608)
+
+[node name="interaction" type="Area2D" parent="room2/match_puzzle"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/interaction"]
+position = Vector2(2528, 2272)
+shape = SubResource("RectangleShape2D_tll18")
+debug_color = Color(0.196078, 0.627451, 0.372549, 0.419608)
+
+[node name="buttons" type="Node2D" parent="room2/match_puzzle"]
+
+[node name="button1" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(128, 64)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button1"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button1"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button1"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="aaaaaaa" type="RichTextLabel" parent="room2/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button1"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button2" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(128, 0)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button2"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button2"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button2"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button2"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button3" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(0, 64)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button3"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button3"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button3"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="asdasd" type="RichTextLabel" parent="room2/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button3"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button4" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(64, 128)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button4"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button4"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button4"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button4"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button5" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(0, 128)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button5"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button5"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button5"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button5"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button6" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(128, 128)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button6"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button6"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button6"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button6"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button7" type="Area2D" parent="room2/match_puzzle/buttons"]
+position = Vector2(64, 0)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button7"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button7"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button7"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button7"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button8" type="Area2D" parent="room2/match_puzzle/buttons"]
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button8"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/match_puzzle/buttons/button8"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room2/match_puzzle/buttons/button8"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="TextureButton" type="TextureButton" parent="room2/match_puzzle/buttons/button8"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="Timer" type="Timer" parent="room2/match_puzzle"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="room2/match_puzzle"]
+position = Vector2(2528, 2272)
+enabled = false
+zoom = Vector2(3.745, 3.745)
+
+[node name="door" parent="room2" instance=ExtResource("11_8xrmx")]
+position = Vector2(2504, 1592)
+
+[node name="Camera" type="Area2D" parent="room2"]
+position = Vector2(2528, 1824)
+collision_layer = 2
+script = ExtResource("3_vks87")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/Camera"]
+shape = SubResource("RectangleShape2D_o1uwa")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room2/Camera" instance=ExtResource("4_bw6sy")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collision" type="StaticBody2D" parent="room2"]
+position = Vector2(0, -448)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(2248, 2271.5)
+shape = SubResource("RectangleShape2D_ig4s2")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(2808, 2272)
+shape = SubResource("RectangleShape2D_ig4s2")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(2376, 2055.75)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(2680, 2056)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(2680, 2488)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room2/collision"]
+position = Vector2(2376, 2488)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="room3" type="Node2D" parent="."]
+
+[node name="door" parent="room3" instance=ExtResource("11_8xrmx")]
+position = Vector2(2504, 1144)
+
+[node name="match_puzzle" type="Node2D" parent="room3" node_paths=PackedStringArray("character")]
+position = Vector2(0, -897)
+script = ExtResource("4_2n4qg")
+character = NodePath("../../character")
+solve_requirement = 4
+
+[node name="collisions" type="StaticBody2D" parent="room3/match_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/collisions"]
+position = Vector2(2528, 2272)
+shape = SubResource("RectangleShape2D_xhjmq")
+debug_color = Color(0.976471, 0, 0.411765, 0.419608)
+
+[node name="interaction" type="Area2D" parent="room3/match_puzzle"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/interaction"]
+position = Vector2(2528, 2272)
+shape = SubResource("RectangleShape2D_tll18")
+debug_color = Color(0.196078, 0.627451, 0.372549, 0.419608)
+
+[node name="buttons" type="Node2D" parent="room3/match_puzzle"]
+
+[node name="button1" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(64, 1)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button1"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button1"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button1"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button1/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button1"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button2" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(128, 129)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button2"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button2"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button2"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button2/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button2"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button3" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(128, 1)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button3"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button3"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button3"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button3/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button3"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button4" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(128, 65)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button4"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button4"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button4"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button4/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button4"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button5" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(0, 129)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button5"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button5"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button5"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button5/clicked"]
+stream = ExtResource("16_3elu1")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button5"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button6" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(0, 1)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button6"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button6"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button6"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button6/clicked"]
+stream = ExtResource("16_3elu1")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button6"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button7" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(64, 129)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button7"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button7"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button7"]
+visible = false
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button7/clicked"]
+stream = ExtResource("17_54vg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button7"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button8" type="Area2D" parent="room3/match_puzzle/buttons"]
+position = Vector2(0, 65)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button8"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/match_puzzle/buttons/button8"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room3/match_puzzle/buttons/button8"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="audio" type="AudioStreamPlayer" parent="room3/match_puzzle/buttons/button8/clicked"]
+stream = ExtResource("17_54vg6")
+
+[node name="TextureButton" type="TextureButton" parent="room3/match_puzzle/buttons/button8"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="Timer" type="Timer" parent="room3/match_puzzle"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="room3/match_puzzle"]
+position = Vector2(2528, 2273)
+enabled = false
+zoom = Vector2(3.715, 3.715)
+
+[node name="Camera" type="Area2D" parent="room3"]
+position = Vector2(2528, 1375)
+collision_layer = 2
+script = ExtResource("3_vks87")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/Camera"]
+shape = SubResource("RectangleShape2D_o1uwa")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/Camera"]
+position = Vector2(0, 2)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room3/Camera" instance=ExtResource("4_bw6sy")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collision" type="StaticBody2D" parent="room3"]
+position = Vector2(0, -897)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(2248, 2271.5)
+shape = SubResource("RectangleShape2D_ig4s2")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(2808, 2272)
+shape = SubResource("RectangleShape2D_ig4s2")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(2376, 2055.75)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(2680, 2056)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(2680, 2488)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room3/collision"]
+position = Vector2(2376, 2488)
+shape = SubResource("RectangleShape2D_dyex3")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="room4" type="Node2D" parent="."]
+
+[node name="door" parent="room4" instance=ExtResource("11_8xrmx")]
+position = Vector2(2008, 840)
+rotation = 1.5708
+
+[node name="match_puzzle" type="Node2D" parent="room4" node_paths=PackedStringArray("character")]
+position = Vector2(-192, -1472)
+script = ExtResource("4_2n4qg")
+character = NodePath("../../character")
+solve_requirement = 12
+
+[node name="collisions" type="StaticBody2D" parent="room4/match_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/collisions"]
+position = Vector2(2592, 2336)
+shape = SubResource("RectangleShape2D_aamp6")
+debug_color = Color(0.976471, 0, 0.411765, 0.419608)
+
+[node name="interaction" type="Area2D" parent="room4/match_puzzle"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/interaction"]
+position = Vector2(2592, 2336)
+shape = SubResource("RectangleShape2D_ls4ae")
+debug_color = Color(0.196078, 0.627451, 0.372549, 0.419608)
+
+[node name="buttons" type="Node2D" parent="room4/match_puzzle"]
+
+[node name="button1" type="Area2D" parent="room4/match_puzzle/buttons"]
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button1"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button1"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button1"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button1"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button2" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(128, 192)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button2"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button2"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button2"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("9_8csn2")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button2"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button3" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(192, 0)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button3"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button3"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button3"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("18_fg3yu")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button3"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button4" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(128, 256)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button4"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button4"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button4"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("18_fg3yu")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button4"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button5" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(128, 64)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button5"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button5"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button5"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("19_5ttyk")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button5"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button6" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(0, 64)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button6"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button6"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button6"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("19_5ttyk")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button6"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button7" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(64, 256)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button7"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button7"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button7"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button7"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button8" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(256, 0)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button8"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button8"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button8"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button8"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button9" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(256, 64)
+script = ExtResource("5_m6ju3")
+id = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button9"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button9"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button9"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button9/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button9"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button10" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(192, 192)
+script = ExtResource("5_m6ju3")
+id = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button10"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button10"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button10"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button10/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button10"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button11" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(256, 256)
+script = ExtResource("5_m6ju3")
+id = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button11"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button11"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button11"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button11/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("7_dxl2w")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button11"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button23" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(0, 128)
+script = ExtResource("5_m6ju3")
+id = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button23"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button23"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button23"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button23/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("21_56osl")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button23"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button12" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(64, 128)
+script = ExtResource("5_m6ju3")
+id = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button12"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button12"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button12"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button12/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("7_dxl2w")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button12"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button13" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(192, 256)
+script = ExtResource("5_m6ju3")
+id = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button13"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button13"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button13"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button13/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("21_0u20r")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button13"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button14" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(192, 128)
+script = ExtResource("5_m6ju3")
+id = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button14"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button14"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button14"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button14/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("21_0u20r")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button14"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button15" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(128, 0)
+script = ExtResource("5_m6ju3")
+id = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button15"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button15"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button15"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button15/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("22_5bs1q")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button15"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button16" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(0, 192)
+script = ExtResource("5_m6ju3")
+id = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button16"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button16"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button16"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button16/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("22_5bs1q")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button16"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button17" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(192, 64)
+script = ExtResource("5_m6ju3")
+id = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button17"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button17"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button17"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button17/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("23_4x3pq")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button17"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button18" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(64, 64)
+script = ExtResource("5_m6ju3")
+id = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button18"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button18"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button18"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button18/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("23_4x3pq")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button18"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button19" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(256, 192)
+script = ExtResource("5_m6ju3")
+id = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button19"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button19"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button19"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button19/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("25_clnxp")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button19"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button20" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(0, 256)
+script = ExtResource("5_m6ju3")
+id = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button20"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button20"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button20"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button20/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("25_clnxp")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button20"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button21" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(64, 0)
+script = ExtResource("5_m6ju3")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button21"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button21"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button21"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button21/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button21"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button22" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(64, 192)
+script = ExtResource("5_m6ju3")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button22"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button22"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button22"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button22/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button22"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button24" type="Area2D" parent="room4/match_puzzle/buttons"]
+position = Vector2(256, 128)
+script = ExtResource("5_m6ju3")
+id = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button24"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/match_puzzle/buttons/button24"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room4/match_puzzle/buttons/button24"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/match_puzzle/buttons/button24/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("21_56osl")
+
+[node name="TextureButton" type="TextureButton" parent="room4/match_puzzle/buttons/button24"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="Timer" type="Timer" parent="room4/match_puzzle"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="room4/match_puzzle"]
+position = Vector2(2592, 2336)
+enabled = false
+zoom = Vector2(2.255, 2.255)
+
+[node name="Camera" type="Area2D" parent="room4"]
+position = Vector2(2496, 926)
+collision_layer = 2
+script = ExtResource("3_vks87")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/Camera"]
+position = Vector2(-96, -62)
+shape = SubResource("RectangleShape2D_g6eg6")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room4/Camera"]
+position = Vector2(0, -62)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.255, 1.255)
+
+[node name="pause" parent="room4/Camera" instance=ExtResource("4_bw6sy")]
+visible = false
+position = Vector2(0, -62)
+
+[node name="collision" type="StaticBody2D" parent="room4"]
+position = Vector2(0, -897)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(2240, 2040.25)
+shape = SubResource("RectangleShape2D_g4hst")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(2400, 1481)
+shape = SubResource("RectangleShape2D_3dnab")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(2808, 1765.38)
+shape = SubResource("RectangleShape2D_14loe")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(2680, 2038.81)
+shape = SubResource("RectangleShape2D_72ekt")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(1992, 1610.09)
+shape = SubResource("RectangleShape2D_di6gj")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room4/collision"]
+position = Vector2(1992, 1913)
+shape = SubResource("RectangleShape2D_di6gj")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="room5" type="Node2D" parent="."]
+position = Vector2(-832, 0)
+
+[node name="door" parent="room5" instance=ExtResource("11_8xrmx")]
+position = Vector2(2376, 568)
+
+[node name="match_puzzle" type="Node2D" parent="room5" node_paths=PackedStringArray("character")]
+position = Vector2(-192, -1472)
+script = ExtResource("4_2n4qg")
+character = NodePath("../../character")
+skipable = true
+solve_requirement = 12
+
+[node name="collisions" type="StaticBody2D" parent="room5/match_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/collisions"]
+position = Vector2(2592, 2336)
+shape = SubResource("RectangleShape2D_aamp6")
+debug_color = Color(0.976471, 0, 0.411765, 0.419608)
+
+[node name="interaction" type="Area2D" parent="room5/match_puzzle"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/interaction"]
+position = Vector2(2592, 2336)
+shape = SubResource("RectangleShape2D_ls4ae")
+debug_color = Color(0.196078, 0.627451, 0.372549, 0.419608)
+
+[node name="buttons" type="Node2D" parent="room5/match_puzzle"]
+
+[node name="button1" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(0, 64)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button1"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button1"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button1"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button1/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button1/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button1"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="button2" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(64, 256)
+script = ExtResource("5_m6ju3")
+id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button2"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button2"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button2"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button2/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button2/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button2"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="button3" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(0, 192)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button3"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button3"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button3"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button3/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button3/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button3"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button4" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(192, 0)
+script = ExtResource("5_m6ju3")
+id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button4"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button4"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button4"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button4/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button4/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button4"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button5" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(256, 0)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button5"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button5"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button5"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button5/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button5/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button5"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button6" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(192, 64)
+script = ExtResource("5_m6ju3")
+id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button6"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button6"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button6"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button6/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button6/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button6"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button7" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(64, 64)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button7"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button7"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button7"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button7/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button7/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button7"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button8" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(192, 128)
+script = ExtResource("5_m6ju3")
+id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button8"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button8"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button8"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("13_4dw0f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button8/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button8/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button8"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button9" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(256, 256)
+script = ExtResource("5_m6ju3")
+id = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button9"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button9"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button9"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button9/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button9/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button9/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button9"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button10" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(192, 256)
+script = ExtResource("5_m6ju3")
+id = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button10"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button10"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button10"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button10/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button10/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button10/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button10"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button11" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(64, 128)
+script = ExtResource("5_m6ju3")
+id = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button11"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button11"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button11"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button11/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button11/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button11/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button11"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="button12" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(64, 192)
+script = ExtResource("5_m6ju3")
+id = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button12"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button12"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button12"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button12/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button12/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button12/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button12"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="button13" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(256, 64)
+script = ExtResource("5_m6ju3")
+id = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button13"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button13"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button13"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button13/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button13/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button13/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button13"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button14" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(128, 256)
+script = ExtResource("5_m6ju3")
+id = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button14"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button14"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button14"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button14/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button14/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button14/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button14"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button15" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(256, 128)
+script = ExtResource("5_m6ju3")
+id = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button15"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button15"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button15"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button15/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button15/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button15/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button15"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button16" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(128, 0)
+script = ExtResource("5_m6ju3")
+id = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button16"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button16"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button16"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button16/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("20_mexay")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button16/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button16/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button16"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button17" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(0, 128)
+script = ExtResource("5_m6ju3")
+id = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button17"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button17"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button17"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button17/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button17/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button17/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button17"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button18" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(128, 192)
+script = ExtResource("5_m6ju3")
+id = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button18"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button18"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button18"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button18/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button18/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button18/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button18"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button19" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(0, 256)
+script = ExtResource("5_m6ju3")
+id = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button19"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button19"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button19"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button19/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button19/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button19/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button19"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button20" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(64, 0)
+script = ExtResource("5_m6ju3")
+id = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button20"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button20"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button20"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button20/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button20/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "1"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button20/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button20"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button21" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(128, 64)
+script = ExtResource("5_m6ju3")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button21"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button21"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button21"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button21/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button21/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button21/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button21"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button22" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(192, 192)
+script = ExtResource("5_m6ju3")
+id = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button22"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button22"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button22"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button22/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button22/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button22/clicked"]
+stream = ExtResource("13_21ydg")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button22"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button23" type="Area2D" parent="room5/match_puzzle/buttons"]
+script = ExtResource("5_m6ju3")
+id = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button23"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button23"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button23"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button23/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button23/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button23/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button23"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="button24" type="Area2D" parent="room5/match_puzzle/buttons"]
+position = Vector2(256, 192)
+script = ExtResource("5_m6ju3")
+id = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button24"]
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4, 4)
+texture = ExtResource("5_olsmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/match_puzzle/buttons/button24"]
+position = Vector2(2464, 2208)
+shape = SubResource("RectangleShape2D_ah1bx")
+
+[node name="clicked" type="Node2D" parent="room5/match_puzzle/buttons/button24"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/match_puzzle/buttons/button24/clicked"]
+z_index = 2
+texture_filter = 1
+position = Vector2(2464, 2208)
+scale = Vector2(4.00001, 4)
+texture = ExtResource("10_r5wo7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/match_puzzle/buttons/button24/clicked"]
+z_index = 2
+offset_left = 2453.0
+offset_top = 2180.0
+offset_right = 2509.0
+offset_bottom = 2244.0
+theme_override_font_sizes/normal_font_size = 40
+text = "I"
+
+[node name="audio" type="AudioStreamPlayer" parent="room5/match_puzzle/buttons/button24/clicked"]
+stream = ExtResource("15_mnev8")
+
+[node name="TextureButton" type="TextureButton" parent="room5/match_puzzle/buttons/button24"]
+offset_left = 2432.0
+offset_top = 2176.0
+offset_right = 2496.0
+offset_bottom = 2240.0
+action_mode = 0
+
+[node name="Timer" type="Timer" parent="room5/match_puzzle"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="room5/match_puzzle"]
+position = Vector2(2592, 2336)
+enabled = false
+zoom = Vector2(2.255, 2.255)
+
+[node name="Camera" type="Area2D" parent="room5"]
+position = Vector2(2496, 926)
+collision_layer = 2
+script = ExtResource("3_vks87")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/Camera"]
+position = Vector2(-96, -62)
+shape = SubResource("RectangleShape2D_g6eg6")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room5/Camera"]
+position = Vector2(-192, -62)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.255, 1.255)
+
+[node name="pause" parent="room5/Camera" instance=ExtResource("4_bw6sy")]
+visible = false
+position = Vector2(-192, -62)
+
+[node name="collision" type="StaticBody2D" parent="room5"]
+position = Vector2(0, -897)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(2400, 2040.25)
+shape = SubResource("RectangleShape2D_4x8qk")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(2176, 1481)
+shape = SubResource("RectangleShape2D_tgejl")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(2624, 1481)
+shape = SubResource("RectangleShape2D_tgejl")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(2808, 1609.38)
+shape = SubResource("RectangleShape2D_5x4my")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(2808, 1913)
+shape = SubResource("RectangleShape2D_5x4my")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room5/collision"]
+position = Vector2(1992, 1757.19)
+shape = SubResource("RectangleShape2D_r6aui")
+debug_color = Color(0.858824, 0.313726, 0.490196, 0.419608)
+
+[node name="level_end" type="Area2D" parent="."]
+position = Vector2(1480, 456)
+script = ExtResource("26_hogr1")
+level = ExtResource("27_tllxl")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_end"]
+position = Vector2(87, 55)
+shape = SubResource("RectangleShape2D_56g5g")
+
+[node name="completion_timer" parent="." instance=ExtResource("27_d3hhe")]
+
+[node name="save" parent="." instance=ExtResource("29_1hp52")]
+level = 2
+
+[connection signal="solved" from="room1/match_puzzle" to="room1/door" method="on_signal"]
+[connection signal="body_entered" from="room1/match_puzzle/interaction" to="room1/match_puzzle" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="room1/match_puzzle/interaction" to="room1/match_puzzle" method="_on_interaction_body_exited"]
+[connection signal="click" from="room1/match_puzzle/buttons/button1" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button1/TextureButton" to="room1/match_puzzle/buttons/button1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room1/match_puzzle/buttons/button2" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button2/TextureButton" to="room1/match_puzzle/buttons/button2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room1/match_puzzle/buttons/button3" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button3/TextureButton" to="room1/match_puzzle/buttons/button3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room1/match_puzzle/buttons/button4" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button4/TextureButton" to="room1/match_puzzle/buttons/button4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room1/match_puzzle/buttons/button5" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button5/TextureButton" to="room1/match_puzzle/buttons/button5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room1/match_puzzle/buttons/button6" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button6/TextureButton" to="room1/match_puzzle/buttons/button6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room1/match_puzzle/buttons/button7" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button7/TextureButton" to="room1/match_puzzle/buttons/button7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room1/match_puzzle/buttons/button8" to="room1/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room1/match_puzzle/buttons/button8/TextureButton" to="room1/match_puzzle/buttons/button8" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="room1/match_puzzle/Timer" to="room1/match_puzzle" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room1/Camera" to="room1/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/Camera" to="room1/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room2/match_puzzle" to="room2/door" method="on_signal"]
+[connection signal="body_entered" from="room2/match_puzzle/interaction" to="room2/match_puzzle" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="room2/match_puzzle/interaction" to="room2/match_puzzle" method="_on_interaction_body_exited"]
+[connection signal="click" from="room2/match_puzzle/buttons/button1" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button1/TextureButton" to="room2/match_puzzle/buttons/button1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button2" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button2/TextureButton" to="room2/match_puzzle/buttons/button2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button3" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button3/TextureButton" to="room2/match_puzzle/buttons/button3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button4" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button4/TextureButton" to="room2/match_puzzle/buttons/button4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button5" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button5/TextureButton" to="room2/match_puzzle/buttons/button5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button6" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button6/TextureButton" to="room2/match_puzzle/buttons/button6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button7" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button7/TextureButton" to="room2/match_puzzle/buttons/button7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/match_puzzle/buttons/button8" to="room2/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room2/match_puzzle/buttons/button8/TextureButton" to="room2/match_puzzle/buttons/button8" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="room2/match_puzzle/Timer" to="room2/match_puzzle" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room2/Camera" to="room2/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/Camera" to="room2/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room3/match_puzzle" to="room3/door" method="on_signal"]
+[connection signal="body_entered" from="room3/match_puzzle/interaction" to="room3/match_puzzle" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="room3/match_puzzle/interaction" to="room3/match_puzzle" method="_on_interaction_body_exited"]
+[connection signal="click" from="room3/match_puzzle/buttons/button1" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button1/TextureButton" to="room3/match_puzzle/buttons/button1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button2" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button2/TextureButton" to="room3/match_puzzle/buttons/button2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button3" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button3/TextureButton" to="room3/match_puzzle/buttons/button3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button4" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button4/TextureButton" to="room3/match_puzzle/buttons/button4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button5" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button5/TextureButton" to="room3/match_puzzle/buttons/button5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button6" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button6/TextureButton" to="room3/match_puzzle/buttons/button6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button7" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button7/TextureButton" to="room3/match_puzzle/buttons/button7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/match_puzzle/buttons/button8" to="room3/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room3/match_puzzle/buttons/button8/TextureButton" to="room3/match_puzzle/buttons/button8" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="room3/match_puzzle/Timer" to="room3/match_puzzle" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room3/Camera" to="room3/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room3/Camera" to="room3/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room4/match_puzzle" to="room4/door" method="on_signal"]
+[connection signal="body_entered" from="room4/match_puzzle/interaction" to="room4/match_puzzle" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="room4/match_puzzle/interaction" to="room4/match_puzzle" method="_on_interaction_body_exited"]
+[connection signal="click" from="room4/match_puzzle/buttons/button1" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button1/TextureButton" to="room4/match_puzzle/buttons/button1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button2" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button2/TextureButton" to="room4/match_puzzle/buttons/button2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button3" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button3/TextureButton" to="room4/match_puzzle/buttons/button3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button4" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button4/TextureButton" to="room4/match_puzzle/buttons/button4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button5" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button5/TextureButton" to="room4/match_puzzle/buttons/button5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button6" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button6/TextureButton" to="room4/match_puzzle/buttons/button6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button7" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button7/TextureButton" to="room4/match_puzzle/buttons/button7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button8" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button8/TextureButton" to="room4/match_puzzle/buttons/button8" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button9" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button9/TextureButton" to="room4/match_puzzle/buttons/button9" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button10" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button10/TextureButton" to="room4/match_puzzle/buttons/button10" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button11" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button11/TextureButton" to="room4/match_puzzle/buttons/button11" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button23" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button23/TextureButton" to="room4/match_puzzle/buttons/button23" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button12" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button12/TextureButton" to="room4/match_puzzle/buttons/button12" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button13" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button13/TextureButton" to="room4/match_puzzle/buttons/button13" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button14" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button14/TextureButton" to="room4/match_puzzle/buttons/button14" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button15" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button15/TextureButton" to="room4/match_puzzle/buttons/button15" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button16" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button16/TextureButton" to="room4/match_puzzle/buttons/button16" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button17" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button17/TextureButton" to="room4/match_puzzle/buttons/button17" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button18" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button18/TextureButton" to="room4/match_puzzle/buttons/button18" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button19" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button19/TextureButton" to="room4/match_puzzle/buttons/button19" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button20" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button20/TextureButton" to="room4/match_puzzle/buttons/button20" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button21" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button21/TextureButton" to="room4/match_puzzle/buttons/button21" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button22" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button22/TextureButton" to="room4/match_puzzle/buttons/button22" method="_on_texture_button_pressed"]
+[connection signal="click" from="room4/match_puzzle/buttons/button24" to="room4/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room4/match_puzzle/buttons/button24/TextureButton" to="room4/match_puzzle/buttons/button24" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="room4/match_puzzle/Timer" to="room4/match_puzzle" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room4/Camera" to="room4/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room4/Camera" to="room4/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room5/match_puzzle" to="room5/door" method="on_signal"]
+[connection signal="body_entered" from="room5/match_puzzle/interaction" to="room5/match_puzzle" method="_on_interaction_body_entered"]
+[connection signal="body_exited" from="room5/match_puzzle/interaction" to="room5/match_puzzle" method="_on_interaction_body_exited"]
+[connection signal="click" from="room5/match_puzzle/buttons/button1" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button1/TextureButton" to="room5/match_puzzle/buttons/button1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button2" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button2/TextureButton" to="room5/match_puzzle/buttons/button2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button3" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button3/TextureButton" to="room5/match_puzzle/buttons/button3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button4" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button4/TextureButton" to="room5/match_puzzle/buttons/button4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button5" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button5/TextureButton" to="room5/match_puzzle/buttons/button5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button6" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button6/TextureButton" to="room5/match_puzzle/buttons/button6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button7" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button7/TextureButton" to="room5/match_puzzle/buttons/button7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button8" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button8/TextureButton" to="room5/match_puzzle/buttons/button8" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button9" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button9/TextureButton" to="room5/match_puzzle/buttons/button9" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button10" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button10/TextureButton" to="room5/match_puzzle/buttons/button10" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button11" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button11/TextureButton" to="room5/match_puzzle/buttons/button11" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button12" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button12/TextureButton" to="room5/match_puzzle/buttons/button12" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button13" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button13/TextureButton" to="room5/match_puzzle/buttons/button13" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button14" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button14/TextureButton" to="room5/match_puzzle/buttons/button14" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button15" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button15/TextureButton" to="room5/match_puzzle/buttons/button15" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button16" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button16/TextureButton" to="room5/match_puzzle/buttons/button16" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button17" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button17/TextureButton" to="room5/match_puzzle/buttons/button17" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button18" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button18/TextureButton" to="room5/match_puzzle/buttons/button18" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button19" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button19/TextureButton" to="room5/match_puzzle/buttons/button19" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button20" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button20/TextureButton" to="room5/match_puzzle/buttons/button20" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button21" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button21/TextureButton" to="room5/match_puzzle/buttons/button21" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button22" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button22/TextureButton" to="room5/match_puzzle/buttons/button22" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button23" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button23/TextureButton" to="room5/match_puzzle/buttons/button23" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/match_puzzle/buttons/button24" to="room5/match_puzzle" method="_on_button_click"]
+[connection signal="pressed" from="room5/match_puzzle/buttons/button24/TextureButton" to="room5/match_puzzle/buttons/button24" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="room5/match_puzzle/Timer" to="room5/match_puzzle" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room5/Camera" to="room5/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room5/Camera" to="room5/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="level_end" to="level_end" method="_on_body_entered"]
