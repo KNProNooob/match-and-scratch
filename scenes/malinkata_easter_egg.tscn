@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://5tp1v2lt54y0"]
+
+[ext_resource type="Script" uid="uid://b3rlw5nhixr2k" path="res://scripts/malinkata_easter_egg_scene.gd" id="1_lnjgk"]
+[ext_resource type="Texture2D" uid="uid://dek1xs4sofiid" path="res://assets/big_brain.jpg" id="1_v5n20"]
+
+[node name="Malinkata_easter_egg" type="Node2D"]
+script = ExtResource("1_lnjgk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 96.0
+offset_top = 88.0
+offset_right = 1184.0
+offset_bottom = 304.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]YOU ARE TOO BIG BRAIN FOR THIS GAME!"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 472)
+scale = Vector2(0.503333, 0.476667)
+texture = ExtResource("1_v5n20")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

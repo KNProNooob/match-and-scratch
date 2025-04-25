@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcpfyb7cnyg2x"]
+
+[ext_resource type="Script" uid="uid://bipa01gd3ui2s" path="res://scripts/door.gd" id="1_yyah1"]
+[ext_resource type="Texture2D" uid="uid://dr3trfe5wefy0" path="res://assets/door.png" id="2_k5kjx"]
+[ext_resource type="AudioStream" uid="uid://ccxpbyd7hg5dd" path="res://assets/music/door_open.wav" id="3_t26li"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkm1u"]
+size = Vector2(64, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iohxl"]
+size = Vector2(64, 65)
+
+[node name="door" type="StaticBody2D"]
+position = Vector2(1568, 889)
+collision_layer = 2
+script = ExtResource("1_yyah1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(704, 271)
+scale = Vector2(4.01, 4.01)
+texture = ExtResource("2_k5kjx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(704, 271)
+shape = SubResource("RectangleShape2D_hkm1u")
+debug_color = Color(0.933333, 0.188235, 0.454902, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(704, 271.5)
+shape = SubResource("RectangleShape2D_iohxl")
+debug_color = Color(0, 0.639216, 0.34902, 0.419608)
+
+[node name="door_open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t26li")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

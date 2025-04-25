@@ -1,0 +1,3047 @@
+[gd_scene load_steps=66 format=3 uid="uid://d3mp2w8dmdrau"]
+
+[ext_resource type="Texture2D" uid="uid://qee30fe2b1np" path="res://assets/tilemap.png" id="1_o54y2"]
+[ext_resource type="Script" uid="uid://drs3gvna3yuhe" path="res://scripts/Camera.gd" id="2_nraou"]
+[ext_resource type="Script" uid="uid://c5jahtkpvui66" path="res://scripts/slide_puzzle.gd" id="3_d7hmq"]
+[ext_resource type="PackedScene" uid="uid://h842fiqrcevs" path="res://scenes/stone_door.tscn" id="3_uaor8"]
+[ext_resource type="PackedScene" uid="uid://c1fx16wmlo45w" path="res://scenes/pause_menu.tscn" id="4_4rtou"]
+[ext_resource type="Texture2D" uid="uid://2nf2ammycr4x" path="res://assets/slide_puzzle/blue2.png" id="5_r20v7"]
+[ext_resource type="Script" uid="uid://bphg6opuc21e0" path="res://scripts/slide_click.gd" id="6_ore44"]
+[ext_resource type="Texture2D" uid="uid://ffofcckhu0gv" path="res://assets/slide_puzzle/green.png" id="6_t43xl"]
+[ext_resource type="Texture2D" uid="uid://bjr4gw0wsjnkb" path="res://assets/slide_puzzle/red2.png" id="7_02psh"]
+[ext_resource type="Texture2D" uid="uid://c0desmsdodc5c" path="res://assets/slide_puzzle/orange.png" id="8_4383i"]
+[ext_resource type="Texture2D" uid="uid://bfg0ogvn1e5ob" path="res://assets/slide_puzzle/yellow.png" id="9_mgxby"]
+[ext_resource type="Texture2D" uid="uid://7ptol0brc4lb" path="res://assets/slide_puzzle/pink.png" id="10_bso2h"]
+[ext_resource type="Texture2D" uid="uid://cjuixxvgnbq3j" path="res://assets/slide_puzzle/blue.png" id="11_kseaw"]
+[ext_resource type="Texture2D" uid="uid://cpek0rhk2xpdf" path="res://assets/slide_puzzle/uncolored.png" id="12_8ij5g"]
+[ext_resource type="PackedScene" uid="uid://dghe131wa2uka" path="res://scenes/character.tscn" id="15_rhdic"]
+[ext_resource type="Texture2D" uid="uid://dvsywk3wdb0es" path="res://assets/slide_puzzle/beige.png" id="16_4akj6"]
+[ext_resource type="Texture2D" uid="uid://bth7ijhpak80y" path="res://assets/slide_puzzle/brown.png" id="17_owhvw"]
+[ext_resource type="Texture2D" uid="uid://brkp26q1le6eu" path="res://assets/slide_puzzle/color15.png" id="18_vppfl"]
+[ext_resource type="Texture2D" uid="uid://bnfukboka10cl" path="res://assets/slide_puzzle/color14.png" id="19_pwwkw"]
+[ext_resource type="Texture2D" uid="uid://r0vlx1lg3b41" path="res://assets/slide_puzzle/color16.png" id="20_vm8fn"]
+[ext_resource type="Texture2D" uid="uid://bm1tgimwhcx8l" path="res://assets/slide_puzzle/purple.png" id="21_n1tl5"]
+[ext_resource type="Texture2D" uid="uid://csjg047tpvh6e" path="res://assets/slide_puzzle/red.png" id="22_shjhn"]
+[ext_resource type="PackedScene" uid="uid://b35rluj3l27cc" path="res://scenes/level_5.tscn" id="23_dwk0w"]
+[ext_resource type="Script" uid="uid://wy60cvlju6n3" path="res://scripts/level_end.gd" id="23_lx4x8"]
+[ext_resource type="PackedScene" uid="uid://b3j0ypr4fpsoe" path="res://scenes/completion_timer.tscn" id="24_7y80k"]
+[ext_resource type="PackedScene" uid="uid://d3qyl43wkei0q" path="res://scenes/save.tscn" id="26_ahvpy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrnwc"]
+texture = ExtResource("1_o54y2")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1l7u8"]
+sources/0 = SubResource("TileSetAtlasSource_wrnwc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghccj"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5khgq"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnbjr"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vjjk"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhxbk"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3dlh"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cjm6"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4p33v"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kh7y"]
+size = Vector2(209, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivtyx"]
+size = Vector2(240, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkq01"]
+size = Vector2(576, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th04m"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bm3l"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duxpn"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls6wy"]
+size = Vector2(16, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo6kc"]
+size = Vector2(240, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7808"]
+size = Vector2(272, 273)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idu8x"]
+size = Vector2(304, 304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nj3d"]
+size = Vector2(704, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amfao"]
+size = Vector2(384, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkl4b"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgqsv"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q13yf"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkbqx"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljnm0"]
+size = Vector2(304, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0c0v"]
+size = Vector2(448, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqxjq"]
+size = Vector2(448, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v2e7"]
+size = Vector2(16, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5afx"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cda6j"]
+size = Vector2(320, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cycun"]
+size = Vector2(16, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ngkw"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc68r"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6qf6"]
+size = Vector2(576, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2pgn"]
+size = Vector2(16, 416)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn0fk"]
+size = Vector2(192, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mvll"]
+size = Vector2(194, 130)
+
+[node name="level_4" type="Node2D"]
+position = Vector2(1280, 704)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(832, 704)
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_1l7u8")
+format = 2
+layer_0/tile_data = PackedInt32Array(13, 65536, 1, 7, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 262151, 65536, 2, 65549, 65536, 1, 131085, 65536, 1, 196621, 65536, 1, 262157, 65536, 2, 262152, 65536, 2, 262153, 65536, 2, 262154, 65536, 1, 262155, 65536, 2, 262156, 65536, 2, 6, 0, 1, 14, 131072, 1, 65542, 0, 1, 131078, 0, 1, 196614, 0, 1, 262150, 0, 2, 65550, 131072, 1, 131086, 131072, 1, 196622, 131072, 1, 262158, 131072, 2, -131064, 65536, 0, -131065, 65536, 0, -131063, 65536, 0, -131062, 65536, 1, -131061, 65536, 0, -131060, 65536, 0, -131059, 65536, 0, -131058, 131072, 0, -131066, 0, 0, -65530, 0, 1, -65529, 65536, 1, -65523, 65536, 1, 196616, 65536, 1, 196617, 65536, 1, 196618, 65536, 1, 196619, 65536, 1, 196620, 65536, 1, -65524, 65536, 1, 12, 65536, 1, 65548, 65536, 1, 131084, 65536, 1, -65525, 65536, 1, -65526, 65536, 1, -65527, 65536, 1, -65528, 65536, 1, 8, 65536, 1, 65544, 65536, 1, 131080, 65536, 1, -196594, 131072, 2, -196602, 65536, 2, -196601, 65536, 2, -196600, 65536, 2, -196599, 65536, 2, -196597, 65536, 2, -196596, 65536, 2, -196595, 65536, 2, -196598, 65536, 1, -262138, 65536, 1, -327674, 65536, 1, -393210, 65536, 1, -458746, 65536, 1, -524282, 65536, 1, -589818, 65536, 0, -589817, 65536, 0, -589816, 65536, 0, -589815, 65536, 1, -589814, 65536, 0, -589813, 65536, 0, -589812, 65536, 0, -589811, 65536, 0, -589810, 131072, 0, -524274, 131072, 1, -458738, 131072, 1, -393202, 131072, 1, -327666, 131072, 1, -262130, 131072, 1, -524281, 65536, 1, -524280, 65536, 1, -524279, 65536, 1, -458743, 65536, 1, -458744, 65536, 1, -458745, 65536, 1, -393209, 65536, 1, -393208, 65536, 1, -393207, 65536, 1, -327671, 65536, 1, -327672, 65536, 1, -327673, 65536, 1, -262137, 65536, 1, -262136, 65536, 1, -262135, 65536, 1, -262134, 65536, 1, -262133, 65536, 1, -262132, 65536, 1, -262131, 65536, 1, -589820, 0, 0, -196604, 0, 2, -524284, 0, 1, -458748, 0, 1, -327676, 0, 1, -262140, 0, 1, -589819, 65536, 0, -196603, 65536, 2, -262139, 65536, 1, -393212, 65536, 1, -458747, 65536, 1, -524283, 65536, 1, -393211, 65536, 1, -327675, 65536, 1, -589821, 131072, 0, -196605, 131072, 2, -524285, 131072, 1, -458749, 131072, 1, -327677, 131072, 1, -262141, 131072, 1, -393213, 65536, 1, -589822, 65536, 0, -589823, 65536, 0, -589824, 65536, 0, -524289, 65536, 0, -524290, 65536, 0, -524291, 0, 0, -131075, 0, 2, -131074, 65536, 2, -131073, 65536, 2, -196608, 65536, 2, -196607, 65536, 2, -196606, 65536, 2, -458755, 0, 1, -393219, 0, 1, -327683, 0, 1, -262147, 0, 1, -196611, 0, 1, -458754, 65536, 1, -458753, 65536, 1, -524288, 65536, 1, -524287, 65536, 1, -524286, 65536, 1, -458750, 65536, 1, -458751, 65536, 1, -458752, 65536, 1, -393217, 65536, 1, -393218, 65536, 1, -327682, 65536, 1, -327681, 65536, 1, -393216, 65536, 1, -393215, 65536, 1, -393214, 65536, 1, -327678, 65536, 1, -327679, 65536, 1, -327680, 65536, 1, -262145, 65536, 1, -262146, 65536, 1, -196609, 65536, 1, -262144, 65536, 1, -262143, 65536, 1, -262142, 65536, 1, -196610, 65536, 1, -655346, 131072, 2, -720882, 131072, 1, -786418, 131072, 1, -851954, 65536, 1, -917490, 131072, 1, -983026, 131072, 1, -1048562, 131072, 0, -1048563, 65536, 0, -1048564, 65536, 0, -1048565, 65536, 0, -1048566, 65536, 0, -1048568, 65536, 0, -1048569, 65536, 0, -1048570, 65536, 0, -1048571, 65536, 0, -1048572, 0, 0, -655356, 0, 2, -983036, 0, 1, -917500, 0, 1, -851964, 0, 1, -786428, 0, 1, -720892, 0, 1, -655355, 65536, 2, -655354, 65536, 2, -655353, 65536, 2, -655352, 65536, 2, -655347, 65536, 2, -655348, 65536, 2, -655349, 65536, 2, -655350, 65536, 2, -1048567, 65536, 1, -983031, 65536, 1, -917495, 65536, 1, -851959, 65536, 1, -786423, 65536, 1, -720888, 65536, 1, -720889, 65536, 1, -720890, 65536, 1, -720891, 65536, 1, -720887, 65536, 1, -720886, 65536, 1, -720885, 65536, 1, -720884, 65536, 1, -720883, 65536, 1, -786419, 65536, 1, -851955, 65536, 1, -917491, 65536, 1, -983027, 65536, 1, -983028, 65536, 1, -983029, 65536, 1, -983030, 65536, 1, -917494, 65536, 1, -917493, 65536, 1, -917492, 65536, 1, -851956, 65536, 1, -851957, 65536, 1, -851958, 65536, 1, -786420, 65536, 1, -786421, 65536, 1, -786422, 65536, 1, -655351, 65536, 1, -1048561, 0, 0, -1048553, 131072, 0, -655337, 131072, 2, -655345, 0, 2, -655344, 65536, 2, -655343, 65536, 2, -655342, 65536, 2, -655341, 65536, 2, -655340, 65536, 2, -655339, 65536, 2, -655338, 65536, 2, -983017, 131072, 1, -917481, 131072, 1, -851945, 131072, 1, -786409, 131072, 1, -720873, 131072, 1, -1048560, 65536, 0, -1048559, 65536, 0, -1048558, 65536, 0, -1048557, 65536, 1, -1048556, 65536, 0, -1048555, 65536, 0, -1048554, 65536, 0, -983025, 0, 1, -917489, 0, 1, -786417, 0, 1, -720881, 0, 1, -851953, 65536, 1, -983024, 65536, 1, -917488, 65536, 1, -851952, 65536, 1, -786416, 65536, 1, -720880, 65536, 1, -720879, 65536, 1, -720878, 65536, 1, -720877, 65536, 1, -720876, 65536, 1, -720875, 65536, 1, -720874, 65536, 1, -786410, 65536, 1, -851946, 65536, 1, -917482, 65536, 1, -983018, 65536, 1, -983019, 65536, 1, -983020, 65536, 1, -983021, 65536, 1, -983022, 65536, 1, -983023, 65536, 1, -917487, 65536, 1, -851951, 65536, 1, -786415, 65536, 1, -786411, 65536, 1, -851947, 65536, 1, -917483, 65536, 1, -1114096, 0, 2, -1114090, 131072, 2, -1507306, 131072, 0, -1507312, 0, 0, -1507311, 65536, 0, -1507310, 65536, 0, -1507309, 65536, 0, -1507308, 65536, 0, -1507307, 65536, 0, -1441770, 131072, 1, -1376234, 131072, 1, -1310698, 131072, 1, -1245162, 131072, 1, -1179626, 131072, 1, -1114091, 65536, 2, -1114092, 65536, 2, -1114094, 65536, 2, -1114095, 65536, 2, -1441776, 0, 1, -1376240, 0, 1, -1310704, 0, 1, -1245168, 0, 1, -1179632, 0, 1, -1114093, 65536, 1, -1441771, 65536, 1, -1376235, 65536, 1, -1310699, 65536, 1, -1245163, 65536, 1, -1179627, 65536, 1, -1179628, 65536, 1, -1179629, 65536, 1, -1179630, 65536, 1, -1179631, 65536, 1, -1245164, 65536, 1, -65522, 131072, 1, 196615, 65536, 1)
+
+[node name="character" parent="." instance=ExtResource("15_rhdic")]
+position = Vector2(1456, 976)
+scale = Vector2(0.225, 0.225)
+motion_mode = 1
+
+[node name="room2" type="Node2D" parent="."]
+
+[node name="door" parent="room2" instance=ExtResource("3_uaor8")]
+position = Vector2(1480, 568)
+
+[node name="slide_puzzle" type="Node2D" parent="room2" node_paths=PackedStringArray("character", "solved_order", "scrambled_order")]
+script = ExtResource("3_d7hmq")
+character = NodePath("../../character")
+positions = Array[Vector2]([Vector2(1416, 712), Vector2(1480, 712), Vector2(1544, 712), Vector2(1416, 776), Vector2(1480, 776), Vector2(1544, 776), Vector2(1416, 840), Vector2(1480, 840), Vector2(1544, 840)])
+solved_order = [NodePath("plate1"), NodePath("plate2"), NodePath("plate3"), NodePath("plate4"), NodePath("plate5"), NodePath("plate6"), NodePath("plate7"), NodePath("plate8"), null]
+scrambled_order = [NodePath("plate2"), NodePath("plate6"), NodePath("plate4"), NodePath("plate1"), NodePath("plate5"), NodePath("plate3"), null, NodePath("plate7"), NodePath("plate8")]
+
+[node name="plate1" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1416, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("5_r20v7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate1"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_ghccj")
+one_way_collision_margin = 0.0
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate1"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate2" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1416, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("6_t43xl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate2"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate2"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_5khgq")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate3" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1544, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("7_02psh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate3"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate3"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_nnbjr")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate4" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1544, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4383i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate4"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate4"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_7vjjk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate4"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate5" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1480, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate5"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate5"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_uhxbk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate5"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate6" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1480, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("10_bso2h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate6"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate6"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_n3dlh")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate6"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate7" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1480, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("11_kseaw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate7"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate7"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_3cjm6")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate7"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate8" type="Area2D" parent="room2/slide_puzzle"]
+position = Vector2(1544, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room2/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room2/slide_puzzle/plate8"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/plate8"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room2/slide_puzzle/plate8"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room2/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/StaticBody2D"]
+position = Vector2(1503.5, 799.5)
+shape = SubResource("RectangleShape2D_6kh7y")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="room2/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/slide_puzzle/Area2D"]
+position = Vector2(1504, 800)
+shape = SubResource("RectangleShape2D_ivtyx")
+debug_color = Color(0, 0.65098, 0.0196078, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/slide_puzzle"]
+position = Vector2(1504, 800)
+enabled = false
+zoom = Vector2(3.77, 3.77)
+
+[node name="Camera" type="Area2D" parent="room2"]
+position = Vector2(1504, 800)
+collision_layer = 2
+script = ExtResource("2_nraou")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/Camera"]
+shape = SubResource("RectangleShape2D_rkq01")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/Camera"]
+position = Vector2(0, 2)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room2/Camera" instance=ExtResource("4_4rtou")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="colliders" type="Node2D" parent="room2"]
+position = Vector2(-1280, -704)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1280, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D"]
+position = Vector2(1344, 1032)
+shape = SubResource("RectangleShape2D_th04m")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room2/colliders/StaticBody2D"]
+position = Vector2(1504, 1048)
+shape = SubResource("RectangleShape2D_4bm3l")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1600, 688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D2"]
+position = Vector2(1344, 1032)
+shape = SubResource("RectangleShape2D_duxpn")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1040, 576)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D3"]
+position = Vector2(1464, 920)
+shape = SubResource("RectangleShape2D_ls6wy")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1600, 640)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D4"]
+position = Vector2(1464, 856)
+shape = SubResource("RectangleShape2D_ls6wy")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1104, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D5"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_qo6kc")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="room2/colliders"]
+position = Vector2(1408, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/colliders/StaticBody2D6"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_qo6kc")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="room3" type="Node2D" parent="."]
+
+[node name="door" parent="room3" instance=ExtResource("3_uaor8")]
+position = Vector2(1112, 328)
+rotation = 1.5708
+
+[node name="door2" parent="room3" instance=ExtResource("3_uaor8")]
+position = Vector2(1416, 120)
+
+[node name="slide_puzzle" type="Node2D" parent="room3" node_paths=PackedStringArray("character", "solved_order", "solved_order2", "scrambled_order")]
+position = Vector2(128, -512)
+script = ExtResource("3_d7hmq")
+character = NodePath("../../character")
+positions = Array[Vector2]([Vector2(1352, 712), Vector2(1416, 712), Vector2(1480, 712), Vector2(1544, 712), Vector2(1352, 776), Vector2(1416, 776), Vector2(1480, 776), Vector2(1544, 776), Vector2(1352, 840), Vector2(1416, 840), Vector2(1480, 840), Vector2(1544, 840), Vector2(1352, 904), Vector2(1416, 904), Vector2(1480, 904), Vector2(1544, 904)])
+solved_order = [NodePath("plate1"), NodePath("plate2"), NodePath("plate3"), NodePath("plate4"), NodePath("plate5"), NodePath("plate6"), NodePath("plate7"), NodePath("plate8"), NodePath("plate9"), NodePath("plate10"), NodePath("plate11"), NodePath("plate12"), NodePath("plate13"), NodePath("plate14"), NodePath("plate15"), null]
+solved_order2 = [NodePath("plate6"), NodePath("plate12"), NodePath("plate5"), NodePath("plate3"), NodePath("plate9"), NodePath("plate10"), NodePath("plate1"), NodePath("plate14"), NodePath("plate2"), NodePath("plate11"), NodePath("plate8"), NodePath("plate4"), NodePath("plate13"), NodePath("plate15"), NodePath("plate7"), null]
+scrambled_order = [NodePath("plate5"), NodePath("plate9"), NodePath("plate1"), NodePath("plate3"), NodePath("plate2"), NodePath("plate14"), NodePath("plate6"), NodePath("plate4"), NodePath("plate13"), null, NodePath("plate12"), NodePath("plate8"), NodePath("plate10"), NodePath("plate11"), NodePath("plate7"), NodePath("plate15")]
+
+[node name="plate1" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1480, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("16_4akj6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate1"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_ghccj")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate1"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate2" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1352, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("5_r20v7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate2"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate2"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_5khgq")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate3" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1544, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("17_owhvw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate3"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate3"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_nnbjr")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate4" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1544, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("18_vppfl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate4"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate4"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_7vjjk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate4"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate5" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1352, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate5"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate5"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_uhxbk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate5"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate6" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1480, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("19_pwwkw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate6"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate6"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_n3dlh")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate6"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate7" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1480, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("20_vm8fn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate7"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate7"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_3cjm6")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate7"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate8" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1544, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4383i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate8"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate8"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate8"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate9" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1416, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate9"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("6_t43xl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate9"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate9"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate9"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate10" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1352, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate10"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("10_bso2h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate10"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "10"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate10"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate10"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate11" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1416, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate11"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("21_n1tl5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate11"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "11"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate11"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate11"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate12" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1480, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate12"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("22_shjhn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate12"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "12"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate12"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate12"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate13" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1352, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate13"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate13"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "13"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate13"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate13"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate14" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1416, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate14"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate14"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "14"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate14"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate14"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate15" type="Area2D" parent="room3/slide_puzzle"]
+position = Vector2(1544, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room3/slide_puzzle/plate15"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("7_02psh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room3/slide_puzzle/plate15"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "15"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/plate15"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room3/slide_puzzle/plate15"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room3/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/StaticBody2D"]
+position = Vector2(1472, 831.5)
+shape = SubResource("RectangleShape2D_b7808")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="room3/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/slide_puzzle/Area2D"]
+position = Vector2(1472, 832)
+shape = SubResource("RectangleShape2D_idu8x")
+debug_color = Color(0, 0.65098, 0.0196078, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/slide_puzzle"]
+position = Vector2(1472, 832)
+enabled = false
+zoom = Vector2(2.8, 2.8)
+
+[node name="Camera" type="Area2D" parent="room3"]
+position = Vector2(1488, 352)
+collision_layer = 2
+script = ExtResource("2_nraou")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/Camera"]
+position = Vector2(-48, 0)
+shape = SubResource("RectangleShape2D_3nj3d")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/Camera"]
+position = Vector2(0, 1)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room3/Camera" instance=ExtResource("4_4rtou")]
+visible = false
+position = Vector2(-48, 0)
+
+[node name="colliders" type="Node" parent="room3"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room3/colliders"]
+position = Vector2(1280, 240)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colliders/StaticBody2D"]
+position = Vector2(1280, 1032)
+shape = SubResource("RectangleShape2D_amfao")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room3/colliders"]
+position = Vector2(1600, 240)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colliders/StaticBody2D2"]
+position = Vector2(1344, 1032)
+shape = SubResource("RectangleShape2D_pkl4b")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room3/colliders"]
+position = Vector2(1600, 128)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colliders/StaticBody2D3"]
+position = Vector2(1464, 920)
+shape = SubResource("RectangleShape2D_ls6wy")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room3/colliders"]
+position = Vector2(1040, 192)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colliders/StaticBody2D4"]
+position = Vector2(1336, 984)
+shape = SubResource("RectangleShape2D_lgqsv")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="room3/colliders"]
+position = Vector2(1040, -48)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colliders/StaticBody2D7"]
+position = Vector2(1336, 984)
+shape = SubResource("RectangleShape2D_q13yf")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room3/colliders"]
+position = Vector2(1104, 64)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colliders/StaticBody2D5"]
+position = Vector2(1424, 776)
+shape = SubResource("RectangleShape2D_jkbqx")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="room3/colliders"]
+position = Vector2(1408, 64)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/colliders/StaticBody2D6"]
+position = Vector2(1496, 776)
+shape = SubResource("RectangleShape2D_ljnm0")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="room4" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room4"]
+position = Vector2(1488, 352)
+collision_layer = 2
+script = ExtResource("2_nraou")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/Camera"]
+position = Vector2(-624, 0)
+shape = SubResource("RectangleShape2D_s0c0v")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room4/Camera"]
+position = Vector2(-800, 0)
+enabled = false
+zoom = Vector2(1.6, 1.6)
+
+[node name="pause" parent="room4/Camera" instance=ExtResource("4_4rtou")]
+visible = false
+position = Vector2(-800, 0)
+
+[node name="slide_puzzle" type="Node2D" parent="room4"]
+position = Vector2(-640, -512)
+
+[node name="plate1" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1480, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("16_4akj6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate1"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_ghccj")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate2" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1352, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("5_r20v7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate2"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate2"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_5khgq")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate5" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1480, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate5"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate5"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_uhxbk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate4" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1544, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("18_vppfl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate4"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate4"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_7vjjk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate3" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1544, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("17_owhvw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate3"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate3"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_nnbjr")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate6" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1352, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("19_pwwkw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate6"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate6"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_n3dlh")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate7" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1480, 904)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("20_vm8fn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate7"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate7"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_3cjm6")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate8" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1480, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4383i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate8"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate8"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate9" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1352, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate9"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("6_t43xl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate9"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate9"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate10" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1416, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate10"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("10_bso2h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate10"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "10"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate10"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate11" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1416, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate11"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("21_n1tl5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate11"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "11"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate11"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate12" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1416, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate12"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("22_shjhn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate12"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "12"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate12"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate13" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1352, 904)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate13"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate13"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "13"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate13"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate14" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1544, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate14"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate14"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "14"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate14"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate15" type="Area2D" parent="room4/slide_puzzle"]
+position = Vector2(1416, 904)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room4/slide_puzzle/plate15"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("7_02psh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room4/slide_puzzle/plate15"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "15"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/plate15"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room4/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/slide_puzzle/StaticBody2D"]
+position = Vector2(1472, 831.5)
+shape = SubResource("RectangleShape2D_b7808")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="colliders" type="Node2D" parent="room4"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room4/colliders"]
+position = Vector2(-384, -464)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/colliders/StaticBody2D"]
+position = Vector2(1248, 1032)
+shape = SubResource("RectangleShape2D_cqxjq")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room4/colliders"]
+position = Vector2(-384, -896)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/colliders/StaticBody2D2"]
+position = Vector2(1248, 1032)
+shape = SubResource("RectangleShape2D_cqxjq")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room4/colliders"]
+position = Vector2(-392, -784)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/colliders/StaticBody2D3"]
+position = Vector2(1040, 1136)
+shape = SubResource("RectangleShape2D_3v2e7")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room4/colliders"]
+position = Vector2(40, -784)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/colliders/StaticBody2D4"]
+position = Vector2(1040, 1016)
+shape = SubResource("RectangleShape2D_s5afx")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room4/colliders"]
+position = Vector2(40, -544)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/colliders/StaticBody2D5"]
+position = Vector2(1040, 1016)
+shape = SubResource("RectangleShape2D_s5afx")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="room5" type="Node2D" parent="."]
+
+[node name="door" parent="room5" instance=ExtResource("3_uaor8")]
+position = Vector2(1800, -120)
+rotation = 1.5708
+
+[node name="door2" parent="room5" instance=ExtResource("3_uaor8")]
+position = Vector2(1416, -328)
+
+[node name="slide_puzzle" type="Node2D" parent="room5" node_paths=PackedStringArray("character", "solved_order", "solved_order2", "scrambled_order")]
+position = Vector2(-192, -960)
+script = ExtResource("3_d7hmq")
+character = NodePath("../../character")
+positions = Array[Vector2]([Vector2(1352, 712), Vector2(1416, 712), Vector2(1480, 712), Vector2(1544, 712), Vector2(1352, 776), Vector2(1416, 776), Vector2(1480, 776), Vector2(1544, 776), Vector2(1352, 840), Vector2(1416, 840), Vector2(1480, 840), Vector2(1544, 840), Vector2(1352, 904), Vector2(1416, 904), Vector2(1480, 904), Vector2(1544, 904)])
+solved_order = [NodePath("plate6"), NodePath("plate12"), NodePath("plate5"), NodePath("plate3"), NodePath("plate9"), NodePath("plate10"), NodePath("plate1"), NodePath("plate14"), NodePath("plate2"), NodePath("plate11"), NodePath("plate8"), NodePath("plate7"), NodePath("plate13"), NodePath("plate15"), NodePath("plate4"), null]
+solved_order2 = [NodePath("plate10"), NodePath("plate5"), NodePath("plate6"), NodePath("plate8"), NodePath("plate2"), NodePath("plate3"), NodePath("plate13"), NodePath("plate4"), NodePath("plate14"), NodePath("plate1"), NodePath("plate12"), NodePath("plate11"), NodePath("plate9"), NodePath("plate15"), NodePath("plate7"), null]
+scrambled_order = [NodePath("plate5"), NodePath("plate1"), NodePath("plate8"), NodePath("plate3"), NodePath("plate2"), NodePath("plate10"), NodePath("plate6"), NodePath("plate4"), null, NodePath("plate7"), NodePath("plate15"), NodePath("plate12"), NodePath("plate14"), NodePath("plate9"), NodePath("plate13"), NodePath("plate11")]
+
+[node name="plate1" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1416, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("16_4akj6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate1"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_ghccj")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate1"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate2" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1352, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("5_r20v7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate2"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate2"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_5khgq")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate3" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1544, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("17_owhvw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate3"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate3"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_nnbjr")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate4" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1544, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("20_vm8fn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate4"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate4"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_7vjjk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate4"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate5" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1352, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate5"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate5"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_uhxbk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate5"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate6" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1480, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("19_pwwkw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate6"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate6"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_n3dlh")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate6"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate7" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1416, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("18_vppfl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate7"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate7"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_3cjm6")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate7"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate8" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1480, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4383i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate8"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate8"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate8"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate9" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1416, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate9"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("6_t43xl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate9"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate9"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate9"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate10" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1416, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate10"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("10_bso2h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate10"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "10"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate10"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate10"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate11" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1544, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate11"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("21_n1tl5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate11"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "11"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate11"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate11"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate12" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1544, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate12"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("22_shjhn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate12"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "12"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate12"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate12"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate13" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1480, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate13"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate13"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "13"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate13"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate13"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate14" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1352, 904)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate14"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate14"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "14"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate14"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate14"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate15" type="Area2D" parent="room5/slide_puzzle"]
+position = Vector2(1480, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room5/slide_puzzle/plate15"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("7_02psh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room5/slide_puzzle/plate15"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "15"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/plate15"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room5/slide_puzzle/plate15"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room5/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/StaticBody2D"]
+position = Vector2(1472, 831.5)
+shape = SubResource("RectangleShape2D_b7808")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="room5/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/slide_puzzle/Area2D"]
+position = Vector2(1472, 832)
+shape = SubResource("RectangleShape2D_idu8x")
+debug_color = Color(0, 0.65098, 0.0196078, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room5/slide_puzzle"]
+position = Vector2(1472, 832)
+enabled = false
+zoom = Vector2(2.8, 2.8)
+
+[node name="Camera" type="Area2D" parent="room5"]
+position = Vector2(1392, -96)
+collision_layer = 2
+script = ExtResource("2_nraou")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/Camera"]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_3nj3d")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room5/Camera"]
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room5/Camera" instance=ExtResource("4_4rtou")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="colliders" type="Node2D" parent="room5"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room5/colliders"]
+position = Vector2(0, -912)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colliders/StaticBody2D"]
+position = Vector2(1248, 1032)
+shape = SubResource("RectangleShape2D_cda6j")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room5/colliders"]
+position = Vector2(384, -912)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colliders/StaticBody2D2"]
+position = Vector2(1248, 1032)
+shape = SubResource("RectangleShape2D_cda6j")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room5/colliders"]
+position = Vector2(384, -1344)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colliders/StaticBody2D5"]
+position = Vector2(1248, 1032)
+shape = SubResource("RectangleShape2D_cda6j")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="room5/colliders"]
+position = Vector2(0, -1344)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colliders/StaticBody2D6"]
+position = Vector2(1248, 1032)
+shape = SubResource("RectangleShape2D_cda6j")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="room5/colliders"]
+position = Vector2(0, -1264)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colliders/StaticBody2D7"]
+position = Vector2(1096, 1168)
+shape = SubResource("RectangleShape2D_cycun")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room5/colliders"]
+position = Vector2(376, -968)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colliders/StaticBody2D3"]
+position = Vector2(1408, 992)
+shape = SubResource("RectangleShape2D_4ngkw")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room5/colliders"]
+position = Vector2(376, -1208)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/colliders/StaticBody2D4"]
+position = Vector2(1408, 992)
+shape = SubResource("RectangleShape2D_4ngkw")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="room6" type="Node2D" parent="."]
+position = Vector2(576, -896)
+
+[node name="door" parent="room6" instance=ExtResource("3_uaor8")]
+position = Vector2(1480, 568)
+
+[node name="slide_puzzle" type="Node2D" parent="room6" node_paths=PackedStringArray("character", "solved_order", "scrambled_order")]
+script = ExtResource("3_d7hmq")
+character = NodePath("../../character")
+positions = Array[Vector2]([Vector2(1416, 712), Vector2(1480, 712), Vector2(1544, 712), Vector2(1416, 776), Vector2(1480, 776), Vector2(1544, 776), Vector2(1416, 840), Vector2(1480, 840), Vector2(1544, 840)])
+solved_order = [NodePath("plate1"), NodePath("plate2"), NodePath("plate3"), NodePath("plate4"), NodePath("plate5"), NodePath("plate6"), NodePath("plate7"), NodePath("plate8"), null]
+scrambled_order = [NodePath("plate2"), NodePath("plate6"), NodePath("plate4"), NodePath("plate1"), NodePath("plate5"), NodePath("plate3"), null, NodePath("plate7"), NodePath("plate8")]
+
+[node name="plate1" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1416, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("5_r20v7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_ghccj")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate1"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate2" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1416, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("6_t43xl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate2"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_5khgq")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate2"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate3" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1544, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("7_02psh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate3"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_nnbjr")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate3"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate4" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1544, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("8_4383i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate4"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_7vjjk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate4"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate5" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1480, 776)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("9_mgxby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate5"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_uhxbk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate5"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate6" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1480, 712)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("10_bso2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate6"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_n3dlh")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate6"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate7" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1480, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("11_kseaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate7"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_3cjm6")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate7"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="plate8" type="Area2D" parent="room6/slide_puzzle"]
+position = Vector2(1544, 840)
+script = ExtResource("6_ore44")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room6/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/plate8"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="TextureButton" type="TextureButton" parent="room6/slide_puzzle/plate8"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 56.0
+action_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room6/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/StaticBody2D"]
+position = Vector2(1503.5, 799.5)
+shape = SubResource("RectangleShape2D_6kh7y")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="room6/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/slide_puzzle/Area2D"]
+position = Vector2(1504, 800)
+shape = SubResource("RectangleShape2D_ivtyx")
+debug_color = Color(0, 0.65098, 0.0196078, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room6/slide_puzzle"]
+position = Vector2(1504, 800)
+enabled = false
+zoom = Vector2(3.77, 3.77)
+
+[node name="Camera" type="Area2D" parent="room6"]
+position = Vector2(1504, 800)
+collision_layer = 2
+script = ExtResource("2_nraou")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/Camera"]
+shape = SubResource("RectangleShape2D_rkq01")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room6/Camera"]
+position = Vector2(112, 0)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.605, 1.605)
+
+[node name="pause" parent="room6/Camera" instance=ExtResource("4_4rtou")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="colliders" type="Node2D" parent="room6"]
+position = Vector2(-1280, -704)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room6/colliders"]
+position = Vector2(1280, 664)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/colliders/StaticBody2D"]
+position = Vector2(1224, 960)
+shape = SubResource("RectangleShape2D_dc68r")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room6/colliders"]
+position = Vector2(1160, 352)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/colliders/StaticBody2D2"]
+position = Vector2(1344, 1031.5)
+shape = SubResource("RectangleShape2D_dc68r")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room6/colliders"]
+position = Vector2(1128, 608)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/colliders/StaticBody2D3"]
+position = Vector2(1656, 1112)
+shape = SubResource("RectangleShape2D_s6qf6")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room6/colliders"]
+position = Vector2(1600, 640)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/colliders/StaticBody2D4"]
+position = Vector2(1464, 856)
+shape = SubResource("RectangleShape2D_ls6wy")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room6/colliders"]
+position = Vector2(1104, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/colliders/StaticBody2D5"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_qo6kc")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="room6/colliders"]
+position = Vector2(1408, 512)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/colliders/StaticBody2D6"]
+position = Vector2(1528, 776)
+shape = SubResource("RectangleShape2D_qo6kc")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="room7" type="Node2D" parent="."]
+position = Vector2(1216, -896)
+
+[node name="Camera" type="Area2D" parent="room7"]
+position = Vector2(1488, 352)
+collision_layer = 2
+script = ExtResource("2_nraou")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/Camera"]
+position = Vector2(-624, 0)
+shape = SubResource("RectangleShape2D_s0c0v")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room7/Camera"]
+position = Vector2(-624, 0)
+enabled = false
+zoom = Vector2(1.6, 1.6)
+
+[node name="pause" parent="room7/Camera" instance=ExtResource("4_4rtou")]
+visible = false
+position = Vector2(-624, 0)
+
+[node name="colliders" type="Node2D" parent="room7"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room7/colliders"]
+position = Vector2(-96, -688)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/colliders/StaticBody2D"]
+position = Vector2(1176, 1040)
+shape = SubResource("RectangleShape2D_h2pgn")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="room7/colliders"]
+position = Vector2(-384, -896)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/colliders/StaticBody2D2"]
+position = Vector2(1248, 1032)
+shape = SubResource("RectangleShape2D_cqxjq")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="room7/colliders"]
+position = Vector2(-392, -784)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/colliders/StaticBody2D3"]
+position = Vector2(1040, 1136)
+shape = SubResource("RectangleShape2D_3v2e7")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="room7/colliders"]
+position = Vector2(40, -528)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/colliders/StaticBody2D4"]
+position = Vector2(952, 1096)
+shape = SubResource("RectangleShape2D_fn0fk")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="room7/colliders"]
+position = Vector2(-216, -528)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/colliders/StaticBody2D5"]
+position = Vector2(952, 1096)
+shape = SubResource("RectangleShape2D_fn0fk")
+debug_color = Color(0.988235, 0, 0.294118, 0.419608)
+
+[node name="slide_puzzle" type="Node2D" parent="room7"]
+position = Vector2(-640, -512)
+
+[node name="plate1" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1416, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate1"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate1"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_ghccj")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate2" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1352, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate2"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate2"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate2"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_5khgq")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate3" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1416, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate3"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate3"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate3"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_nnbjr")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate4" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1544, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate4"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate4"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate4"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_7vjjk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate5" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1416, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate5"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate5"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate5"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_uhxbk")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate6" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1480, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate6"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate6"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate6"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_n3dlh")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate7" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1480, 904)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate7"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate7"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate7"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_3cjm6")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate8" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1544, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate8"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate8"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate8"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate9" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1352, 904)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate9"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate9"]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 47.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate9"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate10" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1352, 712)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate10"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate10"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "10"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate10"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate11" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1544, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate11"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate11"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "11"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate11"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate12" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1480, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate12"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate12"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "12"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate12"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate13" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1480, 776)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate13"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate13"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "13"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate13"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate14" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1352, 840)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate14"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate14"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "14"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate14"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="plate15" type="Area2D" parent="room7/slide_puzzle"]
+position = Vector2(1416, 904)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/slide_puzzle/plate15"]
+texture_filter = 1
+position = Vector2(24, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8ij5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room7/slide_puzzle/plate15"]
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 57.0
+theme_override_font_sizes/normal_font_size = 30
+text = "15"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/plate15"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_4p33v")
+debug_color = Color(0.74902, 0.45098, 0.262745, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room7/slide_puzzle"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/slide_puzzle/StaticBody2D"]
+position = Vector2(1472, 831.5)
+shape = SubResource("RectangleShape2D_b7808")
+debug_color = Color(0.984314, 0, 0.345098, 0.419608)
+
+[node name="level_end" type="Area2D" parent="."]
+position = Vector2(1344, -448)
+script = ExtResource("23_lx4x8")
+level = ExtResource("23_dwk0w")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_end"]
+position = Vector2(87, 55)
+shape = SubResource("RectangleShape2D_6mvll")
+
+[node name="completion_timer" parent="." instance=ExtResource("24_7y80k")]
+
+[node name="save" parent="." instance=ExtResource("26_ahvpy")]
+level = 4
+
+[connection signal="solved" from="room2/slide_puzzle" to="room2/door" method="on_signal"]
+[connection signal="click" from="room2/slide_puzzle/plate1" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate1/TextureButton" to="room2/slide_puzzle/plate1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate2" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate2/TextureButton" to="room2/slide_puzzle/plate2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate3" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate3/TextureButton" to="room2/slide_puzzle/plate3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate4" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate4/TextureButton" to="room2/slide_puzzle/plate4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate5" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate5/TextureButton" to="room2/slide_puzzle/plate5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate6" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate6/TextureButton" to="room2/slide_puzzle/plate6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate7" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate7/TextureButton" to="room2/slide_puzzle/plate7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room2/slide_puzzle/plate8" to="room2/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room2/slide_puzzle/plate8/TextureButton" to="room2/slide_puzzle/plate8" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room2/slide_puzzle/Area2D" to="room2/slide_puzzle" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="room2/slide_puzzle/Area2D" to="room2/slide_puzzle" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="room2/Camera" to="room2/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/Camera" to="room2/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room3/slide_puzzle" to="room3/door" method="on_signal"]
+[connection signal="solved2" from="room3/slide_puzzle" to="room3/door2" method="on_signal"]
+[connection signal="click" from="room3/slide_puzzle/plate1" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate1/TextureButton" to="room3/slide_puzzle/plate1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate2" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate2/TextureButton" to="room3/slide_puzzle/plate2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate3" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate3/TextureButton" to="room3/slide_puzzle/plate3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate4" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate4/TextureButton" to="room3/slide_puzzle/plate4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate5" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate5/TextureButton" to="room3/slide_puzzle/plate5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate6" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate6/TextureButton" to="room3/slide_puzzle/plate6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate7" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate7/TextureButton" to="room3/slide_puzzle/plate7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate8" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate8/TextureButton" to="room3/slide_puzzle/plate8" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate9" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate9/TextureButton" to="room3/slide_puzzle/plate9" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate10" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate10/TextureButton" to="room3/slide_puzzle/plate10" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate11" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate11/TextureButton" to="room3/slide_puzzle/plate11" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate12" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate12/TextureButton" to="room3/slide_puzzle/plate12" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate13" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate13/TextureButton" to="room3/slide_puzzle/plate13" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate14" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate14/TextureButton" to="room3/slide_puzzle/plate14" method="_on_texture_button_pressed"]
+[connection signal="click" from="room3/slide_puzzle/plate15" to="room3/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room3/slide_puzzle/plate15/TextureButton" to="room3/slide_puzzle/plate15" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room3/slide_puzzle/Area2D" to="room3/slide_puzzle" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="room3/slide_puzzle/Area2D" to="room3/slide_puzzle" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="room3/Camera" to="room3/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room3/Camera" to="room3/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room4/Camera" to="room4/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room4/Camera" to="room4/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room5/slide_puzzle" to="room5/door" method="on_signal"]
+[connection signal="solved2" from="room5/slide_puzzle" to="room5/door2" method="on_signal"]
+[connection signal="click" from="room5/slide_puzzle/plate1" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate1/TextureButton" to="room5/slide_puzzle/plate1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate2" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate2/TextureButton" to="room5/slide_puzzle/plate2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate3" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate3/TextureButton" to="room5/slide_puzzle/plate3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate4" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate4/TextureButton" to="room5/slide_puzzle/plate4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate5" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate5/TextureButton" to="room5/slide_puzzle/plate5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate6" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate6/TextureButton" to="room5/slide_puzzle/plate6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate7" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate7/TextureButton" to="room5/slide_puzzle/plate7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate8" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate8/TextureButton" to="room5/slide_puzzle/plate8" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate9" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate9/TextureButton" to="room5/slide_puzzle/plate9" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate10" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate10/TextureButton" to="room5/slide_puzzle/plate10" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate11" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate11/TextureButton" to="room5/slide_puzzle/plate11" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate12" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate12/TextureButton" to="room5/slide_puzzle/plate12" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate13" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate13/TextureButton" to="room5/slide_puzzle/plate13" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate14" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate14/TextureButton" to="room5/slide_puzzle/plate14" method="_on_texture_button_pressed"]
+[connection signal="click" from="room5/slide_puzzle/plate15" to="room5/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room5/slide_puzzle/plate15/TextureButton" to="room5/slide_puzzle/plate15" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room5/slide_puzzle/Area2D" to="room5/slide_puzzle" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="room5/slide_puzzle/Area2D" to="room5/slide_puzzle" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="room5/Camera" to="room5/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room5/Camera" to="room5/Camera" method="_on_body_exited"]
+[connection signal="solved" from="room6/slide_puzzle" to="room6/door" method="on_signal"]
+[connection signal="click" from="room6/slide_puzzle/plate1" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate1/TextureButton" to="room6/slide_puzzle/plate1" method="_on_texture_button_pressed"]
+[connection signal="click" from="room6/slide_puzzle/plate2" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate2/TextureButton" to="room6/slide_puzzle/plate2" method="_on_texture_button_pressed"]
+[connection signal="click" from="room6/slide_puzzle/plate3" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate3/TextureButton" to="room6/slide_puzzle/plate3" method="_on_texture_button_pressed"]
+[connection signal="click" from="room6/slide_puzzle/plate4" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate4/TextureButton" to="room6/slide_puzzle/plate4" method="_on_texture_button_pressed"]
+[connection signal="click" from="room6/slide_puzzle/plate5" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate5/TextureButton" to="room6/slide_puzzle/plate5" method="_on_texture_button_pressed"]
+[connection signal="click" from="room6/slide_puzzle/plate6" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate6/TextureButton" to="room6/slide_puzzle/plate6" method="_on_texture_button_pressed"]
+[connection signal="click" from="room6/slide_puzzle/plate7" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate7/TextureButton" to="room6/slide_puzzle/plate7" method="_on_texture_button_pressed"]
+[connection signal="click" from="room6/slide_puzzle/plate8" to="room6/slide_puzzle" method="_on_plate_click"]
+[connection signal="pressed" from="room6/slide_puzzle/plate8/TextureButton" to="room6/slide_puzzle/plate8" method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="room6/slide_puzzle/Area2D" to="room6/slide_puzzle" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="room6/slide_puzzle/Area2D" to="room6/slide_puzzle" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="room6/Camera" to="room6/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room6/Camera" to="room6/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="room7/Camera" to="room7/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/Camera" to="room7/Camera" method="_on_body_exited"]
+[connection signal="body_entered" from="level_end" to="level_end" method="_on_body_entered"]

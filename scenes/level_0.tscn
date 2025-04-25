@@ -1,0 +1,1217 @@
+[gd_scene load_steps=45 format=3 uid="uid://cg6fyabs7tyn4"]
+
+[ext_resource type="Texture2D" uid="uid://qee30fe2b1np" path="res://assets/tilemap.png" id="1_5dehu"]
+[ext_resource type="Script" uid="uid://drs3gvna3yuhe" path="res://scripts/Camera.gd" id="2_8p55j"]
+[ext_resource type="PackedScene" uid="uid://c1fx16wmlo45w" path="res://scenes/pause_menu.tscn" id="3_ous5f"]
+[ext_resource type="PackedScene" path="res://mobile_controls.tscn" id="4_4223u"]
+[ext_resource type="PackedScene" uid="uid://bcpfyb7cnyg2x" path="res://scenes/door.tscn" id="5_l6yxh"]
+[ext_resource type="Script" uid="uid://cpfvou4r4g3ol" path="res://scripts/key.gd" id="5_m6k6d"]
+[ext_resource type="PackedScene" uid="uid://bhxk2hh1tgbwf" path="res://scenes/key.tscn" id="5_ua1yt"]
+[ext_resource type="Texture2D" uid="uid://bu0mc3jwnc5w4" path="res://assets/key.png" id="6_ajn5d"]
+[ext_resource type="PackedScene" uid="uid://h842fiqrcevs" path="res://scenes/stone_door.tscn" id="9_t3mcx"]
+[ext_resource type="Script" uid="uid://df2kvi42wim7n" path="res://scripts/lever.gd" id="9_wfiep"]
+[ext_resource type="Texture2D" uid="uid://du68gtbpn1860" path="res://assets/lever/left.png" id="10_ei00n"]
+[ext_resource type="Texture2D" uid="uid://celf33ma0ivsa" path="res://assets/lever/right.png" id="11_2a35o"]
+[ext_resource type="Script" uid="uid://vemd3mfth4wm" path="res://scripts/timer_lever.gd" id="12_7w26f"]
+[ext_resource type="PackedScene" uid="uid://daq0ktym1bqtx" path="res://scenes/lazer.tscn" id="12_hkqme"]
+[ext_resource type="Texture2D" uid="uid://bqg32t0csa47s" path="res://assets/lever/tmp_left.png" id="13_41pd7"]
+[ext_resource type="Texture2D" uid="uid://bqk1spc56xoml" path="res://assets/lever/tmp_right.png" id="14_lamq2"]
+[ext_resource type="PackedScene" uid="uid://dghe131wa2uka" path="res://scenes/character.tscn" id="17_kdpp6"]
+[ext_resource type="PackedScene" uid="uid://b3j0ypr4fpsoe" path="res://scenes/completion_timer.tscn" id="18_7xlwt"]
+[ext_resource type="Script" uid="uid://wy60cvlju6n3" path="res://scripts/level_end.gd" id="18_uyuo6"]
+[ext_resource type="PackedScene" uid="uid://cnon5xvabjkoe" path="res://scenes/level_1.tscn" id="19_bbbx2"]
+[ext_resource type="PackedScene" uid="uid://d3qyl43wkei0q" path="res://scenes/save.tscn" id="20_l7m5d"]
+[ext_resource type="Script" uid="uid://dhod1abgubh72" path="res://scripts/tutorial.gd" id="21_6aqed"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cl3qy"]
+texture = ExtResource("1_5dehu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1p1u8"]
+sources/0 = SubResource("TileSetAtlasSource_cl3qy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pco3"]
+size = Vector2(576, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gni0j"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewli5"]
+size = Vector2(16, 368)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxpmy"]
+size = Vector2(544, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c2g4"]
+size = Vector2(240, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cviy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ei00n")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_2a35o")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q77ua"]
+size = Vector2(64, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1wac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_41pd7")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_lamq2")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx1kx"]
+size = Vector2(704, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnmt6"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qp30"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqkeb"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1qf3"]
+size = Vector2(640, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b17t1"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skvga"]
+size = Vector2(16, 352)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilxrp"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u8ev"]
+size = Vector2(16, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdnif"]
+size = Vector2(68.25, 62.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xb7o"]
+size = Vector2(194, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqpc3"]
+size = Vector2(72, 64)
+
+[node name="level_0" type="Node2D"]
+process_mode = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_1p1u8")
+format = 2
+layer_0/tile_data = PackedInt32Array(1507359, 0, 2, 1507360, 65536, 2, 1507361, 65536, 2, 1507362, 65536, 2, 1507363, 65536, 2, 1507364, 65536, 2, 1507365, 65536, 2, 1507366, 65536, 2, 1507367, 131072, 2, 1179679, 0, 0, 1179680, 65536, 0, 1179681, 65536, 0, 1179682, 65536, 0, 1179683, 65536, 1, 1179684, 65536, 0, 1179685, 65536, 0, 1179686, 65536, 0, 1179687, 131072, 0, 1376292, 65536, 1, 1310756, 65536, 1, 1245220, 65536, 1, 1245219, 65536, 1, 1245218, 65536, 1, 1245217, 65536, 1, 1245216, 65536, 1, 1245215, 0, 1, 1310751, 0, 1, 1376287, 0, 1, 1441823, 0, 1, 1441824, 65536, 1, 1376288, 65536, 1, 1310752, 65536, 1, 1310753, 65536, 1, 1376289, 65536, 1, 1441825, 65536, 1, 1441826, 65536, 1, 1376290, 65536, 1, 1310754, 65536, 1, 1310755, 65536, 1, 1376291, 65536, 1, 1441827, 65536, 1, 1441828, 65536, 1, 1441829, 65536, 1, 1376293, 65536, 1, 1310757, 65536, 1, 1245221, 65536, 1, 1245222, 65536, 1, 1310758, 65536, 1, 1376294, 65536, 1, 1441830, 65536, 1, 1441831, 131072, 1, 1376295, 131072, 1, 1310759, 131072, 1, 1245223, 131072, 1, 1114143, 0, 2, 1114151, 131072, 2, 786471, 131072, 0, 786463, 0, 0, 786464, 65536, 0, 786465, 65536, 0, 786466, 65536, 0, 786468, 65536, 0, 786469, 65536, 0, 786470, 65536, 0, 852007, 131072, 1, 917543, 131072, 1, 983079, 131072, 1, 1048615, 131072, 1, 1114150, 65536, 2, 1114149, 65536, 2, 1114148, 65536, 2, 1114146, 65536, 2, 1114145, 65536, 2, 1114144, 65536, 2, 851999, 0, 1, 917535, 0, 1, 983071, 0, 1, 1048607, 0, 1, 786467, 65536, 1, 1114147, 65536, 1, 1048608, 65536, 1, 983072, 65536, 1, 917536, 65536, 1, 852000, 65536, 1, 852001, 65536, 1, 852002, 65536, 1, 852003, 65536, 1, 852004, 65536, 1, 852005, 65536, 1, 852006, 65536, 1, 917542, 65536, 1, 983078, 65536, 1, 983077, 65536, 1, 983076, 65536, 1, 983075, 65536, 1, 917539, 65536, 1, 917538, 65536, 1, 917537, 65536, 1, 983073, 65536, 1, 1048609, 65536, 1, 1048610, 65536, 1, 1048611, 65536, 1, 1048612, 65536, 1, 1048613, 65536, 1, 1048614, 65536, 1, 917541, 65536, 1, 917540, 65536, 1, 983074, 65536, 1, 720927, 0, 2, 720935, 131072, 2, 393255, 131072, 0, 393247, 0, 0, 458783, 0, 1, 524319, 0, 1, 589855, 0, 1, 655391, 0, 1, 393248, 65536, 0, 393249, 65536, 0, 393250, 65536, 0, 393252, 65536, 0, 393253, 65536, 0, 393254, 65536, 0, 458791, 131072, 1, 524327, 131072, 1, 589863, 131072, 1, 655399, 131072, 1, 720928, 65536, 2, 720929, 65536, 2, 720930, 65536, 2, 720934, 65536, 2, 720933, 65536, 2, 720932, 65536, 2, 720931, 65536, 1, 393251, 65536, 1, 458790, 65536, 1, 458789, 65536, 1, 458788, 65536, 1, 458787, 65536, 1, 458786, 65536, 1, 458785, 65536, 1, 458784, 65536, 1, 524320, 65536, 1, 524321, 65536, 1, 524322, 65536, 1, 524323, 65536, 1, 524324, 65536, 1, 524325, 65536, 1, 524326, 65536, 1, 589862, 65536, 1, 589861, 65536, 1, 589860, 65536, 1, 589859, 65536, 1, 589858, 65536, 1, 589857, 65536, 1, 589856, 65536, 1, 655392, 65536, 1, 655393, 65536, 1, 655394, 65536, 1, 655395, 65536, 1, 655396, 65536, 1, 655397, 65536, 1, 655398, 65536, 1, 327711, 0, 2, 327719, 131072, 2, 39, 131072, 0, 31, 0, 0, 32, 65536, 0, 33, 65536, 0, 34, 65536, 0, 36, 65536, 0, 37, 65536, 0, 38, 65536, 0, 65575, 131072, 1, 131111, 131072, 1, 196647, 131072, 1, 262183, 131072, 1, 65567, 0, 1, 131103, 0, 1, 196639, 0, 1, 262175, 0, 1, 327712, 65536, 2, 327713, 65536, 2, 327714, 65536, 2, 327716, 65536, 2, 327717, 65536, 2, 327718, 65536, 2, 262182, 65536, 1, 196646, 65536, 1, 131110, 65536, 1, 65574, 65536, 1, 65573, 65536, 1, 65572, 65536, 1, 65571, 65536, 1, 65570, 65536, 1, 65569, 65536, 1, 65568, 65536, 1, 131104, 65536, 1, 131105, 65536, 1, 131106, 65536, 1, 131107, 65536, 1, 131108, 65536, 1, 131109, 65536, 1, 196645, 65536, 1, 35, 65536, 1, 196644, 65536, 1, 262181, 65536, 1, 262180, 65536, 1, 262179, 65536, 1, 262178, 65536, 1, 262177, 65536, 1, 262176, 65536, 1, 196640, 65536, 1, 196641, 65536, 1, 196642, 65536, 1, 196643, 65536, 1, 327715, 65536, 1, -65505, 0, 2, -65497, 131072, 2, -393177, 131072, 0, -393185, 0, 0, -393184, 65536, 0, -393183, 65536, 0, -393182, 65536, 0, -393180, 65536, 0, -393179, 65536, 0, -393178, 65536, 0, -65504, 65536, 2, -65503, 65536, 2, -65502, 65536, 2, -65498, 65536, 2, -65499, 65536, 2, -65500, 65536, 2, -327641, 131072, 1, -262105, 131072, 1, -196569, 131072, 1, -131033, 131072, 1, -327649, 0, 1, -262113, 0, 1, -196577, 0, 1, -131041, 0, 1, -327648, 65536, 1, -327647, 65536, 1, -327646, 65536, 1, -327645, 65536, 1, -327644, 65536, 1, -327643, 65536, 1, -327642, 65536, 1, -262106, 65536, 1, -262107, 65536, 1, -262108, 65536, 1, -262109, 65536, 1, -262110, 65536, 1, -262111, 65536, 1, -262112, 65536, 1, -196576, 65536, 1, -196575, 65536, 1, -196574, 65536, 1, -196573, 65536, 1, -196572, 65536, 1, -196571, 65536, 1, -196570, 65536, 1, -131034, 65536, 1, -131035, 65536, 1, -131036, 65536, 1, -131037, 65536, 1, -131038, 65536, 1, -131039, 65536, 1, -131040, 65536, 1, -65501, 65536, 1, -393181, 65536, 1, -458722, 0, 2, -458712, 131072, 2, -786392, 131072, 0, -786402, 0, 0, -786401, 65536, 0, -786400, 65536, 0, -786399, 65536, 0, -786398, 65536, 0, -786397, 65536, 1, -786393, 65536, 0, -786394, 65536, 0, -786395, 65536, 0, -786396, 65536, 0, -720866, 0, 2, -589794, 0, 1, -524258, 0, 1, -720856, 131072, 2, -655320, 131072, 1, -524248, 131072, 1, -458721, 65536, 2, -458720, 65536, 2, -458719, 65536, 2, -458718, 65536, 2, -458713, 65536, 2, -458714, 65536, 2, -458715, 65536, 2, -458716, 65536, 2, -655330, 65536, 1, -655329, 65536, 1, -655328, 65536, 1, -655327, 65536, 1, -655326, 65536, 1, -655325, 65536, 1, -655324, 65536, 1, -655323, 65536, 1, -655322, 65536, 1, -655321, 65536, 1, -720857, 65536, 2, -720858, 65536, 2, -720859, 65536, 2, -720860, 65536, 2, -720861, 65536, 1, -720862, 65536, 2, -720863, 65536, 2, -720864, 65536, 2, -720865, 65536, 2, -589793, 65536, 1, -524257, 65536, 1, -524256, 65536, 1, -524255, 65536, 1, -524254, 65536, 1, -524253, 65536, 1, -524252, 65536, 1, -524251, 65536, 1, -524250, 65536, 1, -524249, 65536, 1, -589785, 65536, 1, -589784, 65536, 1, -589786, 65536, 1, -589787, 65536, 1, -589788, 65536, 1, -589789, 65536, 1, -589790, 65536, 1, -589791, 65536, 1, -589792, 65536, 1, -458717, 65536, 1, -786382, 131072, 0, -524238, 131072, 1, -458702, 131072, 2, -720846, 131072, 1, -655310, 131072, 1, -589774, 131072, 1, -786391, 0, 0, -458711, 0, 2, -458710, 65536, 2, -458709, 65536, 2, -458708, 65536, 2, -458707, 65536, 2, -458706, 65536, 2, -458705, 65536, 2, -458704, 65536, 2, -458703, 65536, 2, -786390, 65536, 0, -786389, 65536, 0, -786388, 65536, 0, -786387, 65536, 0, -786386, 65536, 0, -786385, 65536, 0, -786384, 65536, 0, -786383, 65536, 0, -720855, 0, 1, -655319, 0, 1, -524247, 0, 1, -589783, 65536, 1, -589782, 65536, 1, -589781, 65536, 1, -589780, 65536, 1, -589779, 65536, 1, -589778, 65536, 1, -589777, 65536, 1, -589776, 65536, 1, -589775, 65536, 1, -655311, 65536, 1, -720847, 65536, 1, -720848, 65536, 1, -720849, 65536, 1, -720850, 65536, 1, -720851, 65536, 1, -720852, 65536, 1, -720853, 65536, 1, -720854, 65536, 1, -655318, 65536, 1, -655317, 65536, 1, -655316, 65536, 1, -655315, 65536, 1, -655314, 65536, 1, -655313, 65536, 1, -655312, 65536, 1, -524239, 65536, 1, -524240, 65536, 1, -524241, 65536, 1, -524242, 65536, 1, -524243, 65536, 1, -524244, 65536, 1, -524245, 65536, 1, -524246, 65536, 1, -458732, 0, 2, -458723, 131072, 2, -786403, 131072, 0, -786412, 0, 0, -720867, 131072, 1, -589795, 131072, 1, -524259, 131072, 1, -458731, 65536, 2, -458730, 65536, 2, -458729, 65536, 2, -458728, 65536, 2, -458727, 65536, 2, -458726, 65536, 2, -458725, 65536, 2, -458724, 65536, 2, -786411, 65536, 0, -786410, 65536, 0, -786409, 65536, 0, -786408, 65536, 0, -786407, 65536, 0, -786406, 65536, 0, -786405, 65536, 0, -786404, 65536, 0, -720876, 0, 1, -655340, 0, 1, -589804, 0, 1, -524268, 0, 1, -589799, 65536, 1, -655335, 65536, 1, -720871, 65536, 1, -720872, 65536, 1, -720873, 65536, 1, -720874, 65536, 1, -720875, 65536, 1, -655339, 65536, 1, -589803, 65536, 1, -524267, 65536, 1, -524266, 65536, 1, -589802, 65536, 1, -655338, 65536, 1, -655337, 65536, 1, -589801, 65536, 1, -524265, 65536, 1, -524264, 65536, 1, -589800, 65536, 1, -655336, 65536, 1, -524263, 65536, 1, -524262, 65536, 1, -589798, 65536, 1, -655334, 65536, 1, -720870, 65536, 1, -720869, 65536, 1, -655333, 65536, 1, -589797, 65536, 1, -524261, 65536, 1, -524260, 65536, 1, -589796, 65536, 1, -655332, 65536, 1, -720868, 65536, 1, -655331, 65536, 1)
+
+[node name="room1" type="Node2D" parent="."]
+
+[node name="Camera" type="Area2D" parent="room1"]
+position = Vector2(2273, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/Camera"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2pco3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room1/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.87, 1.87)
+
+[node name="pause" parent="room1/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="mobile_controls" parent="room1/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collisions" type="StaticBody2D" parent="room1"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room1/collisions"]
+position = Vector2(2112, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room1/collisions"]
+position = Vector2(2432, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room1/collisions"]
+position = Vector2(2552, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room1/collisions"]
+position = Vector2(1992, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room1/collisions"]
+position = Vector2(2272, 1528)
+shape = SubResource("RectangleShape2D_qxpmy")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="key" parent="room1" instance=ExtResource("5_ua1yt")]
+
+[node name="door" parent="room1" instance=ExtResource("5_l6yxh")]
+
+[node name="room2" type="Node2D" parent="."]
+position = Vector2(0, -384)
+
+[node name="Camera" type="Area2D" parent="room2"]
+position = Vector2(2273, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/Camera"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2pco3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room2/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.87, 1.87)
+
+[node name="pause" parent="room2/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="mobile_controls" parent="room2/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="collisions" type="StaticBody2D" parent="room2"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/collisions"]
+position = Vector2(2112, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room2/collisions"]
+position = Vector2(2432, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room2/collisions"]
+position = Vector2(2552, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room2/collisions"]
+position = Vector2(1992, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room2/collisions"]
+position = Vector2(2120, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room2/collisions"]
+position = Vector2(2424, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="lever" type="Area2D" parent="room2"]
+position = Vector2(2184, 1392)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room2/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room2/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="door" parent="room2" instance=ExtResource("9_t3mcx")]
+
+[node name="room3" type="Node2D" parent="."]
+position = Vector2(0, -768)
+
+[node name="Camera" type="Area2D" parent="room3"]
+position = Vector2(2273, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/Camera"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2pco3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room3/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.87, 1.87)
+
+[node name="pause" parent="room3/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="mobile_controls" parent="room3/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collisions" type="StaticBody2D" parent="room3"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/collisions"]
+position = Vector2(2112, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room3/collisions"]
+position = Vector2(2432, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room3/collisions"]
+position = Vector2(2552, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room3/collisions"]
+position = Vector2(1992, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room3/collisions"]
+position = Vector2(2120, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room3/collisions"]
+position = Vector2(2424, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="lever" type="Area2D" parent="room3"]
+position = Vector2(2512, 1520)
+script = ExtResource("12_7w26f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room3/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_i1wac")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room3/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="Timer" type="Timer" parent="room3/lever"]
+wait_time = 2.0
+one_shot = true
+
+[node name="door" parent="room3" instance=ExtResource("9_t3mcx")]
+
+[node name="room4" type="Node2D" parent="."]
+position = Vector2(0, -1152)
+
+[node name="Camera" type="Area2D" parent="room4"]
+position = Vector2(2273, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/Camera"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2pco3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room4/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.87, 1.87)
+
+[node name="pause" parent="room4/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="mobile_controls" parent="room4/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collisions" type="StaticBody2D" parent="room4"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/collisions"]
+position = Vector2(2112, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room4/collisions"]
+position = Vector2(2432, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room4/collisions"]
+position = Vector2(2552, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room4/collisions"]
+position = Vector2(1992, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room4/collisions"]
+position = Vector2(2120, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room4/collisions"]
+position = Vector2(2424, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="lazer" parent="room4" instance=ExtResource("12_hkqme")]
+position = Vector2(2272, 1376)
+scale = Vector2(11.335, 1)
+
+[node name="lever" type="Area2D" parent="room4"]
+position = Vector2(2096, 1528)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room4/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room4/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="room5" type="Node2D" parent="."]
+position = Vector2(0, -1536)
+
+[node name="Camera" type="Area2D" parent="room5"]
+position = Vector2(2273, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/Camera"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2pco3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room5/Camera"]
+position = Vector2(-1, 1)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.87, 1.87)
+
+[node name="pause" parent="room5/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="mobile_controls" parent="room5/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collisions" type="StaticBody2D" parent="room5"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/collisions"]
+position = Vector2(2112, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room5/collisions"]
+position = Vector2(2432, 1160)
+shape = SubResource("RectangleShape2D_gni0j")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room5/collisions"]
+position = Vector2(2552, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room5/collisions"]
+position = Vector2(1992, 1352)
+shape = SubResource("RectangleShape2D_ewli5")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room5/collisions"]
+position = Vector2(2120, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room5/collisions"]
+position = Vector2(2424, 1528)
+shape = SubResource("RectangleShape2D_2c2g4")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="lazer" parent="room5" instance=ExtResource("12_hkqme")]
+position = Vector2(2272, 1376)
+scale = Vector2(11.335, 1)
+
+[node name="lever" type="Area2D" parent="room5"]
+position = Vector2(2096, 1528)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room5/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lazer2" parent="room5" instance=ExtResource("12_hkqme")]
+visible = false
+position = Vector2(2272, 1320)
+scale = Vector2(11.335, 1)
+
+[node name="lever2" type="Area2D" parent="room5"]
+position = Vector2(2544, 1528)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room5/lever2"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room5/lever2"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="room6" type="Node2D" parent="."]
+position = Vector2(0, -1920)
+
+[node name="Camera" type="Area2D" parent="room6"]
+position = Vector2(2273, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/Camera"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_nx1kx")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room6/Camera"]
+position = Vector2(-1, 0)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.83, 1.87)
+
+[node name="pause" parent="room6/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="mobile_controls" parent="room6/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collisions" type="StaticBody2D" parent="room6"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2080, 1160)
+shape = SubResource("RectangleShape2D_gnmt6")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2080, 1272)
+shape = SubResource("RectangleShape2D_gnmt6")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2464, 1272)
+shape = SubResource("RectangleShape2D_gnmt6")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2464, 1160)
+shape = SubResource("RectangleShape2D_gnmt6")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2464, 1528)
+shape = SubResource("RectangleShape2D_gnmt6")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2080, 1528)
+shape = SubResource("RectangleShape2D_gnmt6")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(1928, 1432)
+shape = SubResource("RectangleShape2D_3qp30")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2616, 1256)
+shape = SubResource("RectangleShape2D_3qp30")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(2616, 1464)
+shape = SubResource("RectangleShape2D_mqkeb")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="room6/collisions"]
+position = Vector2(1928, 1224)
+shape = SubResource("RectangleShape2D_mqkeb")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="door" parent="room6" instance=ExtResource("5_l6yxh")]
+
+[node name="door2" parent="room6" instance=ExtResource("5_l6yxh")]
+position = Vector2(1568, 1000)
+
+[node name="room7" type="Node2D" parent="."]
+position = Vector2(640, -1920)
+
+[node name="Camera" type="Area2D" parent="room7"]
+position = Vector2(2328, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/Camera"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_x1qf3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room7/Camera"]
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.87, 1.87)
+
+[node name="pause" parent="room7/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="mobile_controls" parent="room7/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collisions" type="StaticBody2D" parent="room7"]
+position = Vector2(0, 8)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/collisions"]
+position = Vector2(2304, 1152)
+shape = SubResource("RectangleShape2D_b17t1")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room7/collisions"]
+position = Vector2(2304, 1520)
+shape = SubResource("RectangleShape2D_b17t1")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room7/collisions"]
+position = Vector2(2616, 1336)
+shape = SubResource("RectangleShape2D_skvga")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room7/collisions"]
+position = Vector2(1992, 1248)
+shape = SubResource("RectangleShape2D_ilxrp")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room7/collisions"]
+position = Vector2(1992, 1456)
+shape = SubResource("RectangleShape2D_0u8ev")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="lazer" parent="room7" instance=ExtResource("12_hkqme")]
+position = Vector2(2208, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lazer2" parent="room7" instance=ExtResource("12_hkqme")]
+position = Vector2(2272, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lazer3" parent="room7" instance=ExtResource("12_hkqme")]
+position = Vector2(2336, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lazer4" parent="room7" instance=ExtResource("12_hkqme")]
+position = Vector2(2400, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lazer5" parent="room7" instance=ExtResource("12_hkqme")]
+position = Vector2(2464, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lever" type="Area2D" parent="room7"]
+position = Vector2(2112, 1256)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room7/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever2" type="Area2D" parent="room7"]
+position = Vector2(2112, 1320)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room7/lever2"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/lever2"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever3" type="Area2D" parent="room7"]
+position = Vector2(2112, 1384)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room7/lever3"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/lever3"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever4" type="Area2D" parent="room7"]
+position = Vector2(2112, 1448)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room7/lever4"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/lever4"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="lever5" type="Area2D" parent="room7"]
+position = Vector2(2112, 1512)
+script = ExtResource("9_wfiep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room7/lever5"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_4cviy")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/lever5"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="key" type="Area2D" parent="room7"]
+position = Vector2(2040, 816)
+collision_layer = 2
+script = ExtResource("5_m6k6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room7/key"]
+position = Vector2(508.875, 527.875)
+shape = SubResource("RectangleShape2D_sdnif")
+debug_color = Color(0.203922, 0.627451, 0.396078, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room7/key"]
+texture_filter = 1
+position = Vector2(511, 527)
+scale = Vector2(3.46875, 3.21875)
+texture = ExtResource("6_ajn5d")
+
+[node name="room8" type="Node2D" parent="."]
+position = Vector2(-704, -1920)
+
+[node name="Camera" type="Area2D" parent="room8"]
+position = Vector2(2328, 1344)
+collision_layer = 2
+script = ExtResource("2_8p55j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/Camera"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_x1qf3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="room8/Camera"]
+position = Vector2(-48, 0)
+scale = Vector2(0.412159, 0.763749)
+enabled = false
+zoom = Vector2(1.87, 1.87)
+
+[node name="pause" parent="room8/Camera" instance=ExtResource("3_ous5f")]
+visible = false
+position = Vector2(-48, 0)
+
+[node name="mobile_controls" parent="room8/Camera" instance=ExtResource("4_4223u")]
+visible = false
+position = Vector2(1, 0)
+
+[node name="collisions" type="StaticBody2D" parent="room8"]
+position = Vector2(0, 8)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/collisions"]
+position = Vector2(2304, 1152)
+shape = SubResource("RectangleShape2D_b17t1")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="room8/collisions"]
+position = Vector2(2304, 1520)
+shape = SubResource("RectangleShape2D_b17t1")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="room8/collisions"]
+position = Vector2(1992, 1336)
+shape = SubResource("RectangleShape2D_skvga")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="room8/collisions"]
+position = Vector2(2616, 1424)
+shape = SubResource("RectangleShape2D_ilxrp")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="room8/collisions"]
+position = Vector2(2616, 1216)
+shape = SubResource("RectangleShape2D_0u8ev")
+debug_color = Color(0.760784, 0.152941, 0.270588, 0.419608)
+
+[node name="key" type="Area2D" parent="room8"]
+position = Vector2(1544, 824)
+collision_layer = 2
+script = ExtResource("5_m6k6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/key"]
+position = Vector2(508.875, 527.875)
+shape = SubResource("RectangleShape2D_sdnif")
+debug_color = Color(0.203922, 0.627451, 0.396078, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="room8/key"]
+texture_filter = 1
+position = Vector2(511, 527)
+scale = Vector2(3.46875, 3.21875)
+texture = ExtResource("6_ajn5d")
+
+[node name="lazer" parent="room8" instance=ExtResource("12_hkqme")]
+position = Vector2(2436, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lazer2" parent="room8" instance=ExtResource("12_hkqme")]
+position = Vector2(2312, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lazer3" parent="room8" instance=ExtResource("12_hkqme")]
+position = Vector2(2184, 1344)
+rotation = 1.5708
+scale = Vector2(7.335, 1)
+
+[node name="lever" type="Area2D" parent="room8"]
+position = Vector2(2416, 1536)
+script = ExtResource("12_7w26f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room8/lever"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_i1wac")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/lever"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="Timer" type="Timer" parent="room8/lever"]
+wait_time = 0.5
+one_shot = true
+
+[node name="lever4" type="Area2D" parent="room8"]
+position = Vector2(2568, 1288)
+script = ExtResource("12_7w26f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room8/lever4"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_i1wac")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/lever4"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="Timer" type="Timer" parent="room8/lever4"]
+wait_time = 2.0
+one_shot = true
+
+[node name="lever2" type="Area2D" parent="room8"]
+position = Vector2(2288, 1536)
+script = ExtResource("12_7w26f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room8/lever2"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_i1wac")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/lever2"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="Timer" type="Timer" parent="room8/lever2"]
+wait_time = 0.5
+one_shot = true
+
+[node name="lever5" type="Area2D" parent="room8"]
+position = Vector2(2568, 1384)
+script = ExtResource("12_7w26f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room8/lever5"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_i1wac")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/lever5"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="Timer" type="Timer" parent="room8/lever5"]
+wait_time = 1.2
+one_shot = true
+
+[node name="lever3" type="Area2D" parent="room8"]
+position = Vector2(2160, 1536)
+script = ExtResource("12_7w26f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room8/lever3"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_i1wac")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/lever3"]
+position = Vector2(-44, -44)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="Timer" type="Timer" parent="room8/lever3"]
+wait_time = 0.5
+one_shot = true
+
+[node name="lever6" type="Area2D" parent="room8"]
+position = Vector2(2568, 1480)
+script = ExtResource("12_7w26f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="room8/lever6"]
+texture_filter = 1
+position = Vector2(-40, -32)
+scale = Vector2(5.055, 5.055)
+sprite_frames = SubResource("SpriteFrames_i1wac")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="room8/lever6"]
+position = Vector2(-45, -40)
+shape = SubResource("RectangleShape2D_q77ua")
+debug_color = Color(0.278431, 0.666667, 0.494118, 0.419608)
+
+[node name="Timer" type="Timer" parent="room8/lever6"]
+wait_time = 2.2
+one_shot = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("17_kdpp6")]
+position = Vector2(2224, 1414)
+scale = Vector2(0.225, 0.225)
+
+[node name="level_end" type="Area2D" parent="."]
+position = Vector2(2184, -888)
+script = ExtResource("18_uyuo6")
+level = ExtResource("19_bbbx2")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_end"]
+position = Vector2(87, 55)
+shape = SubResource("RectangleShape2D_0xb7o")
+
+[node name="completion_timer" parent="." instance=ExtResource("18_7xlwt")]
+
+[node name="save" parent="." instance=ExtResource("20_l7m5d")]
+
+[node name="tutorial" type="Node2D" parent="."]
+script = ExtResource("21_6aqed")
+
+[node name="movement" type="RichTextLabel" parent="tutorial"]
+offset_left = 1880.0
+offset_top = 1488.0
+offset_right = 2400.0
+offset_bottom = 1568.0
+bbcode_enabled = true
+text = "[center]Use WASD or Arrow keys to move"
+
+[node name="interact" type="RichTextLabel" parent="tutorial"]
+visible = false
+offset_left = 1872.0
+offset_top = 1488.0
+offset_right = 2392.0
+offset_bottom = 1568.0
+bbcode_enabled = true
+text = "[center]Use E to interact with objects"
+
+[node name="sprint" type="RichTextLabel" parent="tutorial"]
+visible = false
+offset_left = 1819.0
+offset_top = 720.0
+offset_right = 2339.0
+offset_bottom = 800.0
+bbcode_enabled = true
+text = "[center]Use Shift to sprint"
+
+[node name="interact_area" type="Area2D" parent="tutorial"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/interact_area"]
+position = Vector2(2132, 1376)
+shape = SubResource("RectangleShape2D_uqpc3")
+
+[node name="sprint_area" type="Area2D" parent="tutorial"]
+position = Vector2(336, -664)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial/sprint_area"]
+position = Vector2(2132, 1376)
+shape = SubResource("RectangleShape2D_uqpc3")
+
+[connection signal="body_entered" from="room1/Camera" to="room1/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room1/Camera" to="room1/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room1/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room1/Camera/mobile_controls" to="room1/Camera/pause" method="pause"]
+[connection signal="sprint" from="room1/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room2/Camera" to="room2/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/Camera" to="room2/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room2/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room2/Camera/mobile_controls" to="room2/Camera/pause" method="pause"]
+[connection signal="sprint" from="room2/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room2/lever" to="room2/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room2/lever" to="room2/lever" method="_on_body_exited"]
+[connection signal="off" from="room2/lever" to="room2/door" method="close"]
+[connection signal="on" from="room2/lever" to="room2/door" method="on_signal"]
+[connection signal="body_entered" from="room3/Camera" to="room3/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room3/Camera" to="room3/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room3/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room3/Camera/mobile_controls" to="room3/Camera/pause" method="pause"]
+[connection signal="sprint" from="room3/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room3/lever" to="room3/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room3/lever" to="room3/lever" method="_on_body_exited"]
+[connection signal="off" from="room3/lever" to="room3/door" method="close"]
+[connection signal="on" from="room3/lever" to="room3/door" method="on_signal"]
+[connection signal="timeout" from="room3/lever/Timer" to="room3/lever" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room4/Camera" to="room4/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room4/Camera" to="room4/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room4/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room4/Camera/mobile_controls" to="room4/Camera/pause" method="pause"]
+[connection signal="sprint" from="room4/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room4/lever" to="room4/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room4/lever" to="room4/lever" method="_on_body_exited"]
+[connection signal="off" from="room4/lever" to="room4/lazer" method="enable"]
+[connection signal="on" from="room4/lever" to="room4/lazer" method="disable"]
+[connection signal="body_entered" from="room5/Camera" to="room5/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room5/Camera" to="room5/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room5/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room5/Camera/mobile_controls" to="room5/Camera/pause" method="pause"]
+[connection signal="sprint" from="room5/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room5/lever" to="room5/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room5/lever" to="room5/lever" method="_on_body_exited"]
+[connection signal="off" from="room5/lever" to="room5/lazer" method="toggle"]
+[connection signal="off" from="room5/lever" to="room5/lazer2" method="toggle"]
+[connection signal="on" from="room5/lever" to="room5/lazer" method="toggle"]
+[connection signal="on" from="room5/lever" to="room5/lazer2" method="toggle"]
+[connection signal="body_entered" from="room5/lever2" to="room5/lever2" method="_on_body_entered"]
+[connection signal="body_exited" from="room5/lever2" to="room5/lever2" method="_on_body_exited"]
+[connection signal="off" from="room5/lever2" to="room5/lazer2" method="enable"]
+[connection signal="on" from="room5/lever2" to="room5/lazer2" method="disable"]
+[connection signal="body_entered" from="room6/Camera" to="room6/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room6/Camera" to="room6/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room6/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room6/Camera/mobile_controls" to="room6/Camera/pause" method="pause"]
+[connection signal="sprint" from="room6/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room7/Camera" to="room7/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/Camera" to="room7/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room7/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room7/Camera/mobile_controls" to="room7/Camera/pause" method="pause"]
+[connection signal="sprint" from="room7/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room7/lever" to="room7/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/lever" to="room7/lever" method="_on_body_exited"]
+[connection signal="off" from="room7/lever" to="room7/lazer" method="toggle"]
+[connection signal="off" from="room7/lever" to="room7/lazer2" method="toggle"]
+[connection signal="off" from="room7/lever" to="room7/lazer3" method="toggle"]
+[connection signal="on" from="room7/lever" to="room7/lazer" method="toggle"]
+[connection signal="on" from="room7/lever" to="room7/lazer2" method="toggle"]
+[connection signal="on" from="room7/lever" to="room7/lazer3" method="toggle"]
+[connection signal="body_entered" from="room7/lever2" to="room7/lever2" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/lever2" to="room7/lever2" method="_on_body_exited"]
+[connection signal="off" from="room7/lever2" to="room7/lazer2" method="toggle"]
+[connection signal="off" from="room7/lever2" to="room7/lazer3" method="toggle"]
+[connection signal="on" from="room7/lever2" to="room7/lazer2" method="toggle"]
+[connection signal="on" from="room7/lever2" to="room7/lazer3" method="toggle"]
+[connection signal="body_entered" from="room7/lever3" to="room7/lever3" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/lever3" to="room7/lever3" method="_on_body_exited"]
+[connection signal="off" from="room7/lever3" to="room7/lazer3" method="toggle"]
+[connection signal="on" from="room7/lever3" to="room7/lazer3" method="toggle"]
+[connection signal="body_entered" from="room7/lever4" to="room7/lever4" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/lever4" to="room7/lever4" method="_on_body_exited"]
+[connection signal="off" from="room7/lever4" to="room7/lazer3" method="toggle"]
+[connection signal="off" from="room7/lever4" to="room7/lazer4" method="toggle"]
+[connection signal="on" from="room7/lever4" to="room7/lazer3" method="toggle"]
+[connection signal="on" from="room7/lever4" to="room7/lazer4" method="toggle"]
+[connection signal="body_entered" from="room7/lever5" to="room7/lever5" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/lever5" to="room7/lever5" method="_on_body_exited"]
+[connection signal="off" from="room7/lever5" to="room7/lazer3" method="toggle"]
+[connection signal="off" from="room7/lever5" to="room7/lazer4" method="toggle"]
+[connection signal="off" from="room7/lever5" to="room7/lazer5" method="toggle"]
+[connection signal="on" from="room7/lever5" to="room7/lazer3" method="toggle"]
+[connection signal="on" from="room7/lever5" to="room7/lazer4" method="toggle"]
+[connection signal="on" from="room7/lever5" to="room7/lazer5" method="toggle"]
+[connection signal="body_entered" from="room7/key" to="room7/key" method="_on_body_entered"]
+[connection signal="body_exited" from="room7/key" to="room7/key" method="_on_body_exited"]
+[connection signal="body_entered" from="room8/Camera" to="room8/Camera" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/Camera" to="room8/Camera" method="_on_body_exited"]
+[connection signal="movement" from="room8/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_movement"]
+[connection signal="pause" from="room8/Camera/mobile_controls" to="room8/Camera/pause" method="pause"]
+[connection signal="sprint" from="room8/Camera/mobile_controls" to="CharacterBody2D" method="_on_mobile_controls_sprint"]
+[connection signal="body_entered" from="room8/key" to="room8/key" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/key" to="room8/key" method="_on_body_exited"]
+[connection signal="body_entered" from="room8/lever" to="room8/lever" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/lever" to="room8/lever" method="_on_body_exited"]
+[connection signal="off" from="room8/lever" to="room8/lazer" method="enable"]
+[connection signal="on" from="room8/lever" to="room8/lazer" method="disable"]
+[connection signal="timeout" from="room8/lever/Timer" to="room8/lever" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room8/lever4" to="room8/lever4" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/lever4" to="room8/lever4" method="_on_body_exited"]
+[connection signal="off" from="room8/lever4" to="room8/lazer" method="enable"]
+[connection signal="on" from="room8/lever4" to="room8/lazer" method="disable"]
+[connection signal="timeout" from="room8/lever4/Timer" to="room8/lever4" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room8/lever2" to="room8/lever2" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/lever2" to="room8/lever2" method="_on_body_exited"]
+[connection signal="off" from="room8/lever2" to="room8/lazer2" method="enable"]
+[connection signal="on" from="room8/lever2" to="room8/lazer2" method="disable"]
+[connection signal="timeout" from="room8/lever2/Timer" to="room8/lever2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room8/lever5" to="room8/lever5" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/lever5" to="room8/lever5" method="_on_body_exited"]
+[connection signal="off" from="room8/lever5" to="room8/lazer2" method="enable"]
+[connection signal="on" from="room8/lever5" to="room8/lazer2" method="disable"]
+[connection signal="timeout" from="room8/lever5/Timer" to="room8/lever5" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room8/lever3" to="room8/lever3" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/lever3" to="room8/lever3" method="_on_body_exited"]
+[connection signal="off" from="room8/lever3" to="room8/lazer3" method="enable"]
+[connection signal="on" from="room8/lever3" to="room8/lazer3" method="disable"]
+[connection signal="timeout" from="room8/lever3/Timer" to="room8/lever3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="room8/lever6" to="room8/lever6" method="_on_body_entered"]
+[connection signal="body_exited" from="room8/lever6" to="room8/lever6" method="_on_body_exited"]
+[connection signal="off" from="room8/lever6" to="room8/lazer3" method="enable"]
+[connection signal="on" from="room8/lever6" to="room8/lazer3" method="disable"]
+[connection signal="timeout" from="room8/lever6/Timer" to="room8/lever6" method="_on_timer_timeout"]
+[connection signal="body_entered" from="level_end" to="level_end" method="_on_body_entered"]
+[connection signal="body_entered" from="tutorial/interact_area" to="tutorial" method="_on_interact_area_body_entered"]
+[connection signal="body_entered" from="tutorial/sprint_area" to="tutorial" method="_on_sprint_area_body_entered"]
